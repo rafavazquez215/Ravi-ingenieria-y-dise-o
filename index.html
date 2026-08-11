@@ -3,218 +3,3234 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RAVI Ingeniería y Diseño</title>
+
+<title>RAVI | Ingeniería y Diseño</title>
+
+<meta name="description" content="RAVI Ingeniería y Diseño. Diseño mecánico, modelado 3D, desarrollo de productos y soluciones personalizadas.">
 
 <style>
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+:root{
+    --purple:#7c4dff;
+    --purple-light:#a88cff;
+    --purple-dark:#5d35d6;
+
+    --black:#0b0b0f;
+    --dark:#121218;
+    --dark-2:#18181f;
+
+    --white:#ffffff;
+    --gray:#a5a5ae;
+    --light:#f6f6f8;
+
+    --border:rgba(255,255,255,.10);
+}
+
+
+/* =====================================================
+   RESET
+===================================================== */
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-    background:#f5f5f5;
-    color:#222;
+    font-family:Arial, Helvetica, sans-serif;
+    background:var(--light);
+    color:#17171b;
+    overflow-x:hidden;
 }
 
-header{
-    background:#111;
-    color:white;
-    padding:20px 10%;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.logo{
-    font-size:28px;
-    font-weight:bold;
-}
-
-.logo span{
-    color:#7c4dff;
-}
-
-nav a{
-    color:white;
+a{
     text-decoration:none;
-    margin-left:20px;
+    color:inherit;
 }
 
-.hero{
-    min-height:80vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:40px;
+button{
+    font-family:inherit;
 }
 
-.hero-content h1{
-    font-size:3rem;
-    margin-bottom:20px;
-}
-
-.hero-content span{
-    color:#7c4dff;
-}
-
-.hero-content p{
-    font-size:1.2rem;
-    max-width:700px;
+.container{
+    width:90%;
+    max-width:1200px;
     margin:auto;
 }
 
-.btn{
-    display:inline-block;
-    margin-top:30px;
-    padding:15px 30px;
-    background:#7c4dff;
-    color:white;
-    text-decoration:none;
-    border-radius:8px;
+
+/* =====================================================
+   SCROLLBAR
+===================================================== */
+
+::-webkit-scrollbar{
+    width:8px;
 }
+
+::-webkit-scrollbar-track{
+    background:#111;
+}
+
+::-webkit-scrollbar-thumb{
+    background:var(--purple);
+    border-radius:10px;
+}
+
+
+/* =====================================================
+   ANIMACIONES
+===================================================== */
+
+@keyframes float{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-15px);
+    }
+
+}
+
+@keyframes pulse{
+
+    0%,100%{
+        box-shadow:0 0 0 0 rgba(124,77,255,.35);
+    }
+
+    50%{
+        box-shadow:0 0 0 20px rgba(124,77,255,0);
+    }
+
+}
+
+@keyframes rotate{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+.reveal{
+    opacity:0;
+    transform:translateY(40px);
+    transition:opacity .8s ease, transform .8s ease;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header{
+
+    position:fixed;
+    top:0;
+    left:0;
+
+    width:100%;
+
+    z-index:1000;
+
+    background:rgba(8,8,12,.78);
+
+    backdrop-filter:blur(18px);
+
+    border-bottom:1px solid rgba(255,255,255,.07);
+
+}
+
+.navbar{
+
+    height:78px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+}
+
+.logo{
+
+    font-size:30px;
+
+    font-weight:900;
+
+    letter-spacing:2px;
+
+    color:white;
+
+}
+
+.logo span{
+
+    color:var(--purple);
+
+}
+
+.logo small{
+
+    font-size:8px;
+
+    letter-spacing:3px;
+
+    color:#999;
+
+    margin-left:8px;
+
+}
+
+nav{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:28px;
+
+}
+
+nav a{
+
+    color:#ccc;
+
+    font-size:14px;
+
+    transition:.3s;
+
+}
+
+nav a:hover{
+
+    color:white;
+
+}
+
+.nav-cta{
+
+    padding:10px 18px;
+
+    border:1px solid var(--purple);
+
+    border-radius:7px;
+
+    color:white;
+
+}
+
+.nav-cta:hover{
+
+    background:var(--purple);
+
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+
+    min-height:100vh;
+
+    padding-top:78px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    color:white;
+
+    background:
+
+        radial-gradient(
+            circle at 75% 35%,
+            rgba(124,77,255,.25),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 15% 80%,
+            rgba(124,77,255,.10),
+            transparent 25%
+        ),
+
+        linear-gradient(
+            135deg,
+            #08080b,
+            #121219,
+            #09090c
+        );
+
+}
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:500px;
+
+    height:500px;
+
+    border:1px solid rgba(124,77,255,.12);
+
+    border-radius:50%;
+
+    right:-150px;
+
+    top:120px;
+
+    animation:rotate 30s linear infinite;
+
+}
+
+.hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:350px;
+
+    height:350px;
+
+    border:1px solid rgba(255,255,255,.05);
+
+    border-radius:50%;
+
+    right:-50px;
+
+    top:200px;
+
+}
+
+.hero-grid{
+
+    min-height:calc(100vh - 78px);
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:70px;
+
+    align-items:center;
+
+}
+
+.hero-label{
+
+    color:var(--purple-light);
+
+    font-size:12px;
+
+    letter-spacing:4px;
+
+    font-weight:bold;
+
+    margin-bottom:25px;
+
+}
+
+.hero h1{
+
+    font-size:clamp(48px,6vw,78px);
+
+    line-height:1;
+
+    margin-bottom:25px;
+
+}
+
+.hero h1 span{
+
+    color:var(--purple-light);
+
+}
+
+.hero-text{
+
+    color:#aaa;
+
+    max-width:590px;
+
+    font-size:18px;
+
+    margin-bottom:35px;
+
+}
+
+.buttons{
+
+    display:flex;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+}
+
+.btn{
+
+    padding:15px 25px;
+
+    border-radius:7px;
+
+    font-size:14px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+.btn-primary{
+
+    background:var(--purple);
+
+    color:white;
+
+    box-shadow:0 10px 30px rgba(124,77,255,.25);
+
+}
+
+.btn-primary:hover{
+
+    transform:translateY(-3px);
+
+    background:var(--purple-dark);
+
+    box-shadow:0 15px 40px rgba(124,77,255,.35);
+
+}
+
+.btn-outline{
+
+    border:1px solid #444;
+
+    color:white;
+
+}
+
+.btn-outline:hover{
+
+    border-color:var(--purple);
+
+    color:var(--purple-light);
+
+}
+
+
+/* =====================================================
+   HERO VISUAL
+===================================================== */
+
+.hero-visual{
+
+    position:relative;
+
+    height:500px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+.orbit{
+
+    position:absolute;
+
+    width:390px;
+
+    height:390px;
+
+    border:1px solid rgba(124,77,255,.18);
+
+    border-radius:50%;
+
+    animation:rotate 25s linear infinite;
+
+}
+
+.orbit::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:10px;
+
+    height:10px;
+
+    background:var(--purple);
+
+    border-radius:50%;
+
+    top:30px;
+
+    left:65px;
+
+    box-shadow:0 0 20px var(--purple);
+
+}
+
+.orbit.two{
+
+    width:300px;
+
+    height:300px;
+
+    animation-direction:reverse;
+
+    animation-duration:18s;
+
+    border-color:rgba(255,255,255,.08);
+
+}
+
+.hero-card{
+
+    width:350px;
+
+    height:390px;
+
+    border-radius:20px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.08),
+            rgba(255,255,255,.025)
+        );
+
+    border:1px solid rgba(255,255,255,.12);
+
+    backdrop-filter:blur(15px);
+
+    box-shadow:
+
+        0 30px 80px rgba(0,0,0,.5),
+
+        0 0 80px rgba(124,77,255,.08);
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    position:relative;
+
+    z-index:2;
+
+    animation:float 5s ease-in-out infinite;
+
+}
+
+.hero-logo{
+
+    font-size:75px;
+
+    font-weight:900;
+
+    letter-spacing:8px;
+
+}
+
+.hero-logo span{
+
+    color:var(--purple);
+
+}
+
+.hero-card-line{
+
+    width:70px;
+
+    height:2px;
+
+    background:var(--purple);
+
+    margin:25px 0;
+
+    box-shadow:0 0 15px var(--purple);
+
+}
+
+.hero-card p{
+
+    color:#999;
+
+    font-size:12px;
+
+    letter-spacing:3px;
+
+}
+
+
+/* =====================================================
+   STATS
+===================================================== */
+
+.stats{
+
+    background:white;
+
+    border-bottom:1px solid #e5e5e5;
+
+}
+
+.stats-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+}
+
+.stat{
+
+    padding:35px;
+
+    text-align:center;
+
+    border-right:1px solid #e5e5e5;
+
+}
+
+.stat:last-child{
+
+    border:none;
+
+}
+
+.stat strong{
+
+    display:block;
+
+    font-size:30px;
+
+    color:var(--purple);
+
+}
+
+.stat span{
+
+    font-size:13px;
+
+    color:#777;
+
+}
+
+
+/* =====================================================
+   SECCIONES
+===================================================== */
 
 .section{
-    padding:80px 10%;
-    background:white;
+
+    padding:110px 0;
+
 }
 
-.section h2{
-    text-align:center;
-    margin-bottom:40px;
+.section-header{
+
+    margin-bottom:55px;
+
 }
 
-.cards{
+.section-label{
+
+    color:var(--purple);
+
+    font-size:11px;
+
+    font-weight:bold;
+
+    letter-spacing:4px;
+
+    margin-bottom:12px;
+
+}
+
+.section-title{
+
+    font-size:43px;
+
+    line-height:1.1;
+
+}
+
+.section-description{
+
+    color:#707078;
+
+    max-width:700px;
+
+    margin-top:15px;
+
+}
+
+
+/* =====================================================
+   SERVICIOS
+===================================================== */
+
+.services{
+
+    background:
+
+        radial-gradient(
+            circle at 10% 20%,
+            rgba(124,77,255,.06),
+            transparent 25%
+        ),
+
+        var(--light);
+
+}
+
+.services-grid{
+
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    grid-template-columns:repeat(3,1fr);
+
     gap:20px;
+
 }
 
-.card{
-    background:#f8f8f8;
-    padding:25px;
-    border-radius:10px;
-    box-shadow:0 2px 10px rgba(0,0,0,.1);
+.service{
+
+    padding:35px;
+
+    background:rgba(255,255,255,.75);
+
+    border:1px solid #e7e7eb;
+
+    border-radius:14px;
+
+    transition:.4s;
+
+    position:relative;
+
+    overflow:hidden;
+
 }
+
+.service::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:100px;
+
+    height:100px;
+
+    border-radius:50%;
+
+    background:rgba(124,77,255,.08);
+
+    top:-40px;
+
+    right:-40px;
+
+    transition:.4s;
+
+}
+
+.service:hover{
+
+    transform:translateY(-10px);
+
+    border-color:#c9baff;
+
+    box-shadow:0 20px 50px rgba(0,0,0,.08);
+
+}
+
+.service:hover::before{
+
+    transform:scale(2.5);
+
+}
+
+.service-number{
+
+    color:var(--purple);
+
+    font-size:11px;
+
+    font-weight:bold;
+
+    margin-bottom:25px;
+
+}
+
+.service h3{
+
+    font-size:20px;
+
+    margin-bottom:12px;
+
+}
+
+.service p{
+
+    color:#707078;
+
+    font-size:14px;
+
+}
+
+.service-list{
+
+    margin-top:18px;
+
+    padding-left:17px;
+
+    color:#777;
+
+    font-size:13px;
+
+}
+
+.service-list li{
+
+    margin-bottom:5px;
+
+}
+
+
+/* =====================================================
+   CATALOGO
+===================================================== */
+
+.catalog{
+
+    background:#101014;
+
+    color:white;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.catalog::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:600px;
+
+    height:600px;
+
+    border-radius:50%;
+
+    background:rgba(124,77,255,.07);
+
+    filter:blur(80px);
+
+    top:-300px;
+
+    right:-150px;
+
+}
+
+.catalog .section-description{
+
+    color:#999;
+
+}
+
+
+/* FILTROS */
+
+.filters{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-bottom:35px;
+
+}
+
+.filter-btn{
+
+    padding:10px 18px;
+
+    border-radius:30px;
+
+    border:1px solid #333;
+
+    background:transparent;
+
+    color:#aaa;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.filter-btn:hover{
+
+    color:white;
+
+    border-color:var(--purple);
+
+}
+
+.filter-btn.active{
+
+    background:var(--purple);
+
+    border-color:var(--purple);
+
+    color:white;
+
+}
+
+
+/* GRID */
+
+.catalog-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:22px;
+
+}
+
+
+/* PROJECT CARD */
+
+.catalog-card{
+
+    min-height:390px;
+
+    border-radius:14px;
+
+    overflow:hidden;
+
+    position:relative;
+
+    background:#18181e;
+
+    border:1px solid #292930;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+}
+
+.catalog-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:var(--purple);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.35),
+        0 0 30px rgba(124,77,255,.10);
+
+}
+
+.catalog-image{
+
+    height:260px;
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            rgba(124,77,255,.16),
+            transparent 45%
+        ),
+
+        linear-gradient(
+            145deg,
+            #292930,
+            #111116
+        );
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    position:relative;
+
+}
+
+.catalog-image::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:20px;
+
+    border:1px solid rgba(255,255,255,.05);
+
+    border-radius:10px;
+
+}
+
+.project-number{
+
+    font-size:60px;
+
+    font-weight:900;
+
+    color:rgba(124,77,255,.35);
+
+}
+
+.catalog-info{
+
+    padding:22px;
+
+}
+
+.catalog-category{
+
+    color:var(--purple-light);
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    font-weight:bold;
+
+}
+
+.catalog-info h3{
+
+    font-size:20px;
+
+    margin-top:5px;
+
+}
+
+.catalog-info p{
+
+    color:#888;
+
+    font-size:13px;
+
+    margin-top:5px;
+
+}
+
+
+/* =====================================================
+   MODAL
+===================================================== */
+
+.modal{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.82);
+
+    backdrop-filter:blur(10px);
+
+    z-index:2000;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+
+}
+
+.modal.active{
+
+    display:flex;
+
+}
+
+.modal-box{
+
+    width:100%;
+
+    max-width:850px;
+
+    max-height:90vh;
+
+    overflow:auto;
+
+    background:#17171d;
+
+    border:1px solid #333;
+
+    border-radius:15px;
+
+    color:white;
+
+    position:relative;
+
+    animation:modalIn .35s ease;
+
+}
+
+@keyframes modalIn{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.92);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+.modal-image{
+
+    height:350px;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(124,77,255,.18),
+            transparent 45%
+        ),
+
+        #111116;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+.modal-image strong{
+
+    font-size:100px;
+
+    color:rgba(124,77,255,.35);
+
+}
+
+.modal-content{
+
+    padding:35px;
+
+}
+
+.modal-category{
+
+    color:var(--purple-light);
+
+    font-size:11px;
+
+    letter-spacing:2px;
+
+}
+
+.modal-content h2{
+
+    font-size:32px;
+
+    margin:8px 0 15px;
+
+}
+
+.modal-content p{
+
+    color:#999;
+
+}
+
+.close-modal{
+
+    position:absolute;
+
+    right:20px;
+
+    top:20px;
+
+    width:40px;
+
+    height:40px;
+
+    border-radius:50%;
+
+    border:1px solid #444;
+
+    background:rgba(0,0,0,.5);
+
+    color:white;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    z-index:5;
+
+}
+
+
+/* =====================================================
+   PROCESO
+===================================================== */
+
+.process{
+
+    background:white;
+
+}
+
+.process-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:20px;
+
+}
+
+.process-step{
+
+    padding:30px 20px;
+
+    border-top:2px solid #ddd;
+
+    transition:.3s;
+
+}
+
+.process-step:hover{
+
+    border-color:var(--purple);
+
+    transform:translateY(-5px);
+
+}
+
+.process-number{
+
+    color:var(--purple);
+
+    font-weight:bold;
+
+    font-size:13px;
+
+    margin-bottom:25px;
+
+}
+
+.process-step h3{
+
+    margin-bottom:10px;
+
+}
+
+.process-step p{
+
+    color:#777;
+
+    font-size:13px;
+
+}
+
+
+/* =====================================================
+   WHY
+===================================================== */
+
+.why{
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #f5f4f8,
+            #ffffff
+        );
+
+}
+
+.why-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:70px;
+
+    align-items:center;
+
+}
+
+.why-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+.why-item{
+
+    display:flex;
+
+    gap:18px;
+
+    padding:20px;
+
+    background:white;
+
+    border:1px solid #e8e8eb;
+
+    border-radius:10px;
+
+    transition:.3s;
+
+}
+
+.why-item:hover{
+
+    transform:translateX(7px);
+
+    border-color:#cbbdff;
+
+}
+
+.check{
+
+    min-width:32px;
+
+    height:32px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#eee8ff;
+
+    color:var(--purple);
+
+    font-weight:bold;
+
+}
+
+.why-item h3{
+
+    font-size:16px;
+
+}
+
+.why-item p{
+
+    color:#777;
+
+    font-size:13px;
+
+}
+
+.why-visual{
+
+    min-height:420px;
+
+    border-radius:18px;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(124,77,255,.20),
+            transparent 45%
+        ),
+
+        linear-gradient(
+            145deg,
+            #1c1c23,
+            #09090c
+        );
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    position:relative;
+
+    overflow:hidden;
+
+    box-shadow:20px 20px 0 var(--purple);
+
+}
+
+.why-visual::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:300px;
+
+    height:300px;
+
+    border:1px solid rgba(124,77,255,.2);
+
+    border-radius:50%;
+
+    animation:rotate 20s linear infinite;
+
+}
+
+.ravi-large{
+
+    font-size:95px;
+
+    font-weight:900;
+
+    letter-spacing:8px;
+
+    color:white;
+
+    z-index:2;
+
+}
+
+.ravi-large span{
+
+    color:var(--purple);
+
+}
+
+
+/* =====================================================
+   CONTACTO
+===================================================== */
+
+.contact{
+
+    background:white;
+
+}
+
+.contact-box{
+
+    padding:70px;
+
+    border-radius:18px;
+
+    color:white;
+
+    background:
+
+        radial-gradient(
+            circle at 90% 20%,
+            rgba(124,77,255,.25),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #0d0d11,
+            #181820
+        );
+
+    display:grid;
+
+    grid-template-columns:1.3fr 1fr;
+
+    gap:50px;
+
+    border:1px solid #28282e;
+
+}
+
+.contact-box h2{
+
+    font-size:43px;
+
+    line-height:1.1;
+
+    margin-bottom:20px;
+
+}
+
+.contact-box p{
+
+    color:#999;
+
+    max-width:520px;
+
+}
+
+.contact-info{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+.contact-item{
+
+    padding:18px;
+
+    border:1px solid #333;
+
+    border-radius:8px;
+
+    transition:.3s;
+
+}
+
+.contact-item:hover{
+
+    border-color:var(--purple);
+
+    transform:translateX(5px);
+
+}
+
+.contact-item small{
+
+    display:block;
+
+    color:#777;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    margin-bottom:5px;
+
+}
+
+.contact-item a{
+
+    color:white;
+
+    font-size:14px;
+
+}
+
+.contact-item a:hover{
+
+    color:var(--purple-light);
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
 
 footer{
-    background:#111;
+
+    background:#08080a;
+
+    color:#666;
+
+    padding:35px 0;
+
+    font-size:12px;
+
+}
+
+.footer-content{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.footer-logo{
+
     color:white;
-    text-align:center;
-    padding:30px;
+
+    font-weight:bold;
+
+    letter-spacing:2px;
+
+}
+
+.footer-logo span{
+
+    color:var(--purple);
+
+}
+
+
+/* =====================================================
+   WHATSAPP
+===================================================== */
+
+.whatsapp{
+
+    position:fixed;
+
+    right:25px;
+
+    bottom:25px;
+
+    width:56px;
+
+    height:56px;
+
+    border-radius:50%;
+
+    background:#25D366;
+
+    color:white;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-weight:bold;
+
+    font-size:22px;
+
+    z-index:1500;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.25);
+
+    animation:pulse 2.5s infinite;
+
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:950px){
+
+    nav{
+
+        display:none;
+
+    }
+
+    .hero-grid{
+
+        grid-template-columns:1fr;
+
+        text-align:center;
+
+    }
+
+    .hero-text{
+
+        margin-left:auto;
+
+        margin-right:auto;
+
+    }
+
+    .buttons{
+
+        justify-content:center;
+
+    }
+
+    .hero-visual{
+
+        height:400px;
+
+    }
+
+    .services-grid{
+
+        grid-template-columns:1fr 1fr;
+
+    }
+
+    .catalog-grid{
+
+        grid-template-columns:1fr 1fr;
+
+    }
+
+    .process-grid{
+
+        grid-template-columns:1fr 1fr;
+
+    }
+
+    .why-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .contact-box{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+
+@media(max-width:600px){
+
+    .section{
+
+        padding:75px 0;
+
+    }
+
+    .hero h1{
+
+        font-size:45px;
+
+    }
+
+    .hero-text{
+
+        font-size:16px;
+
+    }
+
+    .hero-card{
+
+        width:270px;
+
+        height:310px;
+
+    }
+
+    .hero-logo{
+
+        font-size:55px;
+
+    }
+
+    .orbit{
+
+        width:300px;
+
+        height:300px;
+
+    }
+
+    .stats-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .stat{
+
+        border-right:none;
+
+        border-bottom:1px solid #e5e5e5;
+
+    }
+
+    .services-grid,
+    .catalog-grid,
+    .process-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .section-title{
+
+        font-size:32px;
+
+    }
+
+    .contact-box{
+
+        padding:40px 25px;
+
+    }
+
+    .contact-box h2{
+
+        font-size:32px;
+
+    }
+
+    .footer-content{
+
+        flex-direction:column;
+
+        gap:10px;
+
+    }
+
+    .why-visual{
+
+        min-height:300px;
+
+        box-shadow:10px 10px 0 var(--purple);
+
+    }
+
+    .ravi-large{
+
+        font-size:60px;
+
+    }
+
 }
 
 </style>
-
 </head>
+
+
 <body>
 
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
 <header>
-    <div class="logo">R<span>AVI</span></div>
+
+<div class="container navbar">
+
+    <a href="#" class="logo">
+
+        R<span>AVI</span>
+
+        <small>
+            INGENIERÍA Y DISEÑO
+        </small>
+
+    </a>
+
 
     <nav>
-        <a href="#servicios">Servicios</a>
-        <a href="#proyectos">Proyectos</a>
-        <a href="#contacto">Contacto</a>
-    </nav>
-</header>
 
-<section class="hero">
-    <div class="hero-content">
-
-        <h1>Ingeniería y <span>Diseño</span></h1>
-
-        <p>
-            Diseño de racks industriales, mobiliario metálico,
-            estaciones de trabajo, gabinetes y soluciones
-            personalizadas para manufactura e industria.
-        </p>
-
-        <a class="btn" href="#contacto">
-            Solicitar Cotización
+        <a href="#servicios">
+            Servicios
         </a>
 
+        <a href="#catalogo">
+            Catálogo
+        </a>
+
+        <a href="#proceso">
+            Proceso
+        </a>
+
+        <a href="#contacto" class="nav-cta">
+            Cotizar
+        </a>
+
+    </nav>
+
+</div>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+<div class="container hero-grid">
+
+
+    <div class="reveal">
+
+        <div class="hero-label">
+
+            RAVI / INGENIERÍA & DISEÑO
+
+        </div>
+
+
+        <h1>
+
+            Si puedes imaginarlo,
+            <span>podemos diseñarlo.</span>
+
+        </h1>
+
+
+        <p class="hero-text">
+
+            Desarrollo de soluciones de ingeniería,
+            diseño mecánico, modelado 3D y desarrollo
+            de productos para aplicaciones industriales,
+            comerciales y residenciales.
+
+        </p>
+
+
+        <div class="buttons">
+
+            <a
+                href="#catalogo"
+                class="btn btn-primary"
+            >
+                Explorar proyectos
+            </a>
+
+
+            <a
+                href="#contacto"
+                class="btn btn-outline"
+            >
+                Solicitar cotización
+            </a>
+
+        </div>
+
     </div>
+
+
+
+    <div class="hero-visual reveal">
+
+        <div class="orbit"></div>
+
+        <div class="orbit two"></div>
+
+
+        <div class="hero-card">
+
+            <div class="hero-logo">
+
+                R<span>AVI</span>
+
+            </div>
+
+            <div class="hero-card-line"></div>
+
+            <p>
+                DESIGN / ENGINEERING / 3D
+            </p>
+
+        </div>
+
+    </div>
+
+
+</div>
+
 </section>
 
-<section class="section" id="servicios">
 
-    <h2>Servicios</h2>
 
-    <div class="cards">
+<!-- =====================================================
+     STATS
+===================================================== -->
 
-        <div class="card">
-            <h3>Diseño de Racks</h3>
-            <p>Soluciones para almacenamiento y manejo de materiales.</p>
+<section class="stats">
+
+<div class="container stats-grid">
+
+
+    <div class="stat">
+
+        <strong>3D</strong>
+
+        <span>
+            Modelado y visualización
+        </span>
+
+    </div>
+
+
+    <div class="stat">
+
+        <strong>CAD</strong>
+
+        <span>
+            Diseño y documentación técnica
+        </span>
+
+    </div>
+
+
+    <div class="stat">
+
+        <strong>∞</strong>
+
+        <span>
+            Posibilidades de diseño
+        </span>
+
+    </div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SERVICIOS
+===================================================== -->
+
+<section
+    class="section services"
+    id="servicios"
+>
+
+<div class="container">
+
+
+    <div class="section-header reveal">
+
+        <div class="section-label">
+            SERVICIOS
         </div>
 
-        <div class="card">
-            <h3>Mobiliario Industrial</h3>
-            <p>Mesas, estanterías y estructuras personalizadas.</p>
+        <h2 class="section-title">
+
+            Diseñamos soluciones,
+            <br>
+            no solamente piezas.
+
+        </h2>
+
+        <p class="section-description">
+
+            Desde un componente individual hasta
+            el desarrollo completo de un producto,
+            estructura o solución personalizada.
+
+        </p>
+
+    </div>
+
+
+
+    <div class="services-grid">
+
+
+        <div class="service reveal">
+
+            <div class="service-number">
+                01
+            </div>
+
+            <h3>
+                Diseño Mecánico
+            </h3>
+
+            <p>
+                Desarrollo de componentes,
+                mecanismos y soluciones mecánicas.
+            </p>
+
+            <ul class="service-list">
+
+                <li>Componentes</li>
+                <li>Mecanismos</li>
+                <li>Soportes</li>
+                <li>Ensambles</li>
+
+            </ul>
+
         </div>
 
-        <div class="card">
-            <h3>Diseño 3D</h3>
-            <p>Desarrollo de proyectos mecánicos e industriales.</p>
+
+
+        <div class="service reveal">
+
+            <div class="service-number">
+                02
+            </div>
+
+            <h3>
+                Modelado 3D
+            </h3>
+
+            <p>
+                Creación de modelos tridimensionales
+                y ensambles para diferentes proyectos.
+            </p>
+
+            <ul class="service-list">
+
+                <li>Piezas</li>
+                <li>Ensambles</li>
+                <li>Modelado desde medidas</li>
+                <li>Renderizados</li>
+
+            </ul>
+
+        </div>
+
+
+
+        <div class="service reveal">
+
+            <div class="service-number">
+                03
+            </div>
+
+            <h3>
+                Desarrollo de Productos
+            </h3>
+
+            <p>
+                Transformación de una idea en un
+                concepto diseñado y desarrollado.
+            </p>
+
+            <ul class="service-list">
+
+                <li>Conceptualización</li>
+                <li>Diseño de producto</li>
+                <li>Prototipos</li>
+                <li>Mejoras</li>
+
+            </ul>
+
+        </div>
+
+
+
+        <div class="service reveal">
+
+            <div class="service-number">
+                04
+            </div>
+
+            <h3>
+                Diseño Industrial
+            </h3>
+
+            <p>
+                Estructuras y soluciones para
+                aplicaciones industriales.
+            </p>
+
+            <ul class="service-list">
+
+                <li>Racks</li>
+                <li>Mobiliario</li>
+                <li>Gabinetes</li>
+                <li>Estructuras</li>
+
+            </ul>
+
+        </div>
+
+
+
+        <div class="service reveal">
+
+            <div class="service-number">
+                05
+            </div>
+
+            <h3>
+                Ingeniería Aplicada
+            </h3>
+
+            <p>
+                Desarrollo de soluciones considerando
+                aplicación, funcionalidad y requerimientos.
+            </p>
+
+            <ul class="service-list">
+
+                <li>Materiales</li>
+                <li>Dimensiones</li>
+                <li>Funcionalidad</li>
+                <li>Optimización</li>
+
+            </ul>
+
+        </div>
+
+
+
+        <div class="service reveal">
+
+            <div class="service-number">
+                06
+            </div>
+
+            <h3>
+                Documentación Técnica
+            </h3>
+
+            <p>
+                Documentación para comunicar y
+                fabricar correctamente los diseños.
+            </p>
+
+            <ul class="service-list">
+
+                <li>Planos</li>
+                <li>Despieces</li>
+                <li>Lista de materiales</li>
+                <li>Detalles técnicos</li>
+
+            </ul>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CATÁLOGO
+===================================================== -->
+
+<section
+    class="section catalog"
+    id="catalogo"
+>
+
+<div class="container">
+
+
+    <div class="section-header reveal">
+
+        <div class="section-label">
+            PORTAFOLIO
+        </div>
+
+        <h2 class="section-title">
+            Catálogo de proyectos.
+        </h2>
+
+        <p class="section-description">
+
+            Explora algunos de los proyectos
+            desarrollados por RAVI. Esta sección
+            irá creciendo conforme se agreguen
+            nuevos diseños.
+
+        </p>
+
+    </div>
+
+
+
+    <!-- FILTROS -->
+
+    <div class="filters reveal">
+
+        <button
+            class="filter-btn active"
+            data-filter="todos"
+        >
+            Todos
+        </button>
+
+
+        <button
+            class="filter-btn"
+            data-filter="mecanico"
+        >
+            Mecánico
+        </button>
+
+
+        <button
+            class="filter-btn"
+            data-filter="industrial"
+        >
+            Industrial
+        </button>
+
+
+        <button
+            class="filter-btn"
+            data-filter="producto"
+        >
+            Producto
+        </button>
+
+
+        <button
+            class="filter-btn"
+            data-filter="mobiliario"
+        >
+            Mobiliario
+        </button>
+
+
+        <button
+            class="filter-btn"
+            data-filter="otros"
+        >
+            Otros
+        </button>
+
+    </div>
+
+
+
+    <!-- CATÁLOGO -->
+
+    <div class="catalog-grid" id="catalogGrid">
+
+
+        <!-- PROYECTO 1 -->
+
+        <div
+            class="catalog-card reveal"
+            data-category="industrial"
+            data-title="Rack Industrial"
+            data-type="Diseño Industrial"
+            data-description="Diseño de estructura para almacenamiento y manejo de materiales."
+        >
+
+            <div class="catalog-image">
+
+                <div class="project-number">
+                    01
+                </div>
+
+            </div>
+
+
+            <div class="catalog-info">
+
+                <div class="catalog-category">
+                    INDUSTRIAL
+                </div>
+
+                <h3>
+                    Rack Industrial
+                </h3>
+
+                <p>
+                    Estructura para almacenamiento.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PROYECTO 2 -->
+
+        <div
+            class="catalog-card reveal"
+            data-category="industrial"
+            data-title="Gabinete Industrial"
+            data-type="Diseño Mecánico"
+            data-description="Diseño y desarrollo de gabinete personalizado para aplicación industrial."
+        >
+
+            <div class="catalog-image">
+
+                <div class="project-number">
+                    02
+                </div>
+
+            </div>
+
+
+            <div class="catalog-info">
+
+                <div class="catalog-category">
+                    INDUSTRIAL
+                </div>
+
+                <h3>
+                    Gabinete Industrial
+                </h3>
+
+                <p>
+                    Diseño personalizado.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PROYECTO 3 -->
+
+        <div
+            class="catalog-card reveal"
+            data-category="mobiliario"
+            data-title="Estante Metálico"
+            data-type="Mobiliario"
+            data-description="Diseño de estante metálico para aplicaciones residenciales y comerciales."
+        >
+
+            <div class="catalog-image">
+
+                <div class="project-number">
+                    03
+                </div>
+
+            </div>
+
+
+            <div class="catalog-info">
+
+                <div class="catalog-category">
+                    MOBILIARIO
+                </div>
+
+                <h3>
+                    Estante Metálico
+                </h3>
+
+                <p>
+                    Diseño funcional y decorativo.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PROYECTO 4 -->
+
+        <div
+            class="catalog-card reveal"
+            data-category="mecanico"
+            data-title="Componente Mecánico"
+            data-type="Diseño Mecánico"
+            data-description="Desarrollo de componente mecánico mediante modelado 3D."
+        >
+
+            <div class="catalog-image">
+
+                <div class="project-number">
+                    04
+                </div>
+
+            </div>
+
+
+            <div class="catalog-info">
+
+                <div class="catalog-category">
+                    MECÁNICO
+                </div>
+
+                <h3>
+                    Componente Mecánico
+                </h3>
+
+                <p>
+                    Pieza diseñada en 3D.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PROYECTO 5 -->
+
+        <div
+            class="catalog-card reveal"
+            data-category="producto"
+            data-title="Desarrollo de Producto"
+            data-type="Diseño de Producto"
+            data-description="Conceptualización y desarrollo tridimensional de un producto."
+        >
+
+            <div class="catalog-image">
+
+                <div class="project-number">
+                    05
+                </div>
+
+            </div>
+
+
+            <div class="catalog-info">
+
+                <div class="catalog-category">
+                    PRODUCTO
+                </div>
+
+                <h3>
+                    Desarrollo de Producto
+                </h3>
+
+                <p>
+                    Concepto y modelado 3D.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- PROYECTO 6 -->
+
+        <div
+            class="catalog-card reveal"
+            data-category="otros"
+            data-title="Solución Personalizada"
+            data-type="Ingeniería"
+            data-description="Desarrollo de una solución personalizada a partir de los requerimientos del cliente."
+        >
+
+            <div class="catalog-image">
+
+                <div class="project-number">
+                    06
+                </div>
+
+            </div>
+
+
+            <div class="catalog-info">
+
+                <div class="catalog-category">
+                    OTROS
+                </div>
+
+                <h3>
+                    Solución Personalizada
+                </h3>
+
+                <p>
+                    Diseño según requerimientos.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PROCESO
+===================================================== -->
+
+<section
+    class="section process"
+    id="proceso"
+>
+
+<div class="container">
+
+
+    <div class="section-header reveal">
+
+        <div class="section-label">
+            METODOLOGÍA
+        </div>
+
+        <h2 class="section-title">
+            De una idea<br>
+            a una solución.
+        </h2>
+
+        <p class="section-description">
+            Un proceso sencillo para convertir una necesidad
+            en un diseño desarrollado.
+        </p>
+
+    </div>
+
+
+    <div class="process-grid">
+
+
+        <div class="process-step reveal">
+
+            <div class="process-number">
+                01
+            </div>
+
+            <h3>
+                Idea / Necesidad
+            </h3>
+
+            <p>
+                Se analiza qué necesitas resolver,
+                fabricar, mejorar o desarrollar.
+            </p>
+
+        </div>
+
+
+        <div class="process-step reveal">
+
+            <div class="process-number">
+                02
+            </div>
+
+            <h3>
+                Concepto
+            </h3>
+
+            <p>
+                Se estudian dimensiones, aplicación,
+                materiales y requerimientos.
+            </p>
+
+        </div>
+
+
+        <div class="process-step reveal">
+
+            <div class="process-number">
+                03
+            </div>
+
+            <h3>
+                Diseño 3D
+            </h3>
+
+            <p>
+                Se desarrolla el modelo tridimensional
+                y se realizan ajustes.
+            </p>
+
+        </div>
+
+
+        <div class="process-step reveal">
+
+            <div class="process-number">
+                04
+            </div>
+
+            <h3>
+                Entrega
+            </h3>
+
+            <p>
+                Se entrega el diseño y la documentación
+                acordada para el proyecto.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     WHY RAVI
+===================================================== -->
+
+<section class="section why">
+
+<div class="container why-grid">
+
+
+    <div class="reveal">
+
+        <div class="section-header">
+
+            <div class="section-label">
+                RAVI
+            </div>
+
+            <h2 class="section-title">
+                No necesitas llegar
+                con un plano terminado.
+            </h2>
+
+            <p class="section-description">
+
+                Puedes comenzar con una idea,
+                medidas, fotografías, referencias
+                o simplemente explicar qué necesitas.
+
+            </p>
+
+        </div>
+
+
+        <div class="why-list">
+
+
+            <div class="why-item">
+
+                <div class="check">
+                    ✓
+                </div>
+
+                <div>
+
+                    <h3>
+                        Desarrollo desde cero
+                    </h3>
+
+                    <p>
+                        Una idea puede convertirse
+                        en un concepto de diseño.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="why-item">
+
+                <div class="check">
+                    ✓
+                </div>
+
+                <div>
+
+                    <h3>
+                        Diseño personalizado
+                    </h3>
+
+                    <p>
+                        Cada solución se adapta
+                        a la aplicación requerida.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="why-item">
+
+                <div class="check">
+                    ✓
+                </div>
+
+                <div>
+
+                    <h3>
+                        Enfoque de ingeniería
+                    </h3>
+
+                    <p>
+                        Funcionalidad, dimensiones,
+                        materiales y manufactura.
+                    </p>
+
+                </div>
+
+            </div>
+
+
         </div>
 
     </div>
 
-</section>
 
-<section class="section" id="proyectos">
 
-    <h2>Proyectos</h2>
+    <div class="why-visual reveal">
 
-    <div class="cards">
-
-        <div class="card">
-            <h3>Rack Industrial</h3>
-            <p>Diseño para transporte y almacenamiento de piezas.</p>
-        </div>
-
-        <div class="card">
-            <h3>Estante Flotante</h3>
-            <p>Diseño decorativo con estructura metálica y madera.</p>
-        </div>
-
-        <div class="card">
-            <h3>Gabinetes</h3>
-            <p>Diseños personalizados para diferentes aplicaciones.</p>
+        <div class="ravi-large">
+            R<span>AVI</span>
         </div>
 
     </div>
 
+
+</div>
+
 </section>
 
-<section class="section" id="contacto">
 
-    <h2>Contacto</h2>
 
-    <div style="text-align:center">
+<!-- =====================================================
+     CONTACTO
+===================================================== -->
 
-        <p><strong>Correo:</strong></p>
+<section
+    class="section contact"
+    id="contacto"
+>
 
-        <p>ravi.design.services@gmail.com</p>
+<div class="container">
 
-        <br>
 
-        <p><strong>Instagram:</strong></p>
+    <div class="contact-box reveal">
 
-        <p>@ravi.design.services</p>
+
+        <div>
+
+            <div class="section-label">
+                CONTACTO
+            </div>
+
+            <h2>
+                ¿Tienes una idea?
+            </h2>
+
+            <p>
+
+                Cuéntame qué necesitas diseñar.
+                Puede ser una pieza, producto,
+                estructura, mecanismo o cualquier
+                otra solución.
+
+            </p>
+
+        </div>
+
+
+        <div class="contact-info">
+
+
+            <div class="contact-item">
+
+                <small>
+                    EMAIL
+                </small>
+
+                <a href="mailto:ravi.design.services@gmail.com">
+
+                    ravi.design.services@gmail.com
+
+                </a>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <small>
+                    INSTAGRAM
+                </small>
+
+                <a
+                    href="https://www.instagram.com/ravi.design.services/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+
+                    Ravi ingenieria
+
+                </a>
+
+            </div>
+
+
+        </div>
+
 
     </div>
 
+</div>
+
 </section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
 
-    <p>© 2026 RAVI Ingeniería y Diseño</p>
+<div class="container footer-content">
+
+    <div class="footer-logo">
+
+        R<span>AVI</span>
+        Ingeniería y Diseño
+
+    </div>
+
+
+    <div>
+
+        © 2026 RAVI Ingeniería y Diseño
+
+    </div>
+
+</div>
 
 </footer>
+
+
+
+<!-- =====================================================
+     WHATSAPP
+===================================================== -->
+
+<a
+    class="whatsapp"
+    href="https://wa.me/526441395859"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Contactar por WhatsApp"
+>
+    W
+</a>
+
+
+
+<!-- =====================================================
+     MODAL DE PROYECTOS
+===================================================== -->
+
+<div class="modal" id="projectModal">
+
+    <div class="modal-box">
+
+        <button
+            class="close-modal"
+            id="closeModal"
+        >
+            ×
+        </button>
+
+
+        <div class="modal-image">
+
+            <strong id="modalNumber">
+                01
+            </strong>
+
+        </div>
+
+
+        <div class="modal-content">
+
+            <div
+                class="modal-category"
+                id="modalCategory"
+            >
+                INDUSTRIAL
+            </div>
+
+
+            <h2 id="modalTitle">
+                Proyecto
+            </h2>
+
+
+            <p id="modalDescription">
+                Descripción del proyecto.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+/* =====================================================
+   ANIMACIONES AL HACER SCROLL
+===================================================== */
+
+const observer = new IntersectionObserver(
+
+    entries => {
+
+        entries.forEach(entry => {
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("active");
+
+            }
+
+        });
+
+    },
+
+    {
+        threshold:.12
+    }
+
+);
+
+
+document
+    .querySelectorAll(".reveal")
+    .forEach(element => {
+
+        observer.observe(element);
+
+    });
+
+
+
+/* =====================================================
+   FILTROS DEL CATÁLOGO
+===================================================== */
+
+const filterButtons =
+    document.querySelectorAll(".filter-btn");
+
+const projectCards =
+    document.querySelectorAll(".catalog-card");
+
+
+filterButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        filterButtons.forEach(btn => {
+
+            btn.classList.remove("active");
+
+        });
+
+        button.classList.add("active");
+
+
+        const filter =
+            button.getAttribute("data-filter");
+
+
+        projectCards.forEach(card => {
+
+            const category =
+                card.getAttribute("data-category");
+
+
+            if(
+                filter === "todos" ||
+                category === filter
+            ){
+
+                card.style.display = "block";
+
+                setTimeout(() => {
+
+                    card.style.opacity = "1";
+                    card.style.transform = "translateY(0)";
+
+                },10);
+
+            }
+
+            else{
+
+                card.style.opacity = "0";
+                card.style.transform = "translateY(15px)";
+
+                setTimeout(() => {
+
+                    card.style.display = "none";
+
+                },200);
+
+            }
+
+        });
+
+    });
+
+});
+
+
+
+/* =====================================================
+   MODAL DE PROYECTOS
+===================================================== */
+
+const modal =
+    document.getElementById("projectModal");
+
+const closeModal =
+    document.getElementById("closeModal");
+
+const modalTitle =
+    document.getElementById("modalTitle");
+
+const modalCategory =
+    document.getElementById("modalCategory");
+
+const modalDescription =
+    document.getElementById("modalDescription");
+
+const modalNumber =
+    document.getElementById("modalNumber");
+
+
+projectCards.forEach(card => {
+
+    card.addEventListener("click", () => {
+
+        const title =
+            card.getAttribute("data-title");
+
+        const category =
+            card.getAttribute("data-type");
+
+        const description =
+            card.getAttribute("data-description");
+
+
+        const number =
+            card.querySelector(".project-number")
+            .textContent;
+
+
+        modalTitle.textContent =
+            title;
+
+        modalCategory.textContent =
+            category;
+
+        modalDescription.textContent =
+            description;
+
+        modalNumber.textContent =
+            number;
+
+
+        modal.classList.add("active");
+
+        document.body.style.overflow =
+            "hidden";
+
+    });
+
+});
+
+
+function closeProjectModal(){
+
+    modal.classList.remove("active");
+
+    document.body.style.overflow =
+        "";
+
+}
+
+
+closeModal.addEventListener(
+    "click",
+    closeProjectModal
+);
+
+
+modal.addEventListener(
+    "click",
+    event => {
+
+        if(event.target === modal){
+
+            closeProjectModal();
+
+        }
+
+    }
+);
+
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if(event.key === "Escape"){
+
+            closeProjectModal();
+
+        }
+
+    }
+);
+
+</script>
+
 
 </body>
 </html>
