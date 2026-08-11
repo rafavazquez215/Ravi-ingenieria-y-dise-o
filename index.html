@@ -14,12 +14,16 @@
     --purple:#7c4dff;
     --purple-light:#a88cff;
     --purple-dark:#5d35d6;
+
     --black:#0b0b0f;
     --dark:#121218;
     --dark-2:#18181f;
+
     --white:#ffffff;
     --gray:#a5a5ae;
     --light:#f6f6f8;
+
+    --border:rgba(255,255,255,.10);
 }
 
 *{
@@ -30,7 +34,7 @@
 
 html{
     scroll-behavior:smooth;
-    scroll-padding-top:78px;
+    scroll-restoration:auto;
 }
 
 body{
@@ -68,10 +72,15 @@ button{
     border-radius:10px;
 }
 
+/* ================================
+   ANIMACIONES
+================================ */
+
 @keyframes float{
     0%,100%{
         transform:translateY(0);
     }
+
     50%{
         transform:translateY(-15px);
     }
@@ -81,6 +90,7 @@ button{
     0%,100%{
         box-shadow:0 0 0 0 rgba(124,77,255,.35);
     }
+
     50%{
         box-shadow:0 0 0 20px rgba(124,77,255,0);
     }
@@ -90,6 +100,7 @@ button{
     from{
         transform:rotate(0deg);
     }
+
     to{
         transform:rotate(360deg);
     }
@@ -100,6 +111,7 @@ button{
         opacity:0;
         transform:scale(.92);
     }
+
     to{
         opacity:1;
         transform:scale(1);
@@ -117,7 +129,9 @@ button{
     transform:translateY(0);
 }
 
-/* HEADER */
+/* ================================
+   HEADER
+================================ */
 
 header{
     position:fixed;
@@ -125,13 +139,16 @@ header{
     left:0;
     width:100%;
     z-index:1000;
+
     background:rgba(8,8,12,.78);
     backdrop-filter:blur(18px);
+
     border-bottom:1px solid rgba(255,255,255,.07);
 }
 
 .navbar{
     height:78px;
+
     display:flex;
     align-items:center;
     justify-content:space-between;
@@ -182,13 +199,17 @@ nav a:hover{
     background:var(--purple);
 }
 
-/* HERO */
+/* ================================
+   HERO
+================================ */
 
 .hero{
     min-height:100vh;
     padding-top:78px;
+
     position:relative;
     overflow:hidden;
+
     color:white;
 
     background:
@@ -197,11 +218,13 @@ nav a:hover{
             rgba(124,77,255,.25),
             transparent 25%
         ),
+
         radial-gradient(
             circle at 15% 80%,
             rgba(124,77,255,.10),
             transparent 25%
         ),
+
         linear-gradient(
             135deg,
             #08080b,
@@ -212,46 +235,61 @@ nav a:hover{
 
 .hero::before{
     content:"";
+
     position:absolute;
+
     width:500px;
     height:500px;
+
     border:1px solid rgba(124,77,255,.12);
     border-radius:50%;
+
     right:-150px;
     top:120px;
+
     animation:rotate 30s linear infinite;
 }
 
 .hero::after{
     content:"";
+
     position:absolute;
+
     width:350px;
     height:350px;
+
     border:1px solid rgba(255,255,255,.05);
     border-radius:50%;
+
     right:-50px;
     top:200px;
 }
 
 .hero-grid{
     min-height:calc(100vh - 78px);
+
     display:grid;
     grid-template-columns:1fr 1fr;
+
     gap:70px;
+
     align-items:center;
 }
 
 .hero-label{
     color:var(--purple-light);
+
     font-size:12px;
     letter-spacing:4px;
     font-weight:bold;
+
     margin-bottom:25px;
 }
 
 .hero h1{
     font-size:clamp(48px,6vw,78px);
     line-height:1;
+
     margin-bottom:25px;
 }
 
@@ -261,8 +299,11 @@ nav a:hover{
 
 .hero-text{
     color:#aaa;
+
     max-width:590px;
+
     font-size:18px;
+
     margin-bottom:35px;
 }
 
@@ -274,21 +315,27 @@ nav a:hover{
 
 .btn{
     padding:15px 25px;
+
     border-radius:7px;
+
     font-size:14px;
     font-weight:bold;
+
     transition:.3s;
 }
 
 .btn-primary{
     background:var(--purple);
     color:white;
+
     box-shadow:0 10px 30px rgba(124,77,255,.25);
 }
 
 .btn-primary:hover{
     transform:translateY(-3px);
+
     background:var(--purple-dark);
+
     box-shadow:0 15px 40px rgba(124,77,255,.35);
 }
 
@@ -302,11 +349,15 @@ nav a:hover{
     color:var(--purple-light);
 }
 
-/* HERO VISUAL */
+/* ================================
+   HERO VISUAL
+================================ */
 
 .hero-visual{
     position:relative;
+
     height:500px;
+
     display:flex;
     align-items:center;
     justify-content:center;
@@ -314,36 +365,49 @@ nav a:hover{
 
 .orbit{
     position:absolute;
+
     width:390px;
     height:390px;
+
     border:1px solid rgba(124,77,255,.18);
+
     border-radius:50%;
+
     animation:rotate 25s linear infinite;
 }
 
 .orbit::before{
     content:"";
+
     position:absolute;
+
     width:10px;
     height:10px;
+
     background:var(--purple);
+
     border-radius:50%;
+
     top:30px;
     left:65px;
+
     box-shadow:0 0 20px var(--purple);
 }
 
 .orbit.two{
     width:300px;
     height:300px;
+
     animation-direction:reverse;
     animation-duration:18s;
+
     border-color:rgba(255,255,255,.08);
 }
 
 .hero-card{
     width:350px;
     height:390px;
+
     border-radius:20px;
 
     background:
@@ -363,10 +427,13 @@ nav a:hover{
 
     display:flex;
     flex-direction:column;
+
     align-items:center;
     justify-content:center;
+
     position:relative;
     z-index:2;
+
     animation:float 5s ease-in-out infinite;
 }
 
@@ -383,18 +450,24 @@ nav a:hover{
 .hero-card-line{
     width:70px;
     height:2px;
+
     background:var(--purple);
+
     margin:25px 0;
+
     box-shadow:0 0 15px var(--purple);
 }
 
 .hero-card p{
     color:#999;
+
     font-size:12px;
     letter-spacing:3px;
 }
 
-/* STATS */
+/* ================================
+   STATS
+================================ */
 
 .stats{
     background:white;
@@ -408,7 +481,9 @@ nav a:hover{
 
 .stat{
     padding:35px;
+
     text-align:center;
+
     border-right:1px solid #e5e5e5;
 }
 
@@ -418,6 +493,7 @@ nav a:hover{
 
 .stat strong{
     display:block;
+
     font-size:30px;
     color:var(--purple);
 }
@@ -427,7 +503,9 @@ nav a:hover{
     color:#777;
 }
 
-/* SECCIONES */
+/* ================================
+   SECCIONES
+================================ */
 
 .section{
     padding:110px 0;
@@ -439,9 +517,11 @@ nav a:hover{
 
 .section-label{
     color:var(--purple);
+
     font-size:11px;
     font-weight:bold;
     letter-spacing:4px;
+
     margin-bottom:12px;
 }
 
@@ -452,11 +532,15 @@ nav a:hover{
 
 .section-description{
     color:#707078;
+
     max-width:700px;
+
     margin-top:15px;
 }
 
-/* SERVICIOS */
+/* ================================
+   SERVICIOS
+================================ */
 
 .services{
     background:
@@ -476,29 +560,41 @@ nav a:hover{
 
 .service{
     padding:35px;
+
     background:rgba(255,255,255,.75);
+
     border:1px solid #e7e7eb;
     border-radius:14px;
+
     transition:.4s;
+
     position:relative;
     overflow:hidden;
 }
 
 .service::before{
     content:"";
+
     position:absolute;
+
     width:100px;
     height:100px;
+
     border-radius:50%;
+
     background:rgba(124,77,255,.08);
+
     top:-40px;
     right:-40px;
+
     transition:.4s;
 }
 
 .service:hover{
     transform:translateY(-10px);
+
     border-color:#c9baff;
+
     box-shadow:0 20px 50px rgba(0,0,0,.08);
 }
 
@@ -508,8 +604,10 @@ nav a:hover{
 
 .service-number{
     color:var(--purple);
+
     font-size:11px;
     font-weight:bold;
+
     margin-bottom:25px;
 }
 
@@ -526,6 +624,7 @@ nav a:hover{
 .service-list{
     margin-top:18px;
     padding-left:17px;
+
     color:#777;
     font-size:13px;
 }
@@ -534,23 +633,33 @@ nav a:hover{
     margin-bottom:5px;
 }
 
-/* CATALOGO */
+/* ================================
+   CATALOGO
+================================ */
 
 .catalog{
     background:#101014;
+
     color:white;
+
     position:relative;
     overflow:hidden;
 }
 
 .catalog::before{
     content:"";
+
     position:absolute;
+
     width:600px;
     height:600px;
+
     border-radius:50%;
+
     background:rgba(124,77,255,.07);
+
     filter:blur(80px);
+
     top:-300px;
     right:-150px;
 }
@@ -562,17 +671,25 @@ nav a:hover{
 .filters{
     display:flex;
     flex-wrap:wrap;
+
     gap:10px;
+
     margin-bottom:35px;
 }
 
 .filter-btn{
     padding:10px 18px;
+
     border-radius:30px;
+
     border:1px solid #333;
+
     background:transparent;
+
     color:#aaa;
+
     cursor:pointer;
+
     transition:.3s;
 }
 
@@ -584,28 +701,39 @@ nav a:hover{
 .filter-btn.active{
     background:var(--purple);
     border-color:var(--purple);
+
     color:white;
 }
 
 .catalog-grid{
     display:grid;
+
     grid-template-columns:repeat(3,1fr);
+
     gap:22px;
 }
 
 .catalog-card{
     min-height:390px;
+
     border-radius:14px;
+
     overflow:hidden;
+
     position:relative;
+
     background:#18181e;
+
     border:1px solid #292930;
+
     cursor:pointer;
+
     transition:.4s;
 }
 
 .catalog-card:hover{
     transform:translateY(-8px);
+
     border-color:var(--purple);
 
     box-shadow:
@@ -622,6 +750,7 @@ nav a:hover{
             rgba(124,77,255,.16),
             transparent 45%
         ),
+
         linear-gradient(
             145deg,
             #292930,
@@ -629,22 +758,30 @@ nav a:hover{
         );
 
     display:flex;
+
     align-items:center;
     justify-content:center;
+
     position:relative;
 }
 
 .catalog-image::after{
     content:"";
+
     position:absolute;
+
     inset:20px;
+
     border:1px solid rgba(255,255,255,.05);
+
     border-radius:10px;
 }
 
 .project-number{
     font-size:60px;
+
     font-weight:900;
+
     color:rgba(124,77,255,.35);
 }
 
@@ -654,8 +791,11 @@ nav a:hover{
 
 .catalog-category{
     color:var(--purple-light);
+
     font-size:10px;
+
     letter-spacing:2px;
+
     font-weight:bold;
 }
 
@@ -666,21 +806,32 @@ nav a:hover{
 
 .catalog-info p{
     color:#888;
+
     font-size:13px;
+
     margin-top:5px;
 }
 
-/* MODAL */
+/* ================================
+   MODAL
+================================ */
 
 .modal{
     position:fixed;
+
     inset:0;
+
     background:rgba(0,0,0,.82);
+
     backdrop-filter:blur(10px);
+
     z-index:2000;
+
     display:none;
+
     align-items:center;
     justify-content:center;
+
     padding:20px;
 }
 
@@ -690,14 +841,23 @@ nav a:hover{
 
 .modal-box{
     width:100%;
+
     max-width:850px;
+
     max-height:90vh;
+
     overflow:auto;
+
     background:#17171d;
+
     border:1px solid #333;
+
     border-radius:15px;
+
     color:white;
+
     position:relative;
+
     animation:modalIn .35s ease;
 }
 
@@ -710,15 +870,18 @@ nav a:hover{
             rgba(124,77,255,.18),
             transparent 45%
         ),
+
         #111116;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 }
 
 .modal-image strong{
     font-size:100px;
+
     color:rgba(124,77,255,.35);
 }
 
@@ -728,12 +891,15 @@ nav a:hover{
 
 .modal-category{
     color:var(--purple-light);
+
     font-size:11px;
+
     letter-spacing:2px;
 }
 
 .modal-content h2{
     font-size:32px;
+
     margin:8px 0 15px;
 }
 
@@ -743,20 +909,31 @@ nav a:hover{
 
 .close-modal{
     position:absolute;
+
     right:20px;
     top:20px;
+
     width:40px;
     height:40px;
+
     border-radius:50%;
+
     border:1px solid #444;
+
     background:rgba(0,0,0,.5);
+
     color:white;
+
     font-size:20px;
+
     cursor:pointer;
+
     z-index:5;
 }
 
-/* PROCESO */
+/* ================================
+   PROCESO
+================================ */
 
 .process{
     background:white;
@@ -764,25 +941,33 @@ nav a:hover{
 
 .process-grid{
     display:grid;
+
     grid-template-columns:repeat(4,1fr);
+
     gap:20px;
 }
 
 .process-step{
     padding:30px 20px;
+
     border-top:2px solid #ddd;
+
     transition:.3s;
 }
 
 .process-step:hover{
     border-color:var(--purple);
+
     transform:translateY(-5px);
 }
 
 .process-number{
     color:var(--purple);
+
     font-weight:bold;
+
     font-size:13px;
+
     margin-bottom:25px;
 }
 
@@ -792,10 +977,13 @@ nav a:hover{
 
 .process-step p{
     color:#777;
+
     font-size:13px;
 }
 
-/* WHY */
+/* ================================
+   WHY
+================================ */
 
 .why{
     background:
@@ -808,41 +996,60 @@ nav a:hover{
 
 .why-grid{
     display:grid;
+
     grid-template-columns:1fr 1fr;
+
     gap:70px;
+
     align-items:center;
 }
 
 .why-list{
     display:flex;
+
     flex-direction:column;
+
     gap:18px;
 }
 
 .why-item{
     display:flex;
+
     gap:18px;
+
     padding:20px;
+
     background:white;
+
     border:1px solid #e8e8eb;
+
     border-radius:10px;
+
     transition:.3s;
 }
 
 .why-item:hover{
     transform:translateX(7px);
+
     border-color:#cbbdff;
 }
 
 .check{
     min-width:32px;
+
     height:32px;
+
     border-radius:50%;
+
     display:flex;
+
     align-items:center;
     justify-content:center;
+
     background:#eee8ff;
+
     color:var(--purple);
+
     font-weight:bold;
 }
 
@@ -852,11 +1059,13 @@ nav a:hover{
 
 .why-item p{
     color:#777;
+
     font-size:13px;
 }
 
 .why-visual{
     min-height:420px;
+
     border-radius:18px;
 
     background:
@@ -865,6 +1074,7 @@ nav a:hover{
             rgba(124,77,255,.20),
             transparent 45%
         ),
+
         linear-gradient(
             145deg,
             #1c1c23,
@@ -872,28 +1082,41 @@ nav a:hover{
         );
 
     display:flex;
+
     align-items:center;
     justify-content:center;
+
     position:relative;
+
     overflow:hidden;
+
     box-shadow:20px 20px 0 var(--purple);
 }
 
 .why-visual::before{
     content:"";
+
     position:absolute;
+
     width:300px;
     height:300px;
+
     border:1px solid rgba(124,77,255,.2);
+
     border-radius:50%;
+
     animation:rotate 20s linear infinite;
 }
 
 .ravi-large{
     font-size:95px;
+
     font-weight:900;
+
     letter-spacing:8px;
+
     color:white;
+
     z-index:2;
 }
 
@@ -901,7 +1124,9 @@ nav a:hover{
     color:var(--purple);
 }
 
-/* CONTACTO */
+/* ================================
+   CONTACTO
+================================ */
 
 .contact{
     background:white;
@@ -909,7 +1134,9 @@ nav a:hover{
 
 .contact-box{
     padding:70px;
+
     border-radius:18px;
+
     color:white;
 
     background:
@@ -918,6 +1145,7 @@ nav a:hover{
             rgba(124,77,255,.25),
             transparent 30%
         ),
+
         linear-gradient(
             135deg,
             #0d0d11,
@@ -925,50 +1153,67 @@ nav a:hover{
         );
 
     display:grid;
+
     grid-template-columns:1.3fr 1fr;
+
     gap:50px;
+
     border:1px solid #28282e;
 }
 
 .contact-box h2{
     font-size:43px;
+
     line-height:1.1;
+
     margin-bottom:20px;
 }
 
 .contact-box p{
     color:#999;
+
     max-width:520px;
 }
 
 .contact-info{
     display:flex;
+
     flex-direction:column;
+
     gap:15px;
 }
 
 .contact-item{
     padding:18px;
+
     border:1px solid #333;
+
     border-radius:8px;
+
     transition:.3s;
 }
 
 .contact-item:hover{
     border-color:var(--purple);
+
     transform:translateX(5px);
 }
 
 .contact-item small{
     display:block;
+
     color:#777;
+
     font-size:10px;
+
     letter-spacing:2px;
+
     margin-bottom:5px;
 }
 
 .contact-item a{
     color:white;
+
     font-size:14px;
 }
 
@@ -976,24 +1221,33 @@ nav a:hover{
     color:var(--purple-light);
 }
 
-/* FOOTER */
+/* ================================
+   FOOTER
+================================ */
 
 footer{
     background:#08080a;
+
     color:#666;
+
     padding:35px 0;
+
     font-size:12px;
 }
 
 .footer-content{
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
 }
 
 .footer-logo{
     color:white;
+
     font-weight:bold;
+
     letter-spacing:2px;
 }
 
@@ -1001,28 +1255,44 @@ footer{
     color:var(--purple);
 }
 
-/* WHATSAPP */
+/* ================================
+   WHATSAPP
+================================ */
 
 .whatsapp{
     position:fixed;
+
     right:25px;
     bottom:25px;
+
     width:56px;
     height:56px;
+
     border-radius:50%;
+
     background:#25D366;
+
     color:white;
+
     display:flex;
+
     align-items:center;
     justify-content:center;
+
     font-weight:bold;
+
     font-size:22px;
+
     z-index:1500;
+
     box-shadow:0 8px 25px rgba(0,0,0,.25);
+
     animation:pulse 2.5s infinite;
 }
 
-/* RESPONSIVE */
+/* ================================
+   RESPONSIVE
+================================ */
 
 @media(max-width:950px){
 
@@ -1032,6 +1302,7 @@ footer{
 
     .hero-grid{
         grid-template-columns:1fr;
+
         text-align:center;
     }
 
@@ -1103,6 +1374,7 @@ footer{
 
     .stat{
         border-right:none;
+
         border-bottom:1px solid #e5e5e5;
     }
 
@@ -1126,11 +1398,13 @@ footer{
 
     .footer-content{
         flex-direction:column;
+
         gap:10px;
     }
 
     .why-visual{
         min-height:300px;
+
         box-shadow:10px 10px 0 var(--purple);
     }
 
@@ -1177,6 +1451,7 @@ footer{
 
 </header>
 
+
 <section class="hero" id="inicio">
 
 <div class="container hero-grid">
@@ -1219,6 +1494,7 @@ footer{
 
     </div>
 
+
     <div class="hero-visual reveal">
 
         <div class="orbit"></div>
@@ -1244,6 +1520,7 @@ footer{
 </div>
 
 </section>
+
 
 <section class="stats">
 
@@ -1283,6 +1560,7 @@ footer{
 
 </section>
 
+
 <section
     class="section services"
     id="servicios"
@@ -1310,6 +1588,7 @@ footer{
 
     </div>
 
+
     <div class="services-grid">
 
         <div class="service reveal">
@@ -1336,6 +1615,7 @@ footer{
 
         </div>
 
+
         <div class="service reveal">
 
             <div class="service-number">
@@ -1359,6 +1639,7 @@ footer{
             </ul>
 
         </div>
+
 
         <div class="service reveal">
 
@@ -1384,6 +1665,7 @@ footer{
 
         </div>
 
+
         <div class="service reveal">
 
             <div class="service-number">
@@ -1408,6 +1690,7 @@ footer{
 
         </div>
 
+
         <div class="service reveal">
 
             <div class="service-number">
@@ -1431,6 +1714,7 @@ footer{
             </ul>
 
         </div>
+
 
         <div class="service reveal">
 
@@ -1462,6 +1746,7 @@ footer{
 
 </section>
 
+
 <section
     class="section catalog"
     id="catalogo"
@@ -1487,6 +1772,7 @@ footer{
         </p>
 
     </div>
+
 
     <div class="filters reveal">
 
@@ -1534,7 +1820,9 @@ footer{
 
     </div>
 
+
     <div class="catalog-grid" id="catalogGrid">
+
 
         <div
             class="catalog-card reveal"
@@ -1545,9 +1833,11 @@ footer{
         >
 
             <div class="catalog-image">
+
                 <div class="project-number">
                     01
                 </div>
+
             </div>
 
             <div class="catalog-info">
@@ -1568,6 +1858,7 @@ footer{
 
         </div>
 
+
         <div
             class="catalog-card reveal"
             data-category="industrial"
@@ -1577,9 +1868,11 @@ footer{
         >
 
             <div class="catalog-image">
+
                 <div class="project-number">
                     02
                 </div>
+
             </div>
 
             <div class="catalog-info">
@@ -1600,6 +1893,7 @@ footer{
 
         </div>
 
+
         <div
             class="catalog-card reveal"
             data-category="mobiliario"
@@ -1609,9 +1903,11 @@ footer{
         >
 
             <div class="catalog-image">
+
                 <div class="project-number">
                     03
                 </div>
+
             </div>
 
             <div class="catalog-info">
@@ -1632,6 +1928,7 @@ footer{
 
         </div>
 
+
         <div
             class="catalog-card reveal"
             data-category="mecanico"
@@ -1641,9 +1938,11 @@ footer{
         >
 
             <div class="catalog-image">
+
                 <div class="project-number">
                     04
                 </div>
+
             </div>
 
             <div class="catalog-info">
@@ -1664,6 +1963,7 @@ footer{
 
         </div>
 
+
         <div
             class="catalog-card reveal"
             data-category="producto"
@@ -1673,9 +1973,11 @@ footer{
         >
 
             <div class="catalog-image">
+
                 <div class="project-number">
                     05
                 </div>
+
             </div>
 
             <div class="catalog-info">
@@ -1696,6 +1998,7 @@ footer{
 
         </div>
 
+
         <div
             class="catalog-card reveal"
             data-category="otros"
@@ -1705,9 +2008,11 @@ footer{
         >
 
             <div class="catalog-image">
+
                 <div class="project-number">
                     06
                 </div>
+
             </div>
 
             <div class="catalog-info">
@@ -1734,6 +2039,7 @@ footer{
 
 </section>
 
+
 <section
     class="section process"
     id="proceso"
@@ -1759,6 +2065,7 @@ footer{
 
     </div>
 
+
     <div class="process-grid">
 
         <div class="process-step reveal">
@@ -1778,6 +2085,7 @@ footer{
 
         </div>
 
+
         <div class="process-step reveal">
 
             <div class="process-number">
@@ -1795,6 +2103,7 @@ footer{
 
         </div>
 
+
         <div class="process-step reveal">
 
             <div class="process-number">
@@ -1811,6 +2120,7 @@ footer{
             </p>
 
         </div>
+
 
         <div class="process-step reveal">
 
@@ -1834,6 +2144,7 @@ footer{
 </div>
 
 </section>
+
 
 <section class="section why">
 
@@ -1860,6 +2171,7 @@ footer{
 
         </div>
 
+
         <div class="why-list">
 
             <div class="why-item">
@@ -1883,6 +2195,7 @@ footer{
 
             </div>
 
+
             <div class="why-item">
 
                 <div class="check">
@@ -1903,6 +2216,7 @@ footer{
                 </div>
 
             </div>
+
 
             <div class="why-item">
 
@@ -1929,6 +2243,7 @@ footer{
 
     </div>
 
+
     <div class="why-visual reveal">
 
         <div class="ravi-large">
@@ -1940,6 +2255,7 @@ footer{
 </div>
 
 </section>
+
 
 <section
     class="section contact"
@@ -1969,6 +2285,7 @@ footer{
 
         </div>
 
+
         <div class="contact-info">
 
             <div class="contact-item">
@@ -1982,6 +2299,7 @@ footer{
                 </a>
 
             </div>
+
 
             <div class="contact-item">
 
@@ -2007,6 +2325,7 @@ footer{
 
 </section>
 
+
 <footer>
 
 <div class="container footer-content">
@@ -2024,6 +2343,7 @@ footer{
 
 </footer>
 
+
 <a
     class="whatsapp"
     href="https://wa.me/526441395859"
@@ -2033,6 +2353,7 @@ footer{
 >
     W
 </a>
+
 
 <div class="modal" id="projectModal">
 
@@ -2076,39 +2397,41 @@ footer{
 
 </div>
 
+
 <script>
 
-/*
-=====================================================
-EVITAR QUE LA PÁGINA ABRA ABAJO
-=====================================================
-*/
+/* ==========================================
+   SOLUCIÓN AL PROBLEMA DE SCROLL
+========================================== */
 
-if("scrollRestoration" in history){
+if ("scrollRestoration" in history) {
     history.scrollRestoration = "manual";
 }
 
 window.addEventListener("load", function(){
 
-    setTimeout(function(){
-        window.scrollTo(0,0);
-    }, 50);
+    window.scrollTo({
+        top:0,
+        left:0,
+        behavior:"instant"
+    });
 
 });
 
-window.addEventListener("pageshow", function(event){
+window.addEventListener("pageshow", function(){
 
-    if(event.persisted){
-        window.scrollTo(0,0);
-    }
+    window.scrollTo({
+        top:0,
+        left:0,
+        behavior:"instant"
+    });
 
 });
 
-/*
-=====================================================
-ANIMACIONES AL HACER SCROLL
-=====================================================
-*/
+
+/* ==========================================
+   ANIMACIONES AL HACER SCROLL
+========================================== */
 
 const observer = new IntersectionObserver(
 
@@ -2132,6 +2455,7 @@ const observer = new IntersectionObserver(
 
 );
 
+
 document
     .querySelectorAll(".reveal")
     .forEach(element => {
@@ -2140,17 +2464,17 @@ document
 
     });
 
-/*
-=====================================================
-FILTROS DEL CATÁLOGO
-=====================================================
-*/
+
+/* ==========================================
+   FILTROS DEL CATÁLOGO
+========================================== */
 
 const filterButtons =
     document.querySelectorAll(".filter-btn");
 
 const projectCards =
     document.querySelectorAll(".catalog-card");
+
 
 filterButtons.forEach(button => {
 
@@ -2182,8 +2506,7 @@ filterButtons.forEach(button => {
                 setTimeout(() => {
 
                     card.style.opacity = "1";
-                    card.style.transform =
-                        "translateY(0)";
+                    card.style.transform = "translateY(0)";
 
                 },10);
 
@@ -2192,8 +2515,7 @@ filterButtons.forEach(button => {
             else{
 
                 card.style.opacity = "0";
-                card.style.transform =
-                    "translateY(15px)";
+                card.style.transform = "translateY(15px)";
 
                 setTimeout(() => {
 
@@ -2209,11 +2531,10 @@ filterButtons.forEach(button => {
 
 });
 
-/*
-=====================================================
-MODAL DE PROYECTOS
-=====================================================
-*/
+
+/* ==========================================
+   MODAL DE PROYECTOS
+========================================== */
 
 const modal =
     document.getElementById("projectModal");
@@ -2232,6 +2553,7 @@ const modalDescription =
 
 const modalNumber =
     document.getElementById("modalNumber");
+
 
 projectCards.forEach(card => {
 
@@ -2271,6 +2593,7 @@ projectCards.forEach(card => {
 
 });
 
+
 function closeProjectModal(){
 
     modal.classList.remove("active");
@@ -2280,10 +2603,12 @@ function closeProjectModal(){
 
 }
 
+
 closeModal.addEventListener(
     "click",
     closeProjectModal
 );
+
 
 modal.addEventListener(
     "click",
@@ -2298,6 +2623,7 @@ modal.addEventListener(
     }
 );
 
+
 document.addEventListener(
     "keydown",
     event => {
@@ -2310,6 +2636,27 @@ document.addEventListener(
 
     }
 );
+
+
+/* ==========================================
+   EVITAR SCROLL AUTOMÁTICO AL RECARGAR
+========================================== */
+
+document.addEventListener("DOMContentLoaded", function(){
+
+    if(window.location.hash){
+
+        history.replaceState(
+            null,
+            null,
+            window.location.pathname
+        );
+
+        window.scrollTo(0,0);
+
+    }
+
+});
 
 </script>
 
