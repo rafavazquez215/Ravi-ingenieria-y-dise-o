@@ -20,7 +20,6 @@
     --white:#ffffff;
     --gray:#a5a5ae;
     --light:#f6f6f8;
-    --border:rgba(255,255,255,.10);
 }
 
 *{
@@ -31,6 +30,7 @@
 
 html{
     scroll-behavior:smooth;
+    scroll-padding-top:78px;
 }
 
 body{
@@ -55,8 +55,6 @@ button{
     margin:auto;
 }
 
-/* SCROLLBAR */
-
 ::-webkit-scrollbar{
     width:8px;
 }
@@ -70,13 +68,10 @@ button{
     border-radius:10px;
 }
 
-/* ANIMACIONES */
-
 @keyframes float{
     0%,100%{
         transform:translateY(0);
     }
-
     50%{
         transform:translateY(-15px);
     }
@@ -86,7 +81,6 @@ button{
     0%,100%{
         box-shadow:0 0 0 0 rgba(124,77,255,.35);
     }
-
     50%{
         box-shadow:0 0 0 20px rgba(124,77,255,0);
     }
@@ -96,7 +90,6 @@ button{
     from{
         transform:rotate(0deg);
     }
-
     to{
         transform:rotate(360deg);
     }
@@ -107,7 +100,6 @@ button{
         opacity:0;
         transform:scale(.92);
     }
-
     to{
         opacity:1;
         transform:scale(1);
@@ -205,13 +197,11 @@ nav a:hover{
             rgba(124,77,255,.25),
             transparent 25%
         ),
-
         radial-gradient(
             circle at 15% 80%,
             rgba(124,77,255,.10),
             transparent 25%
         ),
-
         linear-gradient(
             135deg,
             #08080b,
@@ -364,6 +354,7 @@ nav a:hover{
         );
 
     border:1px solid rgba(255,255,255,.12);
+
     backdrop-filter:blur(15px);
 
     box-shadow:
@@ -374,10 +365,8 @@ nav a:hover{
     flex-direction:column;
     align-items:center;
     justify-content:center;
-
     position:relative;
     z-index:2;
-
     animation:float 5s ease-in-out infinite;
 }
 
@@ -633,7 +622,6 @@ nav a:hover{
             rgba(124,77,255,.16),
             transparent 45%
         ),
-
         linear-gradient(
             145deg,
             #292930,
@@ -722,7 +710,6 @@ nav a:hover{
             rgba(124,77,255,.18),
             transparent 45%
         ),
-
         #111116;
 
     display:flex;
@@ -878,7 +865,6 @@ nav a:hover{
             rgba(124,77,255,.20),
             transparent 45%
         ),
-
         linear-gradient(
             145deg,
             #1c1c23,
@@ -890,7 +876,6 @@ nav a:hover{
     justify-content:center;
     position:relative;
     overflow:hidden;
-
     box-shadow:20px 20px 0 var(--purple);
 }
 
@@ -933,7 +918,6 @@ nav a:hover{
             rgba(124,77,255,.25),
             transparent 30%
         ),
-
         linear-gradient(
             135deg,
             #0d0d11,
@@ -1160,20 +1144,13 @@ footer{
 
 <body>
 
-<!-- HEADER -->
-
 <header>
 
 <div class="container navbar">
 
     <a href="#inicio" class="logo">
-
         R<span>AVI</span>
-
-        <small>
-            INGENIERÍA Y DISEÑO
-        </small>
-
+        <small>INGENIERÍA Y DISEÑO</small>
     </a>
 
     <nav>
@@ -1200,9 +1177,6 @@ footer{
 
 </header>
 
-
-<!-- HERO -->
-
 <section class="hero" id="inicio">
 
 <div class="container hero-grid">
@@ -1219,12 +1193,10 @@ footer{
         </h1>
 
         <p class="hero-text">
-
             Desarrollo de soluciones de ingeniería,
             diseño mecánico, modelado 3D y desarrollo
             de productos para aplicaciones industriales,
             comerciales y residenciales.
-
         </p>
 
         <div class="buttons">
@@ -1246,7 +1218,6 @@ footer{
         </div>
 
     </div>
-
 
     <div class="hero-visual reveal">
 
@@ -1273,9 +1244,6 @@ footer{
 </div>
 
 </section>
-
-
-<!-- STATS -->
 
 <section class="stats">
 
@@ -1315,9 +1283,6 @@ footer{
 
 </section>
 
-
-<!-- SERVICIOS -->
-
 <section
     class="section services"
     id="servicios"
@@ -1332,23 +1297,18 @@ footer{
         </div>
 
         <h2 class="section-title">
-
             Diseñamos soluciones,
             <br>
             no solamente piezas.
-
         </h2>
 
         <p class="section-description">
-
             Desde un componente individual hasta
             el desarrollo completo de un producto,
             estructura o solución personalizada.
-
         </p>
 
     </div>
-
 
     <div class="services-grid">
 
@@ -1376,7 +1336,6 @@ footer{
 
         </div>
 
-
         <div class="service reveal">
 
             <div class="service-number">
@@ -1400,7 +1359,6 @@ footer{
             </ul>
 
         </div>
-
 
         <div class="service reveal">
 
@@ -1426,7 +1384,6 @@ footer{
 
         </div>
 
-
         <div class="service reveal">
 
             <div class="service-number">
@@ -1451,7 +1408,6 @@ footer{
 
         </div>
 
-
         <div class="service reveal">
 
             <div class="service-number">
@@ -1475,7 +1431,6 @@ footer{
             </ul>
 
         </div>
-
 
         <div class="service reveal">
 
@@ -1507,9 +1462,6 @@ footer{
 
 </section>
 
-
-<!-- CATALOGO -->
-
 <section
     class="section catalog"
     id="catalogo"
@@ -1528,16 +1480,13 @@ footer{
         </h2>
 
         <p class="section-description">
-
             Explora algunos de los proyectos
             desarrollados por RAVI. Esta sección
             irá creciendo conforme se agreguen
             nuevos diseños.
-
         </p>
 
     </div>
-
 
     <div class="filters reveal">
 
@@ -1585,7 +1534,6 @@ footer{
 
     </div>
 
-
     <div class="catalog-grid" id="catalogGrid">
 
         <div
@@ -1597,11 +1545,9 @@ footer{
         >
 
             <div class="catalog-image">
-
                 <div class="project-number">
                     01
                 </div>
-
             </div>
 
             <div class="catalog-info">
@@ -1622,7 +1568,6 @@ footer{
 
         </div>
 
-
         <div
             class="catalog-card reveal"
             data-category="industrial"
@@ -1632,11 +1577,9 @@ footer{
         >
 
             <div class="catalog-image">
-
                 <div class="project-number">
                     02
                 </div>
-
             </div>
 
             <div class="catalog-info">
@@ -1657,7 +1600,6 @@ footer{
 
         </div>
 
-
         <div
             class="catalog-card reveal"
             data-category="mobiliario"
@@ -1667,11 +1609,9 @@ footer{
         >
 
             <div class="catalog-image">
-
                 <div class="project-number">
                     03
                 </div>
-
             </div>
 
             <div class="catalog-info">
@@ -1692,7 +1632,6 @@ footer{
 
         </div>
 
-
         <div
             class="catalog-card reveal"
             data-category="mecanico"
@@ -1702,11 +1641,9 @@ footer{
         >
 
             <div class="catalog-image">
-
                 <div class="project-number">
                     04
                 </div>
-
             </div>
 
             <div class="catalog-info">
@@ -1727,7 +1664,6 @@ footer{
 
         </div>
 
-
         <div
             class="catalog-card reveal"
             data-category="producto"
@@ -1737,11 +1673,9 @@ footer{
         >
 
             <div class="catalog-image">
-
                 <div class="project-number">
                     05
                 </div>
-
             </div>
 
             <div class="catalog-info">
@@ -1762,7 +1696,6 @@ footer{
 
         </div>
 
-
         <div
             class="catalog-card reveal"
             data-category="otros"
@@ -1772,11 +1705,9 @@ footer{
         >
 
             <div class="catalog-image">
-
                 <div class="project-number">
                     06
                 </div>
-
             </div>
 
             <div class="catalog-info">
@@ -1803,9 +1734,6 @@ footer{
 
 </section>
 
-
-<!-- PROCESO -->
-
 <section
     class="section process"
     id="proceso"
@@ -1831,7 +1759,6 @@ footer{
 
     </div>
 
-
     <div class="process-grid">
 
         <div class="process-step reveal">
@@ -1851,7 +1778,6 @@ footer{
 
         </div>
 
-
         <div class="process-step reveal">
 
             <div class="process-number">
@@ -1869,7 +1795,6 @@ footer{
 
         </div>
 
-
         <div class="process-step reveal">
 
             <div class="process-number">
@@ -1886,7 +1811,6 @@ footer{
             </p>
 
         </div>
-
 
         <div class="process-step reveal">
 
@@ -1911,9 +1835,6 @@ footer{
 
 </section>
 
-
-<!-- WHY RAVI -->
-
 <section class="section why">
 
 <div class="container why-grid">
@@ -1932,15 +1853,12 @@ footer{
             </h2>
 
             <p class="section-description">
-
                 Puedes comenzar con una idea,
                 medidas, fotografías, referencias
                 o simplemente explicar qué necesitas.
-
             </p>
 
         </div>
-
 
         <div class="why-list">
 
@@ -1965,7 +1883,6 @@ footer{
 
             </div>
 
-
             <div class="why-item">
 
                 <div class="check">
@@ -1986,7 +1903,6 @@ footer{
                 </div>
 
             </div>
-
 
             <div class="why-item">
 
@@ -2013,7 +1929,6 @@ footer{
 
     </div>
 
-
     <div class="why-visual reveal">
 
         <div class="ravi-large">
@@ -2025,9 +1940,6 @@ footer{
 </div>
 
 </section>
-
-
-<!-- CONTACTO -->
 
 <section
     class="section contact"
@@ -2049,16 +1961,13 @@ footer{
             </h2>
 
             <p>
-
                 Cuéntame qué necesitas diseñar.
                 Puede ser una pieza, producto,
                 estructura, mecanismo o cualquier
                 otra solución.
-
             </p>
 
         </div>
-
 
         <div class="contact-info">
 
@@ -2069,13 +1978,10 @@ footer{
                 </small>
 
                 <a href="mailto:ravi.design.services@gmail.com">
-
                     ravi.design.services@gmail.com
-
                 </a>
 
             </div>
-
 
             <div class="contact-item">
 
@@ -2088,9 +1994,7 @@ footer{
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-
                     @ravi_ingenieria
-
                 </a>
 
             </div>
@@ -2103,33 +2007,22 @@ footer{
 
 </section>
 
-
-<!-- FOOTER -->
-
 <footer>
 
 <div class="container footer-content">
 
     <div class="footer-logo">
-
         R<span>AVI</span>
         Ingeniería y Diseño
-
     </div>
 
-
     <div>
-
         © 2026 RAVI Ingeniería y Diseño
-
     </div>
 
 </div>
 
 </footer>
-
-
-<!-- WHATSAPP -->
 
 <a
     class="whatsapp"
@@ -2140,9 +2033,6 @@ footer{
 >
     W
 </a>
-
-
-<!-- MODAL -->
 
 <div class="modal" id="projectModal">
 
@@ -2155,7 +2045,6 @@ footer{
             ×
         </button>
 
-
         <div class="modal-image">
 
             <strong id="modalNumber">
@@ -2163,7 +2052,6 @@ footer{
             </strong>
 
         </div>
-
 
         <div class="modal-content">
 
@@ -2174,11 +2062,9 @@ footer{
                 INDUSTRIAL
             </div>
 
-
             <h2 id="modalTitle">
                 Proyecto
             </h2>
-
 
             <p id="modalDescription">
                 Descripción del proyecto.
@@ -2190,31 +2076,39 @@ footer{
 
 </div>
 
-
 <script>
 
-/* =====================================================
-   EVITAR QUE LA PÁGINA ABRA ABAJO
-===================================================== */
+/*
+=====================================================
+EVITAR QUE LA PÁGINA ABRA ABAJO
+=====================================================
+*/
 
-if ("scrollRestoration" in history) {
+if("scrollRestoration" in history){
     history.scrollRestoration = "manual";
 }
 
 window.addEventListener("load", function(){
 
-    if(!window.location.hash){
+    setTimeout(function(){
+        window.scrollTo(0,0);
+    }, 50);
 
-        window.scrollTo(0, 0);
+});
 
+window.addEventListener("pageshow", function(event){
+
+    if(event.persisted){
+        window.scrollTo(0,0);
     }
 
 });
 
-
-/* =====================================================
-   ANIMACIONES AL HACER SCROLL
-===================================================== */
+/*
+=====================================================
+ANIMACIONES AL HACER SCROLL
+=====================================================
+*/
 
 const observer = new IntersectionObserver(
 
@@ -2238,7 +2132,6 @@ const observer = new IntersectionObserver(
 
 );
 
-
 document
     .querySelectorAll(".reveal")
     .forEach(element => {
@@ -2247,17 +2140,17 @@ document
 
     });
 
-
-/* =====================================================
-   FILTROS DEL CATÁLOGO
-===================================================== */
+/*
+=====================================================
+FILTROS DEL CATÁLOGO
+=====================================================
+*/
 
 const filterButtons =
     document.querySelectorAll(".filter-btn");
 
 const projectCards =
     document.querySelectorAll(".catalog-card");
-
 
 filterButtons.forEach(button => {
 
@@ -2271,16 +2164,13 @@ filterButtons.forEach(button => {
 
         button.classList.add("active");
 
-
         const filter =
             button.getAttribute("data-filter");
-
 
         projectCards.forEach(card => {
 
             const category =
                 card.getAttribute("data-category");
-
 
             if(
                 filter === "todos" ||
@@ -2292,7 +2182,8 @@ filterButtons.forEach(button => {
                 setTimeout(() => {
 
                     card.style.opacity = "1";
-                    card.style.transform = "translateY(0)";
+                    card.style.transform =
+                        "translateY(0)";
 
                 },10);
 
@@ -2301,7 +2192,8 @@ filterButtons.forEach(button => {
             else{
 
                 card.style.opacity = "0";
-                card.style.transform = "translateY(15px)";
+                card.style.transform =
+                    "translateY(15px)";
 
                 setTimeout(() => {
 
@@ -2317,10 +2209,11 @@ filterButtons.forEach(button => {
 
 });
 
-
-/* =====================================================
-   MODAL DE PROYECTOS
-===================================================== */
+/*
+=====================================================
+MODAL DE PROYECTOS
+=====================================================
+*/
 
 const modal =
     document.getElementById("projectModal");
@@ -2340,7 +2233,6 @@ const modalDescription =
 const modalNumber =
     document.getElementById("modalNumber");
 
-
 projectCards.forEach(card => {
 
     card.addEventListener("click", () => {
@@ -2358,7 +2250,6 @@ projectCards.forEach(card => {
             card.querySelector(".project-number")
             .textContent;
 
-
         modalTitle.textContent =
             title;
 
@@ -2371,7 +2262,6 @@ projectCards.forEach(card => {
         modalNumber.textContent =
             number;
 
-
         modal.classList.add("active");
 
         document.body.style.overflow =
@@ -2380,7 +2270,6 @@ projectCards.forEach(card => {
     });
 
 });
-
 
 function closeProjectModal(){
 
@@ -2391,12 +2280,10 @@ function closeProjectModal(){
 
 }
 
-
 closeModal.addEventListener(
     "click",
     closeProjectModal
 );
-
 
 modal.addEventListener(
     "click",
@@ -2410,7 +2297,6 @@ modal.addEventListener(
 
     }
 );
-
 
 document.addEventListener(
     "keydown",
