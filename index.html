@@ -98,8 +98,6 @@ button{
     }
 }
 
-/* ANIMACIONES GENERALES */
-
 .reveal{
     opacity:0;
     transform:translateY(40px);
@@ -165,6 +163,7 @@ header{
     display:inline-block;
     position:relative;
     margin-right:-2px;
+    font-size:0;
 }
 
 .logo-text .a::before{
@@ -174,13 +173,6 @@ header{
     color:var(--purple);
     display:inline-block;
     transform:scaleX(.9);
-}
-
-.logo-text .a{
-    font-size:0;
-}
-
-.logo-text .a::before{
     font-size:30px;
 }
 
@@ -246,22 +238,9 @@ nav a:hover{
     color:white;
 
     background:
-        radial-gradient(
-            circle at 75% 35%,
-            rgba(124,77,255,.25),
-            transparent 25%
-        ),
-        radial-gradient(
-            circle at 15% 80%,
-            rgba(124,77,255,.10),
-            transparent 25%
-        ),
-        linear-gradient(
-            135deg,
-            #08080b,
-            #121219,
-            #09090c
-        );
+        radial-gradient(circle at 75% 35%,rgba(124,77,255,.25),transparent 25%),
+        radial-gradient(circle at 15% 80%,rgba(124,77,255,.10),transparent 25%),
+        linear-gradient(135deg,#08080b,#121219,#09090c);
 }
 
 .hero::before{
@@ -402,16 +381,10 @@ nav a:hover{
     width:350px;
     height:390px;
     border-radius:20px;
-    background:linear-gradient(
-        145deg,
-        rgba(255,255,255,.08),
-        rgba(255,255,255,.025)
-    );
+    background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.025));
     border:1px solid rgba(255,255,255,.12);
     backdrop-filter:blur(15px);
-    box-shadow:
-        0 30px 80px rgba(0,0,0,.5),
-        0 0 80px rgba(124,77,255,.08);
+    box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 80px rgba(124,77,255,.08);
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -420,11 +393,6 @@ nav a:hover{
     z-index:2;
     animation:float 5s ease-in-out infinite;
 }
-
-
-/* ================================
-   LOGO HERO
-================================ */
 
 .hero-logo-new{
     display:flex;
@@ -559,11 +527,7 @@ nav a:hover{
 
 .services{
     background:
-        radial-gradient(
-            circle at 10% 20%,
-            rgba(124,77,255,.06),
-            transparent 25%
-        ),
+        radial-gradient(circle at 10% 20%,rgba(124,77,255,.06),transparent 25%),
         var(--light);
 }
 
@@ -635,7 +599,7 @@ nav a:hover{
 
 
 /* ================================
-   CATALOGO
+   CATÁLOGO
 ================================ */
 
 .catalog{
@@ -694,9 +658,7 @@ nav a:hover{
 .category-card:hover{
     transform:translateY(-8px);
     border-color:var(--purple);
-    box-shadow:
-        0 20px 50px rgba(0,0,0,.35),
-        0 0 30px rgba(124,77,255,.10);
+    box-shadow:0 20px 50px rgba(0,0,0,.35),0 0 30px rgba(124,77,255,.10);
 }
 
 .category-card:hover::before{
@@ -738,7 +700,7 @@ nav a:hover{
 
 
 /* ================================
-   VISTA DE CATEGORIA
+   VISTA DE CATEGORÍA
 ================================ */
 
 .category-view{
@@ -753,7 +715,6 @@ nav a:hover{
 }
 
 @keyframes categoryEnter{
-
     0%{
         opacity:0;
         transform:translateY(25px) scale(.98);
@@ -771,7 +732,6 @@ nav a:hover{
         transform:translateY(0) scale(1);
         filter:blur(0);
     }
-
 }
 
 .category-view.leaving{
@@ -780,7 +740,6 @@ nav a:hover{
 }
 
 @keyframes categoryLeave{
-
     0%{
         opacity:1;
         transform:translateY(0) scale(1);
@@ -792,7 +751,6 @@ nav a:hover{
         transform:translateY(-20px) scale(.98);
         filter:blur(3px);
     }
-
 }
 
 .category-header{
@@ -818,6 +776,11 @@ nav a:hover{
     color:white;
 }
 
+
+/* ================================
+   PROYECTOS
+================================ */
+
 .project-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -838,28 +801,19 @@ nav a:hover{
 .project-card:hover{
     transform:translateY(-8px);
     border-color:var(--purple);
-    box-shadow:
-        0 20px 50px rgba(0,0,0,.35),
-        0 0 30px rgba(124,77,255,.10);
+    box-shadow:0 20px 50px rgba(0,0,0,.35),0 0 30px rgba(124,77,255,.10);
 }
 
 .project-image{
     height:230px;
     background:
-        radial-gradient(
-            circle at center,
-            rgba(124,77,255,.16),
-            transparent 45%
-        ),
-        linear-gradient(
-            145deg,
-            #292930,
-            #111116
-        );
+        radial-gradient(circle at center,rgba(124,77,255,.16),transparent 45%),
+        linear-gradient(145deg,#292930,#111116);
     display:flex;
     align-items:center;
     justify-content:center;
     position:relative;
+    overflow:hidden;
 }
 
 .project-image::after{
@@ -876,6 +830,29 @@ nav a:hover{
     color:rgba(124,77,255,.35);
     position:relative;
     z-index:2;
+}
+
+/* IMAGEN REAL DE PROYECTO */
+
+.project-image-real{
+    padding:0;
+    background:#111116;
+}
+
+.project-image-real::after{
+    display:none;
+}
+
+.project-image-real img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:transform .55s cubic-bezier(.22,1,.36,1);
+}
+
+.project-card:hover .project-image-real img{
+    transform:scale(1.05);
 }
 
 .project-info{
@@ -934,22 +911,38 @@ nav a:hover{
 }
 
 .modal-image{
-    height:350px;
+    height:430px;
     background:
-        radial-gradient(
-            circle,
-            rgba(124,77,255,.18),
-            transparent 45%
-        ),
+        radial-gradient(circle,rgba(124,77,255,.18),transparent 45%),
         #111116;
     display:flex;
     align-items:center;
     justify-content:center;
+    overflow:hidden;
 }
 
 .modal-image strong{
     font-size:100px;
     color:rgba(124,77,255,.35);
+}
+
+.modal-image.has-image{
+    background:#111116;
+}
+
+.modal-image.has-image img{
+    display:block;
+}
+
+.modal-image img{
+    display:none;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.modal-image.has-image #modalNumber{
+    display:none;
 }
 
 .modal-content{
@@ -969,6 +962,7 @@ nav a:hover{
 
 .modal-content p{
     color:#999;
+    line-height:1.65;
 }
 
 .close-modal{
@@ -979,7 +973,7 @@ nav a:hover{
     height:40px;
     border-radius:50%;
     border:1px solid #444;
-    background:rgba(0,0,0,.5);
+    background:rgba(0,0,0,.65);
     color:white;
     font-size:20px;
     cursor:pointer;
@@ -1034,12 +1028,7 @@ nav a:hover{
 ================================ */
 
 .why{
-    background:
-        linear-gradient(
-            135deg,
-            #f5f4f8,
-            #ffffff
-        );
+    background:linear-gradient(135deg,#f5f4f8,#ffffff);
 }
 
 .why-grid{
@@ -1095,16 +1084,8 @@ nav a:hover{
     min-height:420px;
     border-radius:18px;
     background:
-        radial-gradient(
-            circle,
-            rgba(124,77,255,.20),
-            transparent 45%
-        ),
-        linear-gradient(
-            145deg,
-            #1c1c23,
-            #09090c
-        );
+        radial-gradient(circle,rgba(124,77,255,.20),transparent 45%),
+        linear-gradient(145deg,#1c1c23,#09090c);
     display:flex;
     align-items:center;
     justify-content:center;
@@ -1122,11 +1103,6 @@ nav a:hover{
     border-radius:50%;
     animation:rotate 20s linear infinite;
 }
-
-
-/* ================================
-   LOGO GRANDE
-================================ */
 
 .ravi-large-new{
     display:flex;
@@ -1178,16 +1154,8 @@ nav a:hover{
     border-radius:18px;
     color:white;
     background:
-        radial-gradient(
-            circle at 90% 20%,
-            rgba(124,77,255,.25),
-            transparent 30%
-        ),
-        linear-gradient(
-            135deg,
-            #0d0d11,
-            #181820
-        );
+        radial-gradient(circle at 90% 20%,rgba(124,77,255,.25),transparent 30%),
+        linear-gradient(135deg,#0d0d11,#181820);
     display:grid;
     grid-template-columns:1.3fr 1fr;
     gap:50px;
@@ -1361,7 +1329,6 @@ footer{
     }
 }
 
-
 @media(max-width:600px){
 
     .section{
@@ -1459,19 +1426,23 @@ footer{
         font-size:60px;
     }
 
+    .modal-image{
+        height:280px;
+    }
+
     .whatsapp{
         right:18px;
         bottom:18px;
         width:56px;
         height:56px;
     }
-
 }
 
 </style>
 </head>
 
 <body>
+
 
 <header>
 
@@ -1483,19 +1454,15 @@ footer{
             <span>R</span><span class="a">A</span><span class="v">V</span><span class="i">I</span>
         </div>
 
-        <small>
-            INGENIERÍA Y DISEÑO
-        </small>
+        <small>INGENIERÍA Y DISEÑO</small>
 
     </a>
 
     <nav>
-
         <a href="#servicios">Servicios</a>
         <a href="#catalogo">Catálogo</a>
         <a href="#proceso">Proceso</a>
         <a href="#contacto" class="nav-cta">Cotizar</a>
-
     </nav>
 
 </div>
@@ -1557,9 +1524,7 @@ footer{
 
             <div class="hero-card-line"></div>
 
-            <p>
-                DESIGN / ENGINEERING / 3D
-            </p>
+            <p>DESIGN / ENGINEERING / 3D</p>
 
         </div>
 
@@ -1758,7 +1723,7 @@ footer{
     </div>
 
 
-    <!-- MECANICO -->
+    <!-- DISEÑO MECÁNICO -->
 
     <div class="category-view" id="view-mecanico">
 
@@ -1775,7 +1740,10 @@ footer{
 
         <div class="project-grid">
 
-            <div class="project-card" data-title="Componente Mecánico" data-type="Diseño Mecánico" data-description="Componente mecánico desarrollado mediante modelado 3D.">
+            <div class="project-card"
+                 data-title="Componente Mecánico"
+                 data-type="Diseño Mecánico"
+                 data-description="Componente mecánico desarrollado mediante modelado 3D.">
 
                 <div class="project-image">
                     <div class="project-placeholder">01</div>
@@ -1790,7 +1758,10 @@ footer{
             </div>
 
 
-            <div class="project-card" data-title="Mecanismo" data-type="Diseño Mecánico" data-description="Desarrollo de mecanismo personalizado para una aplicación específica.">
+            <div class="project-card"
+                 data-title="Mecanismo"
+                 data-type="Diseño Mecánico"
+                 data-description="Desarrollo de mecanismo personalizado para una aplicación específica.">
 
                 <div class="project-image">
                     <div class="project-placeholder">02</div>
@@ -1805,7 +1776,10 @@ footer{
             </div>
 
 
-            <div class="project-card" data-title="Ensamble Mecánico" data-type="Diseño Mecánico" data-description="Diseño de ensamble compuesto por múltiples componentes.">
+            <div class="project-card"
+                 data-title="Ensamble Mecánico"
+                 data-type="Diseño Mecánico"
+                 data-description="Diseño de ensamble compuesto por múltiples componentes.">
 
                 <div class="project-image">
                     <div class="project-placeholder">03</div>
@@ -1824,7 +1798,7 @@ footer{
     </div>
 
 
-    <!-- INDUSTRIAL -->
+    <!-- DISEÑO INDUSTRIAL -->
 
     <div class="category-view" id="view-industrial">
 
@@ -1841,7 +1815,10 @@ footer{
 
         <div class="project-grid">
 
-            <div class="project-card" data-title="Rack Industrial" data-type="Diseño Industrial" data-description="Diseño de estructura para almacenamiento y manejo de materiales.">
+            <div class="project-card"
+                 data-title="Rack Industrial"
+                 data-type="Diseño Industrial"
+                 data-description="Diseño de estructura para almacenamiento y manejo de materiales.">
 
                 <div class="project-image">
                     <div class="project-placeholder">01</div>
@@ -1856,7 +1833,10 @@ footer{
             </div>
 
 
-            <div class="project-card" data-title="Gabinete Industrial" data-type="Diseño Industrial" data-description="Diseño y desarrollo de gabinete personalizado para aplicación industrial.">
+            <div class="project-card"
+                 data-title="Gabinete Industrial"
+                 data-type="Diseño Industrial"
+                 data-description="Diseño y desarrollo de gabinete personalizado para aplicación industrial.">
 
                 <div class="project-image">
                     <div class="project-placeholder">02</div>
@@ -1871,7 +1851,10 @@ footer{
             </div>
 
 
-            <div class="project-card" data-title="Estructura Industrial" data-type="Diseño Industrial" data-description="Diseño de estructura metálica para aplicación industrial.">
+            <div class="project-card"
+                 data-title="Estructura Industrial"
+                 data-type="Diseño Industrial"
+                 data-description="Diseño de estructura metálica para aplicación industrial.">
 
                 <div class="project-image">
                     <div class="project-placeholder">03</div>
@@ -1907,7 +1890,10 @@ footer{
 
         <div class="project-grid">
 
-            <div class="project-card" data-title="Desarrollo de Producto" data-type="Diseño de Producto" data-description="Conceptualización y desarrollo tridimensional de un producto.">
+            <div class="project-card"
+                 data-title="Desarrollo de Producto"
+                 data-type="Diseño de Producto"
+                 data-description="Conceptualización y desarrollo tridimensional de un producto.">
 
                 <div class="project-image">
                     <div class="project-placeholder">01</div>
@@ -1922,7 +1908,10 @@ footer{
             </div>
 
 
-            <div class="project-card" data-title="Producto Personalizado" data-type="Diseño de Producto" data-description="Diseño personalizado desarrollado a partir de los requerimientos del cliente.">
+            <div class="project-card"
+                 data-title="Producto Personalizado"
+                 data-type="Diseño de Producto"
+                 data-description="Diseño personalizado desarrollado a partir de los requerimientos del cliente.">
 
                 <div class="project-image">
                     <div class="project-placeholder">02</div>
@@ -1937,7 +1926,10 @@ footer{
             </div>
 
 
-            <div class="project-card" data-title="Concepto 3D" data-type="Diseño de Producto" data-description="Desarrollo conceptual y visualización tridimensional.">
+            <div class="project-card"
+                 data-title="Concepto 3D"
+                 data-type="Diseño de Producto"
+                 data-description="Desarrollo conceptual y visualización tridimensional.">
 
                 <div class="project-image">
                     <div class="project-placeholder">03</div>
@@ -1956,7 +1948,10 @@ footer{
     </div>
 
 
-    <!-- MOBILIARIO -->
+    <!-- ==========================================
+         MOBILIARIO
+         AQUÍ ESTÁ INTEGRADO EL NUEVO ESTANTE
+    =========================================== -->
 
     <div class="category-view" id="view-mobiliario">
 
@@ -1973,10 +1968,48 @@ footer{
 
         <div class="project-grid">
 
-            <div class="project-card" data-title="Estante Metálico" data-type="Mobiliario" data-description="Diseño de estante metálico para aplicaciones residenciales y comerciales.">
+
+            <!-- NUEVO PROYECTO -->
+
+            <div class="project-card"
+                 data-title="Estante Flotante Zigzag"
+                 data-type="Mobiliario"
+                 data-description="Estante flotante de diseño contemporáneo con composición escalonada tipo zigzag. Una propuesta funcional y decorativa que aprovecha el espacio vertical y combina almacenamiento con una estética moderna."
+                 data-image="estante-flotante-zigzag.png">
+
+                <div class="project-image project-image-real">
+
+                    <img
+                        src="estante-flotante-zigzag.png"
+                        alt="Estante Flotante Zigzag RAVI"
+                    >
+
+                </div>
+
+                <div class="project-info">
+
+                    <small>MOBILIARIO</small>
+
+                    <h3>
+                        Estante Flotante Zigzag
+                    </h3>
+
+                    <p>
+                        Diseño contemporáneo para decoración y almacenamiento.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="project-card"
+                 data-title="Estante Metálico"
+                 data-type="Mobiliario"
+                 data-description="Diseño de estante metálico para aplicaciones residenciales y comerciales.">
 
                 <div class="project-image">
-                    <div class="project-placeholder">01</div>
+                    <div class="project-placeholder">02</div>
                 </div>
 
                 <div class="project-info">
@@ -1988,22 +2021,10 @@ footer{
             </div>
 
 
-            <div class="project-card" data-title="Estante Flotante" data-type="Mobiliario" data-description="Diseño de estante flotante de estilo minimalista.">
-
-                <div class="project-image">
-                    <div class="project-placeholder">02</div>
-                </div>
-
-                <div class="project-info">
-                    <small>MOBILIARIO</small>
-                    <h3>Estante Flotante</h3>
-                    <p>Diseño de mobiliario.</p>
-                </div>
-
-            </div>
-
-
-            <div class="project-card" data-title="Mobiliario Personalizado" data-type="Mobiliario" data-description="Diseño de mobiliario desarrollado según medidas y requerimientos.">
+            <div class="project-card"
+                 data-title="Mobiliario Personalizado"
+                 data-type="Mobiliario"
+                 data-description="Diseño de mobiliario desarrollado según medidas y requerimientos.">
 
                 <div class="project-image">
                     <div class="project-placeholder">03</div>
@@ -2039,7 +2060,10 @@ footer{
 
         <div class="project-grid">
 
-            <div class="project-card" data-title="Solución Personalizada" data-type="Ingeniería" data-description="Desarrollo de una solución personalizada a partir de los requerimientos del cliente.">
+            <div class="project-card"
+                 data-title="Solución Personalizada"
+                 data-type="Ingeniería"
+                 data-description="Desarrollo de una solución personalizada a partir de los requerimientos del cliente.">
 
                 <div class="project-image">
                     <div class="project-placeholder">01</div>
@@ -2054,7 +2078,10 @@ footer{
             </div>
 
 
-            <div class="project-card" data-title="Proyecto Especial" data-type="Ingeniería" data-description="Desarrollo de proyecto especial de ingeniería.">
+            <div class="project-card"
+                 data-title="Proyecto Especial"
+                 data-type="Ingeniería"
+                 data-description="Desarrollo de proyecto especial de ingeniería.">
 
                 <div class="project-image">
                     <div class="project-placeholder">02</div>
@@ -2069,7 +2096,10 @@ footer{
             </div>
 
 
-            <div class="project-card" data-title="Solución de Ingeniería" data-type="Ingeniería" data-description="Solución diseñada específicamente para una necesidad determinada.">
+            <div class="project-card"
+                 data-title="Solución de Ingeniería"
+                 data-type="Ingeniería"
+                 data-description="Solución diseñada específicamente para una necesidad determinada.">
 
                 <div class="project-image">
                     <div class="project-placeholder">03</div>
@@ -2111,6 +2141,7 @@ footer{
         </p>
 
     </div>
+
 
     <div class="process-grid">
 
@@ -2172,27 +2203,36 @@ footer{
         <div class="why-list">
 
             <div class="why-item">
+
                 <div class="check">✓</div>
+
                 <div>
                     <h3>Desarrollo desde cero</h3>
                     <p>Una idea puede convertirse en un concepto de diseño.</p>
                 </div>
+
             </div>
 
             <div class="why-item">
+
                 <div class="check">✓</div>
+
                 <div>
                     <h3>Diseño personalizado</h3>
                     <p>Cada solución se adapta a la aplicación requerida.</p>
                 </div>
+
             </div>
 
             <div class="why-item">
+
                 <div class="check">✓</div>
+
                 <div>
                     <h3>Enfoque de ingeniería</h3>
                     <p>Funcionalidad, dimensiones, materiales y manufactura.</p>
                 </div>
+
             </div>
 
         </div>
@@ -2311,6 +2351,8 @@ footer{
 </a>
 
 
+<!-- MODAL -->
+
 <div class="modal" id="projectModal">
 
     <div class="modal-box">
@@ -2323,14 +2365,27 @@ footer{
             ×
         </button>
 
-        <div class="modal-image">
+
+        <div class="modal-image" id="modalImage">
+
             <strong id="modalNumber">01</strong>
+
+            <img
+                id="modalProjectImage"
+                src=""
+                alt=""
+            >
+
         </div>
+
 
         <div class="modal-content">
 
-            <div class="modal-category" id="modalCategory">
-                INDUSTRIAL
+            <div
+                class="modal-category"
+                id="modalCategory"
+            >
+                PROYECTO
             </div>
 
             <h2 id="modalTitle">
@@ -2446,7 +2501,7 @@ document
 
 
 /* ==========================================
-   CATEGORIAS
+   CATEGORÍAS
 ========================================== */
 
 const categoryMenu =
@@ -2487,7 +2542,7 @@ function scrollToCatalog(){
 
 
 /* ==========================================
-   ENTRAR A CATEGORIA
+   ENTRAR A CATEGORÍA
 ========================================== */
 
 categoryCards.forEach(card => {
@@ -2506,8 +2561,6 @@ categoryCards.forEach(card => {
             return;
         }
 
-
-        /* Animación de salida del menú */
 
         categoryMenu.style.transition =
             "opacity .28s ease, transform .28s ease";
@@ -2542,7 +2595,7 @@ categoryCards.forEach(card => {
 
 
 /* ==========================================
-   VOLVER A CATEGORIAS
+   VOLVER A CATEGORÍAS
 ========================================== */
 
 backButtons.forEach(button => {
@@ -2572,9 +2625,7 @@ backButtons.forEach(button => {
 
             categoryMenu.style.display = "grid";
 
-
-            categoryMenu.style.transition =
-                "none";
+            categoryMenu.style.transition = "none";
 
             categoryMenu.style.opacity = "0";
 
@@ -2625,6 +2676,12 @@ const modalDescription =
 const modalNumber =
     document.getElementById("modalNumber");
 
+const modalImage =
+    document.getElementById("modalImage");
+
+const modalProjectImage =
+    document.getElementById("modalProjectImage");
+
 
 const projectCards =
     document.querySelectorAll(".project-card");
@@ -2643,10 +2700,12 @@ projectCards.forEach(card => {
         const description =
             card.getAttribute("data-description");
 
-        const number =
-            card
-                .querySelector(".project-placeholder")
-                .textContent;
+        const image =
+            card.getAttribute("data-image");
+
+        const placeholder =
+            card.querySelector(".project-placeholder");
+
 
         modalTitle.textContent =
             title;
@@ -2657,8 +2716,59 @@ projectCards.forEach(card => {
         modalDescription.textContent =
             description;
 
-        modalNumber.textContent =
-            number;
+
+        /* =========================
+           SI EL PROYECTO TIENE IMAGEN
+        ========================= */
+
+        if(image){
+
+            modalImage.classList.add("has-image");
+
+            modalProjectImage.src =
+                image;
+
+            modalProjectImage.alt =
+                title;
+
+            modalNumber.style.display =
+                "none";
+
+        }
+
+
+        /* =========================
+           SI TODAVÍA NO TIENE IMAGEN
+        ========================= */
+
+        else{
+
+            modalImage.classList.remove("has-image");
+
+            modalProjectImage.src = "";
+
+            modalProjectImage.alt = "";
+
+            modalNumber.style.display =
+                "block";
+
+
+            if(placeholder){
+
+                modalNumber.textContent =
+                    placeholder.textContent;
+
+            }
+
+            else{
+
+                modalNumber.textContent =
+                    "01";
+
+            }
+
+        }
+
 
         modal.classList.add("active");
 
@@ -2674,8 +2784,7 @@ function closeProjectModal(){
 
     modal.classList.remove("active");
 
-    document.body.style.overflow =
-        "";
+    document.body.style.overflow = "";
 
 }
 
