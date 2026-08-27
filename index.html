@@ -846,8 +846,9 @@ nav a:hover{
 .project-image-real img{
     width:100%;
     height:100%;
-    object-fit:cover;
+    object-fit:contain;
     display:block;
+    background:#ece8e2;
     transition:transform .55s cubic-bezier(.22,1,.36,1);
 }
 
@@ -927,7 +928,9 @@ nav a:hover{
 }
 
 .modal-image.has-image{
-    background:#111116;
+    height:min(70vh,680px);
+    background:#ece8e2;
+    padding:16px;
 }
 
 .modal-image.has-image img{
@@ -938,7 +941,8 @@ nav a:hover{
     display:none;
     width:100%;
     height:100%;
-    object-fit:cover;
+    object-fit:contain;
+    border-radius:10px;
 }
 
 .modal-image.has-image #modalNumber{
@@ -1428,6 +1432,12 @@ footer{
 
     .modal-image{
         height:280px;
+    }
+
+    .modal-image.has-image{
+        height:62vh;
+        max-height:520px;
+        padding:10px;
     }
 
     .whatsapp{
