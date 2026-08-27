@@ -979,6 +979,25 @@ nav a:hover{
     line-height:1.65;
 }
 
+.modal-details{
+    margin-top:26px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    border:1px solid #303038;
+    border-radius:10px;
+    overflow:hidden;
+}
+.modal-detail{padding:15px 17px;}
+.modal-detail + .modal-detail{border-left:1px solid #303038;}
+.modal-detail small{display:block;color:#777;font-size:9px;letter-spacing:1.7px;margin-bottom:6px;}
+.modal-detail span{font-size:13px;color:#ddd;}
+.modal-features{list-style:none;margin-top:24px;display:flex;flex-direction:column;gap:12px;}
+.modal-features li{color:#aaa;font-size:14px;line-height:1.4;position:relative;padding-left:25px;}
+.modal-features li::before{content:"✓";position:absolute;left:0;color:var(--purple-light);font-weight:bold;}
+.modal-quote{display:inline-flex;margin-top:26px;padding:13px 19px;border-radius:7px;background:var(--purple);color:white;font-size:13px;font-weight:bold;transition:.3s;}
+.modal-quote:hover{background:var(--purple-dark);transform:translateY(-2px);}
+@media(max-width:600px){.modal-details{grid-template-columns:1fr}.modal-detail + .modal-detail{border-left:0;border-top:1px solid #303038;}}
+
 .close-modal{
     position:absolute;
     right:20px;
@@ -2428,6 +2447,19 @@ footer{
                 Descripción del proyecto.
             </p>
 
+            <div id="modalExtras" style="display:none;">
+                <div class="modal-details">
+                    <div class="modal-detail"><small>TIPO</small><span>Estante de piso</span></div>
+                    <div class="modal-detail"><small>ESTILO / USO</small><span>Contemporáneo · Decoración y almacenamiento</span></div>
+                </div>
+                <ul class="modal-features">
+                    <li>Diseño escalonado tipo zigzag</li>
+                    <li>Aprovechamiento del espacio vertical</li>
+                    <li>Uso residencial o comercial</li>
+                </ul>
+                <a class="modal-quote" href="https://wa.me/526441395859?text=Hola%20RAVI%2C%20me%20interesa%20cotizar%20un%20dise%C3%B1o%20similar%20al%20Estante%20Zigzag%20de%20Piso." target="_blank" rel="noopener noreferrer">Solicitar diseño similar</a>
+            </div>
+
         </div>
 
     </div>
@@ -2705,6 +2737,9 @@ const modalCategory =
 const modalDescription =
     document.getElementById("modalDescription");
 
+const modalExtras =
+    document.getElementById("modalExtras");
+
 const modalNumber =
     document.getElementById("modalNumber");
 
@@ -2747,6 +2782,9 @@ projectCards.forEach(card => {
 
         modalDescription.textContent =
             description;
+
+        modalExtras.style.display =
+            title === "Estante Zigzag de Piso" ? "block" : "none";
 
 
         /* =========================
