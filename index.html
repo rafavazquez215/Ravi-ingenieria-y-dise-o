@@ -72,9 +72,9 @@ button{
 }
 
 
-/* ================================
+/* ==========================================
    ANIMACIONES
-================================ */
+========================================== */
 
 @keyframes float{
     0%,100%{
@@ -126,9 +126,9 @@ button{
 }
 
 
-/* ================================
+/* ==========================================
    HEADER
-================================ */
+========================================== */
 
 header{
     position:fixed;
@@ -152,50 +152,63 @@ header{
 }
 
 
-/* ================================
-   LOGO
-================================ */
+/* ==========================================
+   LOGO RAVI
+   R = NEGRA
+   A = V INVERTIDA / SIN BARRA
+   V = NEGRA
+   I = MORADA
+========================================== */
 
 .logo{
     display:flex;
     align-items:center;
-    gap:12px;
-
-    color:white;
-
-    position:relative;
-}
-
-.logo-text{
-    font-size:30px;
-
-    font-weight:900;
-
-    letter-spacing:2px;
-
+    color:#000;
     line-height:1;
 }
 
-.logo-text span{
+.logo-word{
+    display:flex;
+    align-items:center;
+    height:40px;
+}
+
+.logo-letter{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:30px;
+    font-weight:900;
+    line-height:1;
+
+    letter-spacing:-3px;
+
+    color:#000;
+}
+
+.logo-letter.a{
+    color:var(--purple);
+}
+
+.logo-letter.i{
     color:var(--purple);
 }
 
 .logo small{
     font-size:7px;
-
     letter-spacing:2.5px;
-
     color:#888;
-
-    margin-left:3px;
-
+    margin-left:10px;
     font-weight:600;
+    white-space:nowrap;
 }
 
 
-/* ================================
+/* ==========================================
    NAV
-================================ */
+========================================== */
 
 nav{
     display:flex;
@@ -215,11 +228,8 @@ nav a:hover{
 
 .nav-cta{
     padding:10px 18px;
-
     border:1px solid var(--purple);
-
     border-radius:7px;
-
     color:white;
 }
 
@@ -228,17 +238,15 @@ nav a:hover{
 }
 
 
-/* ================================
+/* ==========================================
    HERO
-================================ */
+========================================== */
 
 .hero{
     min-height:100vh;
-
     padding-top:78px;
 
     position:relative;
-
     overflow:hidden;
 
     color:white;
@@ -273,7 +281,6 @@ nav a:hover{
     height:500px;
 
     border:1px solid rgba(124,77,255,.12);
-
     border-radius:50%;
 
     right:-150px;
@@ -291,7 +298,6 @@ nav a:hover{
     height:350px;
 
     border:1px solid rgba(255,255,255,.05);
-
     border-radius:50%;
 
     right:-50px;
@@ -302,7 +308,6 @@ nav a:hover{
     min-height:calc(100vh - 78px);
 
     display:grid;
-
     grid-template-columns:1fr 1fr;
 
     gap:70px;
@@ -314,9 +319,7 @@ nav a:hover{
     color:var(--purple-light);
 
     font-size:12px;
-
     letter-spacing:4px;
-
     font-weight:bold;
 
     margin-bottom:25px;
@@ -346,9 +349,7 @@ nav a:hover{
 
 .buttons{
     display:flex;
-
     gap:15px;
-
     flex-wrap:wrap;
 }
 
@@ -358,7 +359,6 @@ nav a:hover{
     border-radius:7px;
 
     font-size:14px;
-
     font-weight:bold;
 
     transition:.3s;
@@ -384,20 +384,18 @@ nav a:hover{
 
 .btn-outline{
     border:1px solid #444;
-
     color:white;
 }
 
 .btn-outline:hover{
     border-color:var(--purple);
-
     color:var(--purple-light);
 }
 
 
-/* ================================
+/* ==========================================
    HERO VISUAL
-================================ */
+========================================== */
 
 .hero-visual{
     position:relative;
@@ -405,9 +403,7 @@ nav a:hover{
     height:500px;
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 }
 
@@ -448,7 +444,6 @@ nav a:hover{
     height:300px;
 
     animation-direction:reverse;
-
     animation-duration:18s;
 
     border-color:rgba(255,255,255,.08);
@@ -476,44 +471,49 @@ nav a:hover{
         0 0 80px rgba(124,77,255,.08);
 
     display:flex;
-
     flex-direction:column;
 
     align-items:center;
-
     justify-content:center;
 
     position:relative;
-
     z-index:2;
 
     animation:float 5s ease-in-out infinite;
 }
 
 
-/* ================================
-   LOGO HERO
-================================ */
+/* ==========================================
+   LOGO GRANDE HERO
+========================================== */
 
 .hero-logo-new{
     display:flex;
-
     align-items:center;
-
-    justify-content:center;
 }
 
-.hero-logo-text{
-    font-size:75px;
+.hero-logo-word{
+    display:flex;
+    align-items:center;
 
+    font-family:Arial, Helvetica, sans-serif;
+
+    font-size:75px;
     font-weight:900;
 
-    letter-spacing:7px;
-
+    letter-spacing:-7px;
     line-height:1;
 }
 
-.hero-logo-text span{
+.hero-logo-word .black{
+    color:#000;
+}
+
+.hero-logo-word .purple{
+    color:var(--purple);
+}
+
+.hero-logo-word .a{
     color:var(--purple);
 }
 
@@ -539,9 +539,9 @@ nav a:hover{
 }
 
 
-/* ================================
+/* ==========================================
    STATS
-================================ */
+========================================== */
 
 .stats{
     background:white;
@@ -582,9 +582,9 @@ nav a:hover{
 }
 
 
-/* ================================
+/* ==========================================
    SECCIONES
-================================ */
+========================================== */
 
 .section{
     padding:110px 0;
@@ -621,9 +621,9 @@ nav a:hover{
 }
 
 
-/* ================================
+/* ==========================================
    SERVICIOS
-================================ */
+========================================== */
 
 .services{
     background:
@@ -728,9 +728,9 @@ nav a:hover{
 }
 
 
-/* ================================
+/* ==========================================
    CATALOGO
-================================ */
+========================================== */
 
 .catalog{
     background:#101014;
@@ -859,19 +859,9 @@ nav a:hover{
     display:flex;
 
     align-items:center;
-
     justify-content:center;
 
     position:relative;
-
-    overflow:hidden;
-}
-
-.catalog-image img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
 }
 
 .catalog-image::after{
@@ -884,8 +874,6 @@ nav a:hover{
     border:1px solid rgba(255,255,255,.05);
 
     border-radius:10px;
-
-    pointer-events:none;
 }
 
 .project-number{
@@ -925,9 +913,9 @@ nav a:hover{
 }
 
 
-/* ================================
+/* ==========================================
    MODAL
-================================ */
+========================================== */
 
 .modal{
     position:fixed;
@@ -943,7 +931,6 @@ nav a:hover{
     display:none;
 
     align-items:center;
-
     justify-content:center;
 
     padding:20px;
@@ -990,17 +977,7 @@ nav a:hover{
     display:flex;
 
     align-items:center;
-
     justify-content:center;
-
-    overflow:hidden;
-}
-
-.modal-image img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:none;
 }
 
 .modal-image strong{
@@ -1056,9 +1033,9 @@ nav a:hover{
 }
 
 
-/* ================================
+/* ==========================================
    PROCESO
-================================ */
+========================================== */
 
 .process{
     background:white;
@@ -1107,9 +1084,9 @@ nav a:hover{
 }
 
 
-/* ================================
+/* ==========================================
    WHY
-================================ */
+========================================== */
 
 .why{
     background:
@@ -1170,7 +1147,6 @@ nav a:hover{
     display:flex;
 
     align-items:center;
-
     justify-content:center;
 
     background:#eee8ff;
@@ -1211,7 +1187,6 @@ nav a:hover{
     display:flex;
 
     align-items:center;
-
     justify-content:center;
 
     position:relative;
@@ -1238,32 +1213,40 @@ nav a:hover{
 }
 
 
-/* ================================
-   RAVI GRANDE
-================================ */
+/* ==========================================
+   LOGO RAVI GRANDE
+========================================== */
 
 .ravi-large-new{
+    display:flex;
+
+    align-items:center;
+
+    z-index:2;
+
+    font-family:Arial, Helvetica, sans-serif;
+
     font-size:95px;
 
     font-weight:900;
 
-    letter-spacing:8px;
-
-    color:white;
-
-    z-index:2;
+    letter-spacing:-8px;
 
     line-height:1;
 }
 
-.ravi-large-new span{
+.ravi-large-new .black{
+    color:#000;
+}
+
+.ravi-large-new .purple{
     color:var(--purple);
 }
 
 
-/* ================================
+/* ==========================================
    CONTACTO
-================================ */
+========================================== */
 
 .contact{
     background:white;
@@ -1359,9 +1342,9 @@ nav a:hover{
 }
 
 
-/* ================================
+/* ==========================================
    FOOTER
-================================ */
+========================================== */
 
 footer{
     background:#08080a;
@@ -1394,9 +1377,9 @@ footer{
 }
 
 
-/* ================================
+/* ==========================================
    WHATSAPP
-================================ */
+========================================== */
 
 .whatsapp{
     position:fixed;
@@ -1416,7 +1399,6 @@ footer{
     display:flex;
 
     align-items:center;
-
     justify-content:center;
 
     z-index:1500;
@@ -1441,9 +1423,9 @@ footer{
 }
 
 
-/* ================================
+/* ==========================================
    RESPONSIVE
-================================ */
+========================================== */
 
 @media(max-width:950px){
 
@@ -1453,7 +1435,6 @@ footer{
 
     .hero-grid{
         grid-template-columns:1fr;
-
         text-align:center;
     }
 
@@ -1506,16 +1487,12 @@ footer{
         font-size:16px;
     }
 
-    .logo{
-        gap:7px;
-    }
-
-    .logo-text{
-        font-size:25px;
-    }
-
     .logo small{
         display:none;
+    }
+
+    .logo-letter{
+        font-size:25px;
     }
 
     .hero-card{
@@ -1523,10 +1500,9 @@ footer{
         height:310px;
     }
 
-    .hero-logo-text{
+    .hero-logo-word{
         font-size:55px;
-
-        letter-spacing:5px;
+        letter-spacing:-5px;
     }
 
     .orbit{
@@ -1577,8 +1553,7 @@ footer{
 
     .ravi-large-new{
         font-size:60px;
-
-        letter-spacing:5px;
+        letter-spacing:-5px;
     }
 
     .whatsapp{
@@ -1598,9 +1573,9 @@ footer{
 <body>
 
 
-<!-- ================================
+<!-- ==========================================
      HEADER
-================================ -->
+========================================== -->
 
 <header>
 
@@ -1608,8 +1583,16 @@ footer{
 
     <a href="#inicio" class="logo">
 
-        <div class="logo-text">
-            R<span>AVI</span>
+        <div class="logo-word">
+
+            <span class="logo-letter">R</span>
+
+            <span class="logo-letter a">A</span>
+
+            <span class="logo-letter">V</span>
+
+            <span class="logo-letter i">I</span>
+
         </div>
 
         <small>
@@ -1644,9 +1627,9 @@ footer{
 </header>
 
 
-<!-- ================================
+<!-- ==========================================
      HERO
-================================ -->
+========================================== -->
 
 <section class="hero" id="inicio">
 
@@ -1702,8 +1685,13 @@ footer{
 
             <div class="hero-logo-new">
 
-                <div class="hero-logo-text">
-                    R<span>AVI</span>
+                <div class="hero-logo-word">
+
+                    <span class="black">R</span>
+                    <span class="a">A</span>
+                    <span class="black">V</span>
+                    <span class="purple">I</span>
+
                 </div>
 
             </div>
@@ -1725,9 +1713,9 @@ footer{
 </section>
 
 
-<!-- ================================
+<!-- ==========================================
      STATS
-================================ -->
+========================================== -->
 
 <section class="stats">
 
@@ -1770,9 +1758,9 @@ footer{
 </section>
 
 
-<!-- ================================
+<!-- ==========================================
      SERVICIOS
-================================ -->
+========================================== -->
 
 <section
     class="section services"
@@ -1961,9 +1949,9 @@ footer{
 </section>
 
 
-<!-- ================================
+<!-- ==========================================
      CATALOGO
-================================ -->
+========================================== -->
 
 <section
     class="section catalog"
@@ -2258,9 +2246,9 @@ footer{
 </section>
 
 
-<!-- ================================
+<!-- ==========================================
      PROCESO
-================================ -->
+========================================== -->
 
 <section
     class="section process"
@@ -2369,9 +2357,9 @@ footer{
 </section>
 
 
-<!-- ================================
+<!-- ==========================================
      WHY
-================================ -->
+========================================== -->
 
 <section class="section why">
 
@@ -2476,7 +2464,12 @@ footer{
     <div class="why-visual reveal">
 
         <div class="ravi-large-new">
-            R<span>AVI</span>
+
+            <span class="black">R</span>
+            <span class="purple">A</span>
+            <span class="black">V</span>
+            <span class="purple">I</span>
+
         </div>
 
     </div>
@@ -2486,9 +2479,9 @@ footer{
 </section>
 
 
-<!-- ================================
+<!-- ==========================================
      CONTACTO
-================================ -->
+========================================== -->
 
 <section
     class="section contact"
@@ -2561,9 +2554,9 @@ footer{
 </section>
 
 
-<!-- ================================
+<!-- ==========================================
      FOOTER
-================================ -->
+========================================== -->
 
 <footer>
 
@@ -2585,9 +2578,9 @@ footer{
 </footer>
 
 
-<!-- ================================
+<!-- ==========================================
      WHATSAPP
-================================ -->
+========================================== -->
 
 <a
     class="whatsapp"
@@ -2603,16 +2596,16 @@ footer{
         aria-hidden="true"
     >
 
-        <path d="M20.52 3.48A11.84 11.84 0 0 0 12.09 0C5.54 .21 11.87c0 2.09.55 4.13 1.59 5.93L.11 24l6.34-1.66a11.88 11.88 0 0 0 5.64 1.44h.01c6.55 0 11.88-5.32 11.88-11.87 0-3.17-1.23-6.14-3.46-8.43ZM12.1 21.77h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.76.98 1-3.66-.23-.38a9.85 9.85 0 0 1-1.51-5.25C2.2 6.44 6.63 2.01 12.1 2.01c2.65 0 5.14 1.03 7.01 2.9a9.83 9.83 0 0 1 2.9 7.01c0 5.46-4.44 9.85-9.91 9.85Zm5.42-7.38c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/>
+        <path d="M20.52 3.48A11.84 11.84 0 0 0 12.09 0C5.54 .21.21 5.32.21 11.87c0 2.09.55 4.13 1.59 5.93L.11 24l6.34-1.66a11.88 11.88 0 0 0 5.64 1.44h.01c6.55 0 11.88-5.32 11.88-11.87 0-3.17-1.23-6.14-3.46-8.43ZM12.1 21.77h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.76.98 1-3.66-.23-.38a9.85 9.85 0 0 1-1.51-5.25C2.2 6.44 6.63 2.01 12.1 2.01c2.65 0 5.14 1.03 7.01 2.9a9.83 9.83 0 0 1 2.9 7.01c0 5.46-4.44 9.85-9.91 9.85Zm5.42-7.38c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/>
 
     </svg>
 
 </a>
 
 
-<!-- ================================
+<!-- ==========================================
      MODAL
-================================ -->
+========================================== -->
 
 <div class="modal" id="projectModal">
 
@@ -2629,8 +2622,6 @@ footer{
 
 
         <div class="modal-image">
-
-            <img id="modalProjectImage" alt="Imagen del proyecto">
 
             <strong id="modalNumber">
                 01
@@ -2672,17 +2663,13 @@ footer{
 ========================================== */
 
 if ("scrollRestoration" in history) {
-
     history.scrollRestoration = "manual";
-
 }
 
 window.addEventListener("load", function(){
 
     if (!window.location.hash) {
-
         window.scrollTo(0, 0);
-
     }
 
 });
@@ -2728,9 +2715,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
         window.scrollTo({
 
             top:targetPosition,
-
             left:0,
-
             behavior:"smooth"
 
         });
@@ -2876,9 +2861,6 @@ const modalDescription =
 const modalNumber =
     document.getElementById("modalNumber");
 
-const modalProjectImage =
-    document.getElementById("modalProjectImage");
-
 
 projectCards.forEach(card => {
 
@@ -2898,9 +2880,6 @@ projectCards.forEach(card => {
                 .querySelector(".project-number")
                 .textContent;
 
-        const image =
-            card.querySelector(".catalog-image img");
-
         modalTitle.textContent =
             title;
 
@@ -2912,32 +2891,6 @@ projectCards.forEach(card => {
 
         modalNumber.textContent =
             number;
-
-        if(image){
-
-            modalProjectImage.src =
-                image.src;
-
-            modalProjectImage.alt =
-                title;
-
-            modalProjectImage.style.display =
-                "block";
-
-            modalNumber.style.display =
-                "none";
-
-        }
-
-        else{
-
-            modalProjectImage.style.display =
-                "none";
-
-            modalNumber.style.display =
-                "block";
-
-        }
 
         modal.classList.add("active");
 
