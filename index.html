@@ -1,4 +1,4 @@
-<!DOCTYPE html>   
+<!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -14,15 +14,12 @@
     --purple:#7c4dff;
     --purple-light:#a88cff;
     --purple-dark:#5d35d6;
-
     --black:#0b0b0f;
     --dark:#121218;
     --dark-2:#18181f;
-
     --white:#ffffff;
     --gray:#a5a5ae;
     --light:#f6f6f8;
-
     --border:rgba(255,255,255,.10);
 }
 
@@ -71,39 +68,23 @@ button{
     border-radius:10px;
 }
 
-
-/* =========================================
-   ANIMACIONES
-========================================= */
-
 @keyframes float{
-    0%,100%{
-        transform:translateY(0);
-    }
-
-    50%{
-        transform:translateY(-15px);
-    }
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
 }
 
 @keyframes pulse{
     0%,100%{
         box-shadow:0 0 0 0 rgba(37,211,102,.35);
     }
-
     50%{
         box-shadow:0 0 0 20px rgba(37,211,102,0);
     }
 }
 
 @keyframes rotate{
-    from{
-        transform:rotate(0deg);
-    }
-
-    to{
-        transform:rotate(360deg);
-    }
+    from{transform:rotate(0deg);}
+    to{transform:rotate(360deg);}
 }
 
 @keyframes modalIn{
@@ -111,22 +92,9 @@ button{
         opacity:0;
         transform:scale(.92);
     }
-
     to{
         opacity:1;
         transform:scale(1);
-    }
-}
-
-@keyframes pageIn{
-    from{
-        opacity:0;
-        transform:translateY(15px);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(0);
     }
 }
 
@@ -142,9 +110,9 @@ button{
 }
 
 
-/* =========================================
+/* ================================
    HEADER
-========================================= */
+================================ */
 
 header{
     position:fixed;
@@ -152,59 +120,73 @@ header{
     left:0;
     width:100%;
     z-index:1000;
-
     background:rgba(8,8,12,.78);
     backdrop-filter:blur(18px);
-
     border-bottom:1px solid rgba(255,255,255,.07);
 }
 
 .navbar{
     height:78px;
-
     display:flex;
     align-items:center;
     justify-content:space-between;
 }
 
 
-/* =========================================
-   LOGO RAVI
-   R = BLANCA
-   A = MORADA
-   V = BLANCA
-   I = MORADA
-========================================= */
+/* ================================
+   LOGO
+   ÚNICO CAMBIO:
+   A y V quedan pegadas
+================================ */
 
 .logo{
     display:flex;
     align-items:center;
-
     color:white;
-
     position:relative;
 }
 
 .logo-text{
+    display:flex;
+    align-items:center;
     font-size:30px;
-
     font-weight:900;
-
     letter-spacing:2px;
-
     line-height:1;
-}
-
-.logo-text .r{
     color:#ffffff;
 }
 
-.logo-text .a{
+.logo-text .a,
+.logo-text .i{
     color:var(--purple);
+}
+
+.logo-text .a{
+    display:inline-block;
+    position:relative;
+    margin-right:-2px;
+}
+
+.logo-text .a::before{
+    content:"Λ";
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight:900;
+    color:var(--purple);
+    display:inline-block;
+    transform:scaleX(.9);
+}
+
+.logo-text .a{
+    font-size:0;
+}
+
+.logo-text .a::before{
+    font-size:30px;
 }
 
 .logo-text .v{
     color:#ffffff;
+    margin-left:-2px;
 }
 
 .logo-text .i{
@@ -213,20 +195,16 @@ header{
 
 .logo small{
     font-size:7px;
-
     letter-spacing:2.5px;
-
     color:#888;
-
-    margin-left:10px;
-
+    margin-left:8px;
     font-weight:600;
 }
 
 
-/* =========================================
+/* ================================
    NAV
-========================================= */
+================================ */
 
 nav{
     display:flex;
@@ -246,11 +224,8 @@ nav a:hover{
 
 .nav-cta{
     padding:10px 18px;
-
     border:1px solid var(--purple);
-
     border-radius:7px;
-
     color:white;
 }
 
@@ -259,19 +234,15 @@ nav a:hover{
 }
 
 
-/* =========================================
+/* ================================
    HERO
-========================================= */
+================================ */
 
 .hero{
     min-height:100vh;
-
     padding-top:78px;
-
     position:relative;
-
     overflow:hidden;
-
     color:white;
 
     background:
@@ -280,13 +251,11 @@ nav a:hover{
             rgba(124,77,255,.25),
             transparent 25%
         ),
-
         radial-gradient(
             circle at 15% 80%,
             rgba(124,77,255,.10),
             transparent 25%
         ),
-
         linear-gradient(
             135deg,
             #08080b,
@@ -297,67 +266,46 @@ nav a:hover{
 
 .hero::before{
     content:"";
-
     position:absolute;
-
     width:500px;
     height:500px;
-
     border:1px solid rgba(124,77,255,.12);
-
     border-radius:50%;
-
     right:-150px;
     top:120px;
-
     animation:rotate 30s linear infinite;
 }
 
 .hero::after{
     content:"";
-
     position:absolute;
-
     width:350px;
     height:350px;
-
     border:1px solid rgba(255,255,255,.05);
-
     border-radius:50%;
-
     right:-50px;
     top:200px;
 }
 
 .hero-grid{
     min-height:calc(100vh - 78px);
-
     display:grid;
-
     grid-template-columns:1fr 1fr;
-
     gap:70px;
-
     align-items:center;
 }
 
 .hero-label{
     color:var(--purple-light);
-
     font-size:12px;
-
     letter-spacing:4px;
-
     font-weight:bold;
-
     margin-bottom:25px;
 }
 
 .hero h1{
     font-size:clamp(48px,6vw,78px);
-
     line-height:1;
-
     margin-bottom:25px;
 }
 
@@ -367,193 +315,155 @@ nav a:hover{
 
 .hero-text{
     color:#aaa;
-
     max-width:590px;
-
     font-size:18px;
-
     margin-bottom:35px;
 }
 
 .buttons{
     display:flex;
-
     gap:15px;
-
     flex-wrap:wrap;
 }
 
 .btn{
     padding:15px 25px;
-
     border-radius:7px;
-
     font-size:14px;
-
     font-weight:bold;
-
     transition:.3s;
 }
 
 .btn-primary{
     background:var(--purple);
-
     color:white;
-
-    box-shadow:
-        0 10px 30px rgba(124,77,255,.25);
+    box-shadow:0 10px 30px rgba(124,77,255,.25);
 }
 
 .btn-primary:hover{
     transform:translateY(-3px);
-
     background:var(--purple-dark);
-
-    box-shadow:
-        0 15px 40px rgba(124,77,255,.35);
+    box-shadow:0 15px 40px rgba(124,77,255,.35);
 }
 
 .btn-outline{
     border:1px solid #444;
-
     color:white;
 }
 
 .btn-outline:hover{
     border-color:var(--purple);
-
     color:var(--purple-light);
 }
 
 
-/* =========================================
+/* ================================
    HERO VISUAL
-========================================= */
+================================ */
 
 .hero-visual{
     position:relative;
-
     height:500px;
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 }
 
 .orbit{
     position:absolute;
-
     width:390px;
     height:390px;
-
     border:1px solid rgba(124,77,255,.18);
-
     border-radius:50%;
-
     animation:rotate 25s linear infinite;
 }
 
 .orbit::before{
     content:"";
-
     position:absolute;
-
     width:10px;
     height:10px;
-
     background:var(--purple);
-
     border-radius:50%;
-
     top:30px;
     left:65px;
-
-    box-shadow:
-        0 0 20px var(--purple);
+    box-shadow:0 0 20px var(--purple);
 }
 
 .orbit.two{
     width:300px;
     height:300px;
-
     animation-direction:reverse;
-
     animation-duration:18s;
-
     border-color:rgba(255,255,255,.08);
 }
 
 .hero-card{
     width:350px;
     height:390px;
-
     border-radius:20px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.08),
-            rgba(255,255,255,.025)
-        );
-
+    background:linear-gradient(
+        145deg,
+        rgba(255,255,255,.08),
+        rgba(255,255,255,.025)
+    );
     border:1px solid rgba(255,255,255,.12);
-
     backdrop-filter:blur(15px);
-
     box-shadow:
         0 30px 80px rgba(0,0,0,.5),
         0 0 80px rgba(124,77,255,.08);
-
     display:flex;
-
     flex-direction:column;
-
     align-items:center;
-
     justify-content:center;
-
     position:relative;
-
     z-index:2;
-
     animation:float 5s ease-in-out infinite;
 }
 
 
-/* =========================================
+/* ================================
    LOGO HERO
-========================================= */
+================================ */
 
 .hero-logo-new{
     display:flex;
-
     align-items:center;
-
-    gap:0;
 }
 
 .hero-logo-text{
+    display:flex;
+    align-items:center;
     font-size:75px;
-
     font-weight:900;
-
     letter-spacing:7px;
-
     line-height:1;
-}
-
-.hero-logo-text .r{
     color:#ffffff;
 }
 
-.hero-logo-text .a{
+.hero-logo-text .a,
+.hero-logo-text .i{
     color:var(--purple);
+}
+
+.hero-logo-text .a{
+    font-size:0;
+    margin-right:-5px;
+}
+
+.hero-logo-text .a::before{
+    content:"Λ";
+    font-size:75px;
+    color:var(--purple);
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight:900;
+    display:inline-block;
+    transform:scaleX(.9);
 }
 
 .hero-logo-text .v{
     color:#ffffff;
+    margin-left:-5px;
 }
 
 .hero-logo-text .i{
@@ -562,47 +472,36 @@ nav a:hover{
 
 .hero-card-line{
     width:70px;
-
     height:2px;
-
     background:var(--purple);
-
     margin:25px 0;
-
-    box-shadow:
-        0 0 15px var(--purple);
+    box-shadow:0 0 15px var(--purple);
 }
 
 .hero-card p{
     color:#999;
-
     font-size:12px;
-
     letter-spacing:3px;
 }
 
 
-/* =========================================
+/* ================================
    STATS
-========================================= */
+================================ */
 
 .stats{
     background:white;
-
     border-bottom:1px solid #e5e5e5;
 }
 
 .stats-grid{
     display:grid;
-
     grid-template-columns:repeat(3,1fr);
 }
 
 .stat{
     padding:35px;
-
     text-align:center;
-
     border-right:1px solid #e5e5e5;
 }
 
@@ -612,22 +511,19 @@ nav a:hover{
 
 .stat strong{
     display:block;
-
     font-size:30px;
-
     color:var(--purple);
 }
 
 .stat span{
     font-size:13px;
-
     color:#777;
 }
 
 
-/* =========================================
+/* ================================
    SECCIONES
-========================================= */
+================================ */
 
 .section{
     padding:110px 0;
@@ -639,34 +535,27 @@ nav a:hover{
 
 .section-label{
     color:var(--purple);
-
     font-size:11px;
-
     font-weight:bold;
-
     letter-spacing:4px;
-
     margin-bottom:12px;
 }
 
 .section-title{
     font-size:43px;
-
     line-height:1.1;
 }
 
 .section-description{
     color:#707078;
-
     max-width:700px;
-
     margin-top:15px;
 }
 
 
-/* =========================================
+/* ================================
    SERVICIOS
-========================================= */
+================================ */
 
 .services{
     background:
@@ -675,59 +564,41 @@ nav a:hover{
             rgba(124,77,255,.06),
             transparent 25%
         ),
-
         var(--light);
 }
 
 .services-grid{
     display:grid;
-
     grid-template-columns:repeat(3,1fr);
-
     gap:20px;
 }
 
 .service{
     padding:35px;
-
     background:rgba(255,255,255,.75);
-
     border:1px solid #e7e7eb;
-
     border-radius:14px;
-
     transition:.4s;
-
     position:relative;
-
     overflow:hidden;
 }
 
 .service::before{
     content:"";
-
     position:absolute;
-
     width:100px;
     height:100px;
-
     border-radius:50%;
-
     background:rgba(124,77,255,.08);
-
     top:-40px;
     right:-40px;
-
     transition:.4s;
 }
 
 .service:hover{
     transform:translateY(-10px);
-
     border-color:#c9baff;
-
-    box-shadow:
-        0 20px 50px rgba(0,0,0,.08);
+    box-shadow:0 20px 50px rgba(0,0,0,.08);
 }
 
 .service:hover::before{
@@ -736,33 +607,25 @@ nav a:hover{
 
 .service-number{
     color:var(--purple);
-
     font-size:11px;
-
     font-weight:bold;
-
     margin-bottom:25px;
 }
 
 .service h3{
     font-size:20px;
-
     margin-bottom:12px;
 }
 
 .service p{
     color:#707078;
-
     font-size:14px;
 }
 
 .service-list{
     margin-top:18px;
-
     padding-left:17px;
-
     color:#777;
-
     font-size:13px;
 }
 
@@ -771,34 +634,25 @@ nav a:hover{
 }
 
 
-/* =========================================
+/* ================================
    CATALOGO
-========================================= */
+================================ */
 
 .catalog{
     background:#101014;
-
     color:white;
-
     position:relative;
-
     overflow:hidden;
 }
 
 .catalog::before{
     content:"";
-
     position:absolute;
-
     width:600px;
     height:600px;
-
     border-radius:50%;
-
     background:rgba(124,77,255,.07);
-
     filter:blur(80px);
-
     top:-300px;
     right:-150px;
 }
@@ -807,285 +661,212 @@ nav a:hover{
     color:#999;
 }
 
-.catalog-intro{
+.category-grid{
     display:grid;
-
-    grid-template-columns:repeat(4,1fr);
-
-    gap:15px;
-
-    margin-top:35px;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
 }
 
 .category-card{
-    min-height:180px;
-
-    border:1px solid #2c2c34;
-
-    border-radius:14px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #1b1b22,
-            #131318
-        );
-
-    padding:28px;
-
-    position:relative;
-
-    overflow:hidden;
-
+    min-height:220px;
+    padding:32px;
+    border-radius:15px;
+    background:#18181e;
+    border:1px solid #292930;
     cursor:pointer;
-
-    transition:.35s;
+    position:relative;
+    overflow:hidden;
+    transition:.4s;
 }
 
-.category-card::after{
+.category-card::before{
     content:"";
-
     position:absolute;
-
-    width:130px;
-    height:130px;
-
+    width:180px;
+    height:180px;
     border-radius:50%;
-
-    background:rgba(124,77,255,.08);
-
-    right:-55px;
-    bottom:-55px;
-
-    transition:.35s;
+    background:rgba(124,77,255,.07);
+    right:-70px;
+    top:-70px;
+    transition:.4s;
 }
 
 .category-card:hover{
     transform:translateY(-8px);
-
     border-color:var(--purple);
-
-    box-shadow:
-        0 20px 45px rgba(0,0,0,.3);
-}
-
-.category-card:hover::after{
-    transform:scale(1.7);
-}
-
-.category-number{
-    color:var(--purple);
-
-    font-size:11px;
-
-    font-weight:bold;
-
-    letter-spacing:2px;
-
-    margin-bottom:35px;
-}
-
-.category-card h3{
-    font-size:21px;
-
-    margin-bottom:8px;
-}
-
-.category-card p{
-    color:#888;
-
-    font-size:13px;
-
-    max-width:220px;
-}
-
-.catalog-view{
-    display:none;
-
-    animation:pageIn .35s ease;
-}
-
-.catalog-view.active{
-    display:block;
-}
-
-.catalog-back{
-    display:inline-flex;
-
-    align-items:center;
-
-    gap:10px;
-
-    border:1px solid #333;
-
-    background:transparent;
-
-    color:#aaa;
-
-    padding:11px 18px;
-
-    border-radius:7px;
-
-    cursor:pointer;
-
-    margin-bottom:35px;
-
-    transition:.3s;
-}
-
-.catalog-back:hover{
-    color:white;
-
-    border-color:var(--purple);
-}
-
-.catalog-category-title{
-    margin-bottom:35px;
-}
-
-.catalog-category-title h3{
-    font-size:32px;
-
-    margin-bottom:8px;
-}
-
-.catalog-category-title p{
-    color:#888;
-
-    font-size:14px;
-}
-
-.catalog-grid{
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:22px;
-}
-
-.catalog-card{
-    min-height:390px;
-
-    border-radius:14px;
-
-    overflow:hidden;
-
-    position:relative;
-
-    background:#18181e;
-
-    border:1px solid #292930;
-
-    cursor:pointer;
-
-    transition:.4s;
-}
-
-.catalog-card:hover{
-    transform:translateY(-8px);
-
-    border-color:var(--purple);
-
     box-shadow:
         0 20px 50px rgba(0,0,0,.35),
         0 0 30px rgba(124,77,255,.10);
 }
 
-.catalog-image{
-    height:260px;
+.category-card:hover::before{
+    transform:scale(1.5);
+}
 
+.category-number{
+    color:var(--purple);
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:2px;
+    position:relative;
+    z-index:2;
+}
+
+.category-card h3{
+    font-size:25px;
+    margin-top:45px;
+    position:relative;
+    z-index:2;
+}
+
+.category-card p{
+    color:#888;
+    font-size:13px;
+    margin-top:8px;
+    position:relative;
+    z-index:2;
+}
+
+.category-arrow{
+    position:absolute;
+    right:25px;
+    bottom:22px;
+    font-size:24px;
+    color:var(--purple-light);
+    z-index:2;
+}
+
+
+/* ================================
+   VISTA DE CATEGORIA
+================================ */
+
+.category-view{
+    display:none;
+}
+
+.category-view.active{
+    display:block;
+}
+
+.category-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    gap:20px;
+    margin-bottom:35px;
+}
+
+.category-back{
+    padding:10px 18px;
+    border:1px solid #444;
+    background:transparent;
+    color:#ccc;
+    border-radius:7px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.category-back:hover{
+    border-color:var(--purple);
+    color:white;
+}
+
+.project-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.project-card{
+    min-height:350px;
+    border-radius:14px;
+    overflow:hidden;
+    position:relative;
+    background:#18181e;
+    border:1px solid #292930;
+    cursor:pointer;
+    transition:.4s;
+}
+
+.project-card:hover{
+    transform:translateY(-8px);
+    border-color:var(--purple);
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.35),
+        0 0 30px rgba(124,77,255,.10);
+}
+
+.project-image{
+    height:230px;
     background:
         radial-gradient(
             circle at center,
             rgba(124,77,255,.16),
             transparent 45%
         ),
-
         linear-gradient(
             145deg,
             #292930,
             #111116
         );
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
     position:relative;
 }
 
-.catalog-image::after{
+.project-image::after{
     content:"";
-
     position:absolute;
-
     inset:20px;
-
     border:1px solid rgba(255,255,255,.05);
-
     border-radius:10px;
 }
 
-.project-number{
-    font-size:60px;
-
+.project-placeholder{
+    font-size:55px;
     font-weight:900;
-
     color:rgba(124,77,255,.35);
+    position:relative;
+    z-index:2;
 }
 
-.catalog-info{
-    padding:22px;
+.project-info{
+    padding:20px;
 }
 
-.catalog-category{
+.project-info small{
     color:var(--purple-light);
-
     font-size:10px;
-
     letter-spacing:2px;
-
-    font-weight:bold;
 }
 
-.catalog-info h3{
-    font-size:20px;
-
-    margin-top:5px;
+.project-info h3{
+    font-size:19px;
+    margin-top:6px;
 }
 
-.catalog-info p{
+.project-info p{
     color:#888;
-
     font-size:13px;
-
     margin-top:5px;
 }
 
 
-/* =========================================
+/* ================================
    MODAL
-========================================= */
+================================ */
 
 .modal{
     position:fixed;
-
     inset:0;
-
     background:rgba(0,0,0,.82);
-
     backdrop-filter:blur(10px);
-
     z-index:2000;
-
     display:none;
-
     align-items:center;
-
     justify-content:center;
-
     padding:20px;
 }
 
@@ -1095,48 +876,33 @@ nav a:hover{
 
 .modal-box{
     width:100%;
-
     max-width:850px;
-
     max-height:90vh;
-
     overflow:auto;
-
     background:#17171d;
-
     border:1px solid #333;
-
     border-radius:15px;
-
     color:white;
-
     position:relative;
-
     animation:modalIn .35s ease;
 }
 
 .modal-image{
     height:350px;
-
     background:
         radial-gradient(
             circle,
             rgba(124,77,255,.18),
             transparent 45%
         ),
-
         #111116;
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 }
 
 .modal-image strong{
     font-size:100px;
-
     color:rgba(124,77,255,.35);
 }
 
@@ -1146,15 +912,12 @@ nav a:hover{
 
 .modal-category{
     color:var(--purple-light);
-
     font-size:11px;
-
     letter-spacing:2px;
 }
 
 .modal-content h2{
     font-size:32px;
-
     margin:8px 0 15px;
 }
 
@@ -1164,32 +927,23 @@ nav a:hover{
 
 .close-modal{
     position:absolute;
-
     right:20px;
     top:20px;
-
     width:40px;
     height:40px;
-
     border-radius:50%;
-
     border:1px solid #444;
-
     background:rgba(0,0,0,.5);
-
     color:white;
-
     font-size:20px;
-
     cursor:pointer;
-
     z-index:5;
 }
 
 
-/* =========================================
+/* ================================
    PROCESO
-========================================= */
+================================ */
 
 .process{
     background:white;
@@ -1197,33 +951,25 @@ nav a:hover{
 
 .process-grid{
     display:grid;
-
     grid-template-columns:repeat(4,1fr);
-
     gap:20px;
 }
 
 .process-step{
     padding:30px 20px;
-
     border-top:2px solid #ddd;
-
     transition:.3s;
 }
 
 .process-step:hover{
     border-color:var(--purple);
-
     transform:translateY(-5px);
 }
 
 .process-number{
     color:var(--purple);
-
     font-weight:bold;
-
     font-size:13px;
-
     margin-bottom:25px;
 }
 
@@ -1233,14 +979,13 @@ nav a:hover{
 
 .process-step p{
     color:#777;
-
     font-size:13px;
 }
 
 
-/* =========================================
+/* ================================
    WHY
-========================================= */
+================================ */
 
 .why{
     background:
@@ -1253,61 +998,41 @@ nav a:hover{
 
 .why-grid{
     display:grid;
-
     grid-template-columns:1fr 1fr;
-
     gap:70px;
-
     align-items:center;
 }
 
 .why-list{
     display:flex;
-
     flex-direction:column;
-
     gap:18px;
 }
 
 .why-item{
     display:flex;
-
     gap:18px;
-
     padding:20px;
-
     background:white;
-
     border:1px solid #e8e8eb;
-
     border-radius:10px;
-
     transition:.3s;
 }
 
 .why-item:hover{
     transform:translateX(7px);
-
     border-color:#cbbdff;
 }
 
 .check{
     min-width:32px;
-
     height:32px;
-
     border-radius:50%;
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
     background:#eee8ff;
-
     color:var(--purple);
-
     font-weight:bold;
 }
 
@@ -1317,83 +1042,86 @@ nav a:hover{
 
 .why-item p{
     color:#777;
-
     font-size:13px;
 }
 
 .why-visual{
     min-height:420px;
-
     border-radius:18px;
-
     background:
         radial-gradient(
             circle,
             rgba(124,77,255,.20),
             transparent 45%
         ),
-
         linear-gradient(
             145deg,
             #1c1c23,
             #09090c
         );
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
     position:relative;
-
     overflow:hidden;
+    box-shadow:20px 20px 0 var(--purple);
+}
 
-    box-shadow:
-        20px 20px 0 var(--purple);
+.why-visual::before{
+    content:"";
+    position:absolute;
+    width:300px;
+    height:300px;
+    border:1px solid rgba(124,77,255,.2);
+    border-radius:50%;
+    animation:rotate 20s linear infinite;
 }
 
 
-/* =========================================
+/* ================================
    LOGO GRANDE
-========================================= */
+================================ */
 
 .ravi-large-new{
     display:flex;
-
     align-items:center;
-
-    font-size:95px;
-
-    font-weight:900;
-
-    letter-spacing:8px;
-
-    color:white;
-
     z-index:2;
+    font-size:95px;
+    font-weight:900;
+    letter-spacing:8px;
+    color:white;
+    line-height:1;
 }
 
-.ravi-large-new .r{
-    color:#ffffff;
-}
-
-.ravi-large-new .a{
-    color:var(--purple);
-}
-
-.ravi-large-new .v{
-    color:#ffffff;
-}
-
+.ravi-large-new .a,
 .ravi-large-new .i{
     color:var(--purple);
 }
 
+.ravi-large-new .a{
+    font-size:0;
+    margin-right:-6px;
+}
 
-/* =========================================
+.ravi-large-new .a::before{
+    content:"Λ";
+    font-size:95px;
+    color:var(--purple);
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight:900;
+    display:inline-block;
+    transform:scaleX(.9);
+}
+
+.ravi-large-new .v{
+    color:white;
+    margin-left:-6px;
+}
+
+
+/* ================================
    CONTACTO
-========================================= */
+================================ */
 
 .contact{
     background:white;
@@ -1401,86 +1129,64 @@ nav a:hover{
 
 .contact-box{
     padding:70px;
-
     border-radius:18px;
-
     color:white;
-
     background:
         radial-gradient(
             circle at 90% 20%,
             rgba(124,77,255,.25),
             transparent 30%
         ),
-
         linear-gradient(
             135deg,
             #0d0d11,
             #181820
         );
-
     display:grid;
-
     grid-template-columns:1.3fr 1fr;
-
     gap:50px;
-
     border:1px solid #28282e;
 }
 
 .contact-box h2{
     font-size:43px;
-
     line-height:1.1;
-
     margin-bottom:20px;
 }
 
 .contact-box p{
     color:#999;
-
     max-width:520px;
 }
 
 .contact-info{
     display:flex;
-
     flex-direction:column;
-
     gap:15px;
 }
 
 .contact-item{
     padding:18px;
-
     border:1px solid #333;
-
     border-radius:8px;
-
     transition:.3s;
 }
 
 .contact-item:hover{
     border-color:var(--purple);
-
     transform:translateX(5px);
 }
 
 .contact-item small{
     display:block;
-
     color:#777;
-
     font-size:10px;
-
     letter-spacing:2px;
-
     margin-bottom:5px;
 }
 
 .contact-item a{
     color:white;
-
     font-size:14px;
 }
 
@@ -1489,85 +1195,65 @@ nav a:hover{
 }
 
 
-/* =========================================
+/* ================================
    FOOTER
-========================================= */
+================================ */
 
 footer{
     background:#08080a;
-
     color:#666;
-
     padding:35px 0;
-
     font-size:12px;
 }
 
 .footer-content{
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
 }
 
 .footer-logo{
+    display:flex;
+    align-items:center;
+    color:white;
     font-weight:bold;
-
     letter-spacing:2px;
-
-    color:white;
 }
 
-.footer-logo .r{
-    color:white;
-}
-
-.footer-logo .a{
-    color:var(--purple);
-}
-
-.footer-logo .v{
-    color:white;
-}
-
+.footer-logo .a,
 .footer-logo .i{
     color:var(--purple);
 }
 
+.footer-logo .a{
+    margin-right:-2px;
+}
 
-/* =========================================
+.footer-logo .v{
+    color:white;
+    margin-left:-2px;
+}
+
+
+/* ================================
    WHATSAPP
-========================================= */
+================================ */
 
 .whatsapp{
     position:fixed;
-
     right:25px;
     bottom:25px;
-
     width:58px;
     height:58px;
-
     border-radius:50%;
-
     background:#25D366;
-
     color:white;
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
     z-index:1500;
-
-    box-shadow:
-        0 8px 25px rgba(0,0,0,.25);
-
+    box-shadow:0 8px 25px rgba(0,0,0,.25);
     animation:pulse 2.5s infinite;
-
     transition:.3s;
 }
 
@@ -1578,14 +1264,13 @@ footer{
 .whatsapp svg{
     width:31px;
     height:31px;
-
     fill:white;
 }
 
 
-/* =========================================
+/* ================================
    RESPONSIVE
-========================================= */
+================================ */
 
 @media(max-width:950px){
 
@@ -1595,7 +1280,6 @@ footer{
 
     .hero-grid{
         grid-template-columns:1fr;
-
         text-align:center;
     }
 
@@ -1612,15 +1296,9 @@ footer{
         height:400px;
     }
 
-    .services-grid{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .catalog-intro{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .catalog-grid{
+    .services-grid,
+    .category-grid,
+    .project-grid{
         grid-template-columns:1fr 1fr;
     }
 
@@ -1656,6 +1334,10 @@ footer{
         font-size:25px;
     }
 
+    .logo-text .a::before{
+        font-size:25px;
+    }
+
     .logo small{
         display:none;
     }
@@ -1667,8 +1349,11 @@ footer{
 
     .hero-logo-text{
         font-size:55px;
-
         letter-spacing:5px;
+    }
+
+    .hero-logo-text .a::before{
+        font-size:55px;
     }
 
     .orbit{
@@ -1682,19 +1367,23 @@ footer{
 
     .stat{
         border-right:none;
-
         border-bottom:1px solid #e5e5e5;
     }
 
     .services-grid,
-    .catalog-intro,
-    .catalog-grid,
+    .category-grid,
+    .project-grid,
     .process-grid{
         grid-template-columns:1fr;
     }
 
     .section-title{
         font-size:32px;
+    }
+
+    .category-header{
+        align-items:flex-start;
+        flex-direction:column;
     }
 
     .contact-box{
@@ -1707,27 +1396,26 @@ footer{
 
     .footer-content{
         flex-direction:column;
-
         gap:10px;
     }
 
     .why-visual{
         min-height:300px;
-
-        box-shadow:
-            10px 10px 0 var(--purple);
+        box-shadow:10px 10px 0 var(--purple);
     }
 
     .ravi-large-new{
         font-size:60px;
-
         letter-spacing:5px;
+    }
+
+    .ravi-large-new .a::before{
+        font-size:60px;
     }
 
     .whatsapp{
         right:18px;
         bottom:18px;
-
         width:56px;
         height:56px;
     }
@@ -1737,13 +1425,8 @@ footer{
 </style>
 </head>
 
-
 <body>
 
-
-<!-- =========================================
-     HEADER
-========================================= -->
 
 <header>
 
@@ -1752,7 +1435,7 @@ footer{
     <a href="#inicio" class="logo">
 
         <div class="logo-text">
-            <span class="r">R</span><span class="a">A</span><span class="v">V</span><span class="i">I</span>
+            <span>R</span><span class="a">A</span><span class="v">V</span><span class="i">I</span>
         </div>
 
         <small>
@@ -1761,24 +1444,12 @@ footer{
 
     </a>
 
-
     <nav>
 
-        <a href="#servicios">
-            Servicios
-        </a>
-
-        <a href="#catalogo">
-            Catálogo
-        </a>
-
-        <a href="#proceso">
-            Proceso
-        </a>
-
-        <a href="#contacto" class="nav-cta">
-            Cotizar
-        </a>
+        <a href="#servicios">Servicios</a>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#proceso">Proceso</a>
+        <a href="#contacto" class="nav-cta">Cotizar</a>
 
     </nav>
 
@@ -1786,10 +1457,6 @@ footer{
 
 </header>
 
-
-<!-- =========================================
-     HERO
-========================================= -->
 
 <section class="hero" id="inicio">
 
@@ -1815,17 +1482,11 @@ footer{
 
         <div class="buttons">
 
-            <a
-                href="#catalogo"
-                class="btn btn-primary"
-            >
+            <a href="#catalogo" class="btn btn-primary">
                 Explorar proyectos
             </a>
 
-            <a
-                href="#contacto"
-                class="btn btn-outline"
-            >
+            <a href="#contacto" class="btn btn-outline">
                 Solicitar cotización
             </a>
 
@@ -1837,23 +1498,19 @@ footer{
     <div class="hero-visual reveal">
 
         <div class="orbit"></div>
-
         <div class="orbit two"></div>
-
 
         <div class="hero-card">
 
             <div class="hero-logo-new">
 
                 <div class="hero-logo-text">
-                    <span class="r">R</span><span class="a">A</span><span class="v">V</span><span class="i">I</span>
+                    <span>R</span><span class="a">A</span><span class="v">V</span><span class="i">I</span>
                 </div>
 
             </div>
 
-
             <div class="hero-card-line"></div>
-
 
             <p>
                 DESIGN / ENGINEERING / 3D
@@ -1868,44 +1525,23 @@ footer{
 </section>
 
 
-<!-- =========================================
-     STATS
-========================================= -->
-
 <section class="stats">
 
 <div class="container stats-grid">
 
     <div class="stat">
-
         <strong>3D</strong>
-
-        <span>
-            Modelado y visualización
-        </span>
-
+        <span>Modelado y visualización</span>
     </div>
 
-
     <div class="stat">
-
         <strong>CAD</strong>
-
-        <span>
-            Diseño y documentación técnica
-        </span>
-
+        <span>Diseño y documentación técnica</span>
     </div>
 
-
     <div class="stat">
-
         <strong>∞</strong>
-
-        <span>
-            Posibilidades de diseño
-        </span>
-
+        <span>Posibilidades de diseño</span>
     </div>
 
 </div>
@@ -1913,22 +1549,13 @@ footer{
 </section>
 
 
-<!-- =========================================
-     SERVICIOS
-========================================= -->
-
-<section
-    class="section services"
-    id="servicios"
->
+<section class="section services" id="servicios">
 
 <div class="container">
 
     <div class="section-header reveal">
 
-        <div class="section-label">
-            SERVICIOS
-        </div>
+        <div class="section-label">SERVICIOS</div>
 
         <h2 class="section-title">
             Diseñamos soluciones,
@@ -1947,130 +1574,76 @@ footer{
 
     <div class="services-grid">
 
-
         <div class="service reveal">
-
             <div class="service-number">01</div>
-
             <h3>Diseño Mecánico</h3>
-
-            <p>
-                Desarrollo de componentes,
-                mecanismos y soluciones mecánicas.
-            </p>
-
+            <p>Desarrollo de componentes, mecanismos y soluciones mecánicas.</p>
             <ul class="service-list">
                 <li>Componentes</li>
                 <li>Mecanismos</li>
                 <li>Soportes</li>
                 <li>Ensambles</li>
             </ul>
-
         </div>
 
-
         <div class="service reveal">
-
             <div class="service-number">02</div>
-
             <h3>Modelado 3D</h3>
-
-            <p>
-                Creación de modelos tridimensionales
-                y ensambles para diferentes proyectos.
-            </p>
-
+            <p>Creación de modelos tridimensionales y ensambles para diferentes proyectos.</p>
             <ul class="service-list">
                 <li>Piezas</li>
                 <li>Ensambles</li>
                 <li>Modelado desde medidas</li>
                 <li>Renderizados</li>
             </ul>
-
         </div>
 
-
         <div class="service reveal">
-
             <div class="service-number">03</div>
-
             <h3>Desarrollo de Productos</h3>
-
-            <p>
-                Transformación de una idea en un
-                concepto diseñado y desarrollado.
-            </p>
-
+            <p>Transformación de una idea en un concepto diseñado y desarrollado.</p>
             <ul class="service-list">
                 <li>Conceptualización</li>
                 <li>Diseño de producto</li>
                 <li>Prototipos</li>
                 <li>Mejoras</li>
             </ul>
-
         </div>
 
-
         <div class="service reveal">
-
             <div class="service-number">04</div>
-
             <h3>Diseño Industrial</h3>
-
-            <p>
-                Estructuras y soluciones para
-                aplicaciones industriales.
-            </p>
-
+            <p>Estructuras y soluciones para aplicaciones industriales.</p>
             <ul class="service-list">
                 <li>Racks</li>
                 <li>Mobiliario</li>
                 <li>Gabinetes</li>
                 <li>Estructuras</li>
             </ul>
-
         </div>
 
-
         <div class="service reveal">
-
             <div class="service-number">05</div>
-
             <h3>Ingeniería Aplicada</h3>
-
-            <p>
-                Desarrollo de soluciones considerando
-                aplicación, funcionalidad y requerimientos.
-            </p>
-
+            <p>Desarrollo de soluciones considerando aplicación, funcionalidad y requerimientos.</p>
             <ul class="service-list">
                 <li>Materiales</li>
                 <li>Dimensiones</li>
                 <li>Funcionalidad</li>
                 <li>Optimización</li>
             </ul>
-
         </div>
 
-
         <div class="service reveal">
-
             <div class="service-number">06</div>
-
             <h3>Documentación Técnica</h3>
-
-            <p>
-                Documentación para comunicar y
-                fabricar correctamente los diseños.
-            </p>
-
+            <p>Documentación para comunicar y fabricar correctamente los diseños.</p>
             <ul class="service-list">
                 <li>Planos</li>
                 <li>Despieces</li>
                 <li>Lista de materiales</li>
                 <li>Detalles técnicos</li>
             </ul>
-
         </div>
 
     </div>
@@ -2080,22 +1653,13 @@ footer{
 </section>
 
 
-<!-- =========================================
-     CATALOGO
-========================================= -->
-
-<section
-    class="section catalog"
-    id="catalogo"
->
+<section class="section catalog" id="catalogo">
 
 <div class="container">
 
     <div class="section-header reveal">
 
-        <div class="section-label">
-            PORTAFOLIO
-        </div>
+        <div class="section-label">PORTAFOLIO</div>
 
         <h2 class="section-title">
             Catálogo de proyectos.
@@ -2103,146 +1667,98 @@ footer{
 
         <p class="section-description">
             Selecciona una categoría para explorar
-            los diseños desarrollados por RAVI.
+            los diseños disponibles.
         </p>
 
     </div>
 
 
-    <!-- CATEGORIAS -->
+    <div id="categoryMenu" class="category-grid">
 
-    <div class="catalog-view active" id="categoryMenu">
+        <div class="category-card reveal" data-category-open="mecanico">
+            <div class="category-number">01 / MECÁNICO</div>
+            <h3>Diseño Mecánico</h3>
+            <p>Piezas, mecanismos, componentes y ensambles.</p>
+            <div class="category-arrow">→</div>
+        </div>
 
-        <div class="catalog-intro">
+        <div class="category-card reveal" data-category-open="industrial">
+            <div class="category-number">02 / INDUSTRIAL</div>
+            <h3>Diseño Industrial</h3>
+            <p>Racks, estructuras, gabinetes y soluciones industriales.</p>
+            <div class="category-arrow">→</div>
+        </div>
 
+        <div class="category-card reveal" data-category-open="producto">
+            <div class="category-number">03 / PRODUCTO</div>
+            <h3>Desarrollo de Producto</h3>
+            <p>Conceptualización, diseño y desarrollo de productos.</p>
+            <div class="category-arrow">→</div>
+        </div>
 
-            <div class="category-card" data-category="mecanico">
+        <div class="category-card reveal" data-category-open="mobiliario">
+            <div class="category-number">04 / MOBILIARIO</div>
+            <h3>Mobiliario</h3>
+            <p>Estantes, mobiliario metálico y soluciones funcionales.</p>
+            <div class="category-arrow">→</div>
+        </div>
 
-                <div class="category-number">
-                    01 / MECÁNICO
-                </div>
-
-                <h3>
-                    Diseño Mecánico
-                </h3>
-
-                <p>
-                    Componentes, mecanismos,
-                    piezas y ensambles.
-                </p>
-
-            </div>
-
-
-            <div class="category-card" data-category="industrial">
-
-                <div class="category-number">
-                    02 / INDUSTRIAL
-                </div>
-
-                <h3>
-                    Diseño Industrial
-                </h3>
-
-                <p>
-                    Racks, estructuras,
-                    gabinetes y soluciones.
-                </p>
-
-            </div>
-
-
-            <div class="category-card" data-category="producto">
-
-                <div class="category-number">
-                    03 / PRODUCTO
-                </div>
-
-                <h3>
-                    Desarrollo de Producto
-                </h3>
-
-                <p>
-                    Conceptualización,
-                    diseño y desarrollo.
-                </p>
-
-            </div>
-
-
-            <div class="category-card" data-category="mobiliario">
-
-                <div class="category-number">
-                    04 / MOBILIARIO
-                </div>
-
-                <h3>
-                    Mobiliario
-                </h3>
-
-                <p>
-                    Estantes, muebles y
-                    soluciones personalizadas.
-                </p>
-
-            </div>
-
-
+        <div class="category-card reveal" data-category-open="otros">
+            <div class="category-number">05 / OTROS</div>
+            <h3>Otros Proyectos</h3>
+            <p>Soluciones personalizadas y proyectos especiales.</p>
+            <div class="category-arrow">→</div>
         </div>
 
     </div>
 
 
-    <!-- DISEÑOS MECANICOS -->
+    <div class="category-view" id="view-mecanico">
 
-    <div class="catalog-view" id="view-mecanico">
+        <div class="category-header">
 
-        <button class="catalog-back">
-            ← Volver a categorías
-        </button>
+            <div>
+                <div class="section-label">CATEGORÍA / MECÁNICO</div>
+                <h2 class="section-title">Diseño Mecánico</h2>
+            </div>
 
-        <div class="catalog-category-title">
-
-            <h3>
-                Diseño Mecánico
-            </h3>
-
-            <p>
-                Componentes, piezas y soluciones mecánicas.
-            </p>
+            <button class="category-back">← Categorías</button>
 
         </div>
 
+        <div class="project-grid">
 
-        <div class="catalog-grid">
-
-            <div
-                class="catalog-card reveal"
-                data-title="Componente Mecánico"
-                data-type="Diseño Mecánico"
-                data-description="Desarrollo de componente mecánico mediante modelado 3D."
-            >
-
-                <div class="catalog-image">
-                    <div class="project-number">01</div>
+            <div class="project-card" data-title="Componente Mecánico" data-type="Diseño Mecánico" data-description="Componente mecánico desarrollado mediante modelado 3D.">
+                <div class="project-image">
+                    <div class="project-placeholder">01</div>
                 </div>
-
-                <div class="catalog-info">
-
-                    <div class="catalog-category">
-                        MECÁNICO
-                    </div>
-
-                    <h3>
-                        Componente Mecánico
-                    </h3>
-
-                    <p>
-                        Pieza diseñada en 3D.
-                    </p>
-
+                <div class="project-info">
+                    <small>MECÁNICO</small>
+                    <h3>Componente Mecánico</h3>
+                    <p>Modelado 3D y diseño.</p>
                 </div>
+            </div>
 
+            <div class="project-card" data-title="Mecanismo" data-type="Diseño Mecánico" data-description="Desarrollo de mecanismo personalizado para una aplicación específica.">
+                <div class="project-image">
+                    <div class="project-placeholder">02</div>
+                </div>
+                <div class="project-info">
+                    <small>MECÁNICO</small>
+                    <h3>Mecanismo</h3>
+                    <p>Diseño funcional.</p>
+                </div>
+            </div>
+
+            <div class="project-card" data-title="Ensamble Mecánico" data-type="Diseño Mecánico" data-description="Diseño de ensamble compuesto por múltiples componentes.">
+                <div class="project-image">
+                    <div class="project-placeholder">03</div>
+                </div>
+                <div class="project-info">
+                    <small>MECÁNICO</small>
+                    <h3>Ensamble Mecánico</h3>
+                    <p>Desarrollo de conjunto.</p>
+                </div>
             </div>
 
         </div>
@@ -2250,207 +1766,212 @@ footer{
     </div>
 
 
-    <!-- DISEÑOS INDUSTRIALES -->
+    <div class="category-view" id="view-industrial">
 
-    <div class="catalog-view" id="view-industrial">
+        <div class="category-header">
 
-        <button class="catalog-back">
-            ← Volver a categorías
-        </button>
+            <div>
+                <div class="section-label">CATEGORÍA / INDUSTRIAL</div>
+                <h2 class="section-title">Diseño Industrial</h2>
+            </div>
 
-        <div class="catalog-category-title">
-
-            <h3>
-                Diseño Industrial
-            </h3>
-
-            <p>
-                Estructuras y soluciones para aplicaciones industriales.
-            </p>
+            <button class="category-back">← Categorías</button>
 
         </div>
 
+        <div class="project-grid">
 
-        <div class="catalog-grid">
-
-
-            <div
-                class="catalog-card reveal"
-                data-title="Rack Industrial"
-                data-type="Diseño Industrial"
-                data-description="Diseño de estructura para almacenamiento y manejo de materiales."
-            >
-
-                <div class="catalog-image">
-                    <div class="project-number">01</div>
+            <div class="project-card" data-title="Rack Industrial" data-type="Diseño Industrial" data-description="Diseño de estructura para almacenamiento y manejo de materiales.">
+                <div class="project-image">
+                    <div class="project-placeholder">01</div>
                 </div>
-
-                <div class="catalog-info">
-
-                    <div class="catalog-category">
-                        INDUSTRIAL
-                    </div>
-
-                    <h3>
-                        Rack Industrial
-                    </h3>
-
-                    <p>
-                        Estructura para almacenamiento.
-                    </p>
-
+                <div class="project-info">
+                    <small>INDUSTRIAL</small>
+                    <h3>Rack Industrial</h3>
+                    <p>Estructura para almacenamiento.</p>
                 </div>
-
             </div>
 
-
-            <div
-                class="catalog-card reveal"
-                data-title="Gabinete Industrial"
-                data-type="Diseño Mecánico"
-                data-description="Diseño y desarrollo de gabinete personalizado para aplicación industrial."
-            >
-
-                <div class="catalog-image">
-                    <div class="project-number">02</div>
+            <div class="project-card" data-title="Gabinete Industrial" data-type="Diseño Industrial" data-description="Diseño y desarrollo de gabinete personalizado para aplicación industrial.">
+                <div class="project-image">
+                    <div class="project-placeholder">02</div>
                 </div>
-
-                <div class="catalog-info">
-
-                    <div class="catalog-category">
-                        INDUSTRIAL
-                    </div>
-
-                    <h3>
-                        Gabinete Industrial
-                    </h3>
-
-                    <p>
-                        Diseño personalizado.
-                    </p>
-
+                <div class="project-info">
+                    <small>INDUSTRIAL</small>
+                    <h3>Gabinete Industrial</h3>
+                    <p>Diseño personalizado.</p>
                 </div>
-
             </div>
 
+            <div class="project-card" data-title="Estructura Industrial" data-type="Diseño Industrial" data-description="Diseño de estructura metálica para aplicación industrial.">
+                <div class="project-image">
+                    <div class="project-placeholder">03</div>
+                </div>
+                <div class="project-info">
+                    <small>INDUSTRIAL</small>
+                    <h3>Estructura Industrial</h3>
+                    <p>Solución estructural.</p>
+                </div>
+            </div>
 
         </div>
 
     </div>
 
 
-    <!-- PRODUCTOS -->
+    <div class="category-view" id="view-producto">
 
-    <div class="catalog-view" id="view-producto">
+        <div class="category-header">
 
-        <button class="catalog-back">
-            ← Volver a categorías
-        </button>
+            <div>
+                <div class="section-label">CATEGORÍA / PRODUCTO</div>
+                <h2 class="section-title">Desarrollo de Producto</h2>
+            </div>
 
-        <div class="catalog-category-title">
-
-            <h3>
-                Desarrollo de Producto
-            </h3>
-
-            <p>
-                Conceptualización y desarrollo de productos.
-            </p>
+            <button class="category-back">← Categorías</button>
 
         </div>
 
+        <div class="project-grid">
 
-        <div class="catalog-grid">
-
-
-            <div
-                class="catalog-card reveal"
-                data-title="Desarrollo de Producto"
-                data-type="Diseño de Producto"
-                data-description="Conceptualización y desarrollo tridimensional de un producto."
-            >
-
-                <div class="catalog-image">
-                    <div class="project-number">01</div>
+            <div class="project-card" data-title="Desarrollo de Producto" data-type="Diseño de Producto" data-description="Conceptualización y desarrollo tridimensional de un producto.">
+                <div class="project-image">
+                    <div class="project-placeholder">01</div>
                 </div>
-
-                <div class="catalog-info">
-
-                    <div class="catalog-category">
-                        PRODUCTO
-                    </div>
-
-                    <h3>
-                        Desarrollo de Producto
-                    </h3>
-
-                    <p>
-                        Concepto y modelado 3D.
-                    </p>
-
+                <div class="project-info">
+                    <small>PRODUCTO</small>
+                    <h3>Desarrollo de Producto</h3>
+                    <p>Concepto y modelado 3D.</p>
                 </div>
-
             </div>
 
+            <div class="project-card" data-title="Producto Personalizado" data-type="Diseño de Producto" data-description="Diseño personalizado desarrollado a partir de los requerimientos del cliente.">
+                <div class="project-image">
+                    <div class="project-placeholder">02</div>
+                </div>
+                <div class="project-info">
+                    <small>PRODUCTO</small>
+                    <h3>Producto Personalizado</h3>
+                    <p>Diseño desde cero.</p>
+                </div>
+            </div>
+
+            <div class="project-card" data-title="Concepto 3D" data-type="Diseño de Producto" data-description="Desarrollo conceptual y visualización tridimensional.">
+                <div class="project-image">
+                    <div class="project-placeholder">03</div>
+                </div>
+                <div class="project-info">
+                    <small>PRODUCTO</small>
+                    <h3>Concepto 3D</h3>
+                    <p>Conceptualización.</p>
+                </div>
+            </div>
 
         </div>
 
     </div>
 
 
-    <!-- MOBILIARIO -->
+    <div class="category-view" id="view-mobiliario">
 
-    <div class="catalog-view" id="view-mobiliario">
+        <div class="category-header">
 
-        <button class="catalog-back">
-            ← Volver a categorías
-        </button>
+            <div>
+                <div class="section-label">CATEGORÍA / MOBILIARIO</div>
+                <h2 class="section-title">Mobiliario</h2>
+            </div>
 
-        <div class="catalog-category-title">
-
-            <h3>
-                Mobiliario
-            </h3>
-
-            <p>
-                Mobiliario funcional y soluciones personalizadas.
-            </p>
+            <button class="category-back">← Categorías</button>
 
         </div>
 
+        <div class="project-grid">
 
-        <div class="catalog-grid">
-
-
-            <div
-                class="catalog-card reveal"
-                data-title="Estante Metálico"
-                data-type="Mobiliario"
-                data-description="Diseño de estante metálico para aplicaciones residenciales y comerciales."
-            >
-
-                <div class="catalog-image">
-                    <div class="project-number">01</div>
+            <div class="project-card" data-title="Estante Metálico" data-type="Mobiliario" data-description="Diseño de estante metálico para aplicaciones residenciales y comerciales.">
+                <div class="project-image">
+                    <div class="project-placeholder">01</div>
                 </div>
-
-                <div class="catalog-info">
-
-                    <div class="catalog-category">
-                        MOBILIARIO
-                    </div>
-
-                    <h3>
-                        Estante Metálico
-                    </h3>
-
-                    <p>
-                        Diseño funcional y decorativo.
-                    </p>
-
+                <div class="project-info">
+                    <small>MOBILIARIO</small>
+                    <h3>Estante Metálico</h3>
+                    <p>Diseño funcional.</p>
                 </div>
-
             </div>
 
+            <div class="project-card" data-title="Estante Flotante" data-type="Mobiliario" data-description="Diseño de estante flotante de estilo minimalista.">
+                <div class="project-image">
+                    <div class="project-placeholder">02</div>
+                </div>
+                <div class="project-info">
+                    <small>MOBILIARIO</small>
+                    <h3>Estante Flotante</h3>
+                    <p>Diseño de mobiliario.</p>
+                </div>
+            </div>
+
+            <div class="project-card" data-title="Mobiliario Personalizado" data-type="Mobiliario" data-description="Diseño de mobiliario desarrollado según medidas y requerimientos.">
+                <div class="project-image">
+                    <div class="project-placeholder">03</div>
+                </div>
+                <div class="project-info">
+                    <small>MOBILIARIO</small>
+                    <h3>Mobiliario Personalizado</h3>
+                    <p>Diseño a medida.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="category-view" id="view-otros">
+
+        <div class="category-header">
+
+            <div>
+                <div class="section-label">CATEGORÍA / OTROS</div>
+                <h2 class="section-title">Otros Proyectos</h2>
+            </div>
+
+            <button class="category-back">← Categorías</button>
+
+        </div>
+
+        <div class="project-grid">
+
+            <div class="project-card" data-title="Solución Personalizada" data-type="Ingeniería" data-description="Desarrollo de una solución personalizada a partir de los requerimientos del cliente.">
+                <div class="project-image">
+                    <div class="project-placeholder">01</div>
+                </div>
+                <div class="project-info">
+                    <small>OTROS</small>
+                    <h3>Solución Personalizada</h3>
+                    <p>Diseño según requerimientos.</p>
+                </div>
+            </div>
+
+            <div class="project-card" data-title="Proyecto Especial" data-type="Ingeniería" data-description="Desarrollo de proyecto especial de ingeniería.">
+                <div class="project-image">
+                    <div class="project-placeholder">02</div>
+                </div>
+                <div class="project-info">
+                    <small>OTROS</small>
+                    <h3>Proyecto Especial</h3>
+                    <p>Desarrollo personalizado.</p>
+                </div>
+            </div>
+
+            <div class="project-card" data-title="Solución de Ingeniería" data-type="Ingeniería" data-description="Solución diseñada específicamente para una necesidad determinada.">
+                <div class="project-image">
+                    <div class="project-placeholder">03</div>
+                </div>
+                <div class="project-info">
+                    <small>OTROS</small>
+                    <h3>Solución de Ingeniería</h3>
+                    <p>Diseño aplicado.</p>
+                </div>
+            </div>
 
         </div>
 
@@ -2461,22 +1982,13 @@ footer{
 </section>
 
 
-<!-- =========================================
-     PROCESO
-========================================= -->
-
-<section
-    class="section process"
-    id="proceso"
->
+<section class="section process" id="proceso">
 
 <div class="container">
 
     <div class="section-header reveal">
 
-        <div class="section-label">
-            METODOLOGÍA
-        </div>
+        <div class="section-label">METODOLOGÍA</div>
 
         <h2 class="section-title">
             De una idea<br>
@@ -2490,71 +2002,30 @@ footer{
 
     </div>
 
-
     <div class="process-grid">
 
-
         <div class="process-step reveal">
-
             <div class="process-number">01</div>
-
-            <h3>
-                Idea / Necesidad
-            </h3>
-
-            <p>
-                Se analiza qué necesitas resolver,
-                fabricar, mejorar o desarrollar.
-            </p>
-
+            <h3>Idea / Necesidad</h3>
+            <p>Se analiza qué necesitas resolver, fabricar, mejorar o desarrollar.</p>
         </div>
 
-
         <div class="process-step reveal">
-
             <div class="process-number">02</div>
-
-            <h3>
-                Concepto
-            </h3>
-
-            <p>
-                Se estudian dimensiones, aplicación,
-                materiales y requerimientos.
-            </p>
-
+            <h3>Concepto</h3>
+            <p>Se estudian dimensiones, aplicación, materiales y requerimientos.</p>
         </div>
 
-
         <div class="process-step reveal">
-
             <div class="process-number">03</div>
-
-            <h3>
-                Diseño 3D
-            </h3>
-
-            <p>
-                Se desarrolla el modelo tridimensional
-                y se realizan ajustes.
-            </p>
-
+            <h3>Diseño 3D</h3>
+            <p>Se desarrolla el modelo tridimensional y se realizan ajustes.</p>
         </div>
 
-
         <div class="process-step reveal">
-
             <div class="process-number">04</div>
-
-            <h3>
-                Entrega
-            </h3>
-
-            <p>
-                Se entrega el diseño y la documentación
-                acordada para el proyecto.
-            </p>
-
+            <h3>Entrega</h3>
+            <p>Se entrega el diseño y la documentación acordada para el proyecto.</p>
         </div>
 
     </div>
@@ -2564,22 +2035,15 @@ footer{
 </section>
 
 
-<!-- =========================================
-     WHY
-========================================= -->
-
 <section class="section why">
 
 <div class="container why-grid">
-
 
     <div class="reveal">
 
         <div class="section-header">
 
-            <div class="section-label">
-                RAVI
-            </div>
+            <div class="section-label">RAVI</div>
 
             <h2 class="section-title">
                 No necesitas llegar
@@ -2597,70 +2061,28 @@ footer{
 
         <div class="why-list">
 
-
             <div class="why-item">
-
-                <div class="check">
-                    ✓
-                </div>
-
+                <div class="check">✓</div>
                 <div>
-
-                    <h3>
-                        Desarrollo desde cero
-                    </h3>
-
-                    <p>
-                        Una idea puede convertirse
-                        en un concepto de diseño.
-                    </p>
-
+                    <h3>Desarrollo desde cero</h3>
+                    <p>Una idea puede convertirse en un concepto de diseño.</p>
                 </div>
-
             </div>
 
-
             <div class="why-item">
-
-                <div class="check">
-                    ✓
-                </div>
-
+                <div class="check">✓</div>
                 <div>
-
-                    <h3>
-                        Diseño personalizado
-                    </h3>
-
-                    <p>
-                        Cada solución se adapta
-                        a la aplicación requerida.
-                    </p>
-
+                    <h3>Diseño personalizado</h3>
+                    <p>Cada solución se adapta a la aplicación requerida.</p>
                 </div>
-
             </div>
 
-
             <div class="why-item">
-
-                <div class="check">
-                    ✓
-                </div>
-
+                <div class="check">✓</div>
                 <div>
-
-                    <h3>
-                        Enfoque de ingeniería
-                    </h3>
-
-                    <p>
-                        Funcionalidad, dimensiones,
-                        materiales y manufactura.
-                    </p>
-
+                    <h3>Enfoque de ingeniería</h3>
+                    <p>Funcionalidad, dimensiones, materiales y manufactura.</p>
                 </div>
-
             </div>
 
         </div>
@@ -2671,9 +2093,7 @@ footer{
     <div class="why-visual reveal">
 
         <div class="ravi-large-new">
-
-            <span class="r">R</span><span class="a">A</span><span class="v">V</span><span class="i">I</span>
-
+            <span>R</span><span class="a">A</span><span class="v">V</span><span class="i">I</span>
         </div>
 
     </div>
@@ -2683,29 +2103,17 @@ footer{
 </section>
 
 
-<!-- =========================================
-     CONTACTO
-========================================= -->
-
-<section
-    class="section contact"
-    id="contacto"
->
+<section class="section contact" id="contacto">
 
 <div class="container">
 
     <div class="contact-box reveal">
 
-
         <div>
 
-            <div class="section-label">
-                CONTACTO
-            </div>
+            <div class="section-label">CONTACTO</div>
 
-            <h2>
-                ¿Tienes una idea?
-            </h2>
+            <h2>¿Tienes una idea?</h2>
 
             <p>
                 Cuéntame qué necesitas diseñar.
@@ -2719,12 +2127,9 @@ footer{
 
         <div class="contact-info">
 
-
             <div class="contact-item">
 
-                <small>
-                    EMAIL
-                </small>
+                <small>EMAIL</small>
 
                 <a href="mailto:ravi.design.services@gmail.com">
                     ravi.design.services@gmail.com
@@ -2732,12 +2137,9 @@ footer{
 
             </div>
 
-
             <div class="contact-item">
 
-                <small>
-                    INSTAGRAM
-                </small>
+                <small>INSTAGRAM</small>
 
                 <a
                     href="https://www.instagram.com/ravi_ingenieria/"
@@ -2758,17 +2160,13 @@ footer{
 </section>
 
 
-<!-- =========================================
-     FOOTER
-========================================= -->
-
 <footer>
 
 <div class="container footer-content">
 
     <div class="footer-logo">
 
-        <span class="r">R</span><span class="a">A</span><span class="v">V</span><span class="i">I</span>
+        <span>R</span><span class="a">A</span><span class="v">V</span><span class="i">I</span>
         Ingeniería y Diseño
 
     </div>
@@ -2781,10 +2179,6 @@ footer{
 
 </footer>
 
-
-<!-- =========================================
-     WHATSAPP
-========================================= -->
 
 <a
     class="whatsapp"
@@ -2800,21 +2194,16 @@ footer{
         aria-hidden="true"
     >
 
-        <path d="M20.52 3.48A11.84 11.84 0 0 0 12.09 0C5.54 .0 .21 5.32 .21 11.87c0 2.09 .55 4.13 1.59 5.93L.11 24l6.34-1.66a11.88 11.88 0 0 0 5.64 1.44h.01c6.55 0 11.88-5.32 11.88-11.87 0-3.17-1.23-6.14-3.46-8.43ZM12.1 21.77h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.76 .98 1-3.66-.23-.38a9.85 9.85 0 0 1-1.51-5.25C2.2 6.44 6.63 2.01 12.1 2.01c2.65 0 5.14 1.03 7.01 2.9a9.83 9.83 0 0 1 2.9 7.01c0 5.46-4.44 9.85-9.91 9.85Zm5.42-7.38c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/>
+        <path d="M20.52 3.48A11.84 11.84 0 0 0 12.09 0C5.54 .0 .21 5.32 .21 11.87c0 2.09 .55 4.13 1.59 5.93L.11 24l6.34-1.66a11.88 11.88 0 0 0 5.64 1.44h.01c6.55 0 11.88-5.32 11.88-11.87 0-3.17-1.23-6.14-3.46-8.43ZM12.1 21.77h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.76.98 1-3.66-.23-.38a9.85 9.85 0 0 1-1.51-5.25C2.2 6.44 6.63 2.01 12.1 2.01c2.65 0 5.14 1.03 7.01 2.9a9.83 9.83 0 0 1 2.9 7.01c0 5.46-4.44 9.85-9.91 9.85Zm5.42-7.38c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/>
 
     </svg>
 
 </a>
 
 
-<!-- =========================================
-     MODAL
-========================================= -->
-
 <div class="modal" id="projectModal">
 
     <div class="modal-box">
-
 
         <button
             class="close-modal"
@@ -2824,30 +2213,19 @@ footer{
             ×
         </button>
 
-
         <div class="modal-image">
-
-            <strong id="modalNumber">
-                01
-            </strong>
-
+            <strong id="modalNumber">01</strong>
         </div>
-
 
         <div class="modal-content">
 
-            <div
-                class="modal-category"
-                id="modalCategory"
-            >
+            <div class="modal-category" id="modalCategory">
                 INDUSTRIAL
             </div>
-
 
             <h2 id="modalTitle">
                 Proyecto
             </h2>
-
 
             <p id="modalDescription">
                 Descripción del proyecto.
@@ -2862,53 +2240,46 @@ footer{
 
 <script>
 
-/* =========================================
+/* ==========================================
    INICIO
-========================================= */
+========================================== */
 
-if("scrollRestoration" in history){
-
+if ("scrollRestoration" in history) {
     history.scrollRestoration = "manual";
-
 }
 
-window.addEventListener("load",function(){
+window.addEventListener("load", function(){
 
-    if(!window.location.hash){
-
-        window.scrollTo(0,0);
-
+    if (!window.location.hash) {
+        window.scrollTo(0, 0);
     }
 
 });
 
 
-/* =========================================
-   NAVEGACION
-========================================= */
+/* ==========================================
+   NAVEGACIÓN
+========================================== */
 
 document.querySelectorAll('a[href^="#"]').forEach(link => {
 
-    link.addEventListener("click",function(event){
+    link.addEventListener("click", function(event){
 
-        const targetId =
-            this.getAttribute("href");
+        const targetId = this.getAttribute("href");
 
-        if(!targetId || targetId === "#"){
+        if (!targetId || targetId === "#") {
             return;
         }
 
-        const target =
-            document.querySelector(targetId);
+        const target = document.querySelector(targetId);
 
-        if(!target){
+        if (!target) {
             return;
         }
 
         event.preventDefault();
 
-        const header =
-            document.querySelector("header");
+        const header = document.querySelector("header");
 
         const headerHeight =
             header ? header.offsetHeight : 0;
@@ -2919,29 +2290,21 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
             headerHeight;
 
         window.scrollTo({
-
             top:targetPosition,
-
             left:0,
-
             behavior:"smooth"
-
         });
 
-        history.pushState(
-            null,
-            "",
-            targetId
-        );
+        history.pushState(null, "", targetId);
 
     });
 
 });
 
 
-/* =========================================
+/* ==========================================
    ANIMACIONES
-========================================= */
+========================================== */
 
 const observer =
     new IntersectionObserver(
@@ -2951,9 +2314,7 @@ const observer =
             entries.forEach(entry => {
 
                 if(entry.isIntersecting){
-
                     entry.target.classList.add("active");
-
                 }
 
             });
@@ -2970,99 +2331,48 @@ const observer =
 document
     .querySelectorAll(".reveal")
     .forEach(element => {
-
         observer.observe(element);
-
     });
 
 
-/* =========================================
-   CATEGORIAS DEL CATALOGO
-========================================= */
+/* ==========================================
+   CATEGORIAS
+========================================== */
 
 const categoryMenu =
     document.getElementById("categoryMenu");
 
 const categoryCards =
-    document.querySelectorAll(".category-card");
+    document.querySelectorAll("[data-category-open]");
 
-const catalogViews =
-    document.querySelectorAll(".catalog-view");
+const categoryViews =
+    document.querySelectorAll(".category-view");
+
+const backButtons =
+    document.querySelectorAll(".category-back");
 
 
 categoryCards.forEach(card => {
 
-    card.addEventListener("click",function(){
+    card.addEventListener("click", () => {
 
         const category =
-            this.getAttribute("data-category");
+            card.getAttribute("data-category-open");
 
-        categoryMenu.classList.remove("active");
+        categoryMenu.style.display = "none";
 
-        catalogViews.forEach(view => {
-
-            if(view.id === "view-" + category){
-
-                view.classList.add("active");
-
-                view
-                    .querySelectorAll(".reveal")
-                    .forEach(element => {
-
-                        element.classList.add("active");
-
-                    });
-
-            }
-
-            else if(view.id !== "categoryMenu"){
-
-                view.classList.remove("active");
-
-            }
-
-        });
-
-        const catalog =
-            document.getElementById("catalogo");
-
-        const header =
-            document.querySelector("header");
-
-        const headerHeight =
-            header ? header.offsetHeight : 0;
-
-        window.scrollTo({
-
-            top:
-                catalog.getBoundingClientRect().top +
-                window.pageYOffset -
-                headerHeight,
-
-            behavior:"smooth"
-
-        });
-
-    });
-
-});
-
-
-/* =========================================
-   BOTONES VOLVER
-========================================= */
-
-document.querySelectorAll(".catalog-back").forEach(button => {
-
-    button.addEventListener("click",function(){
-
-        catalogViews.forEach(view => {
-
+        categoryViews.forEach(view => {
             view.classList.remove("active");
-
         });
 
-        categoryMenu.classList.add("active");
+        const selectedView =
+            document.getElementById(
+                "view-" + category
+            );
+
+        if(selectedView){
+            selectedView.classList.add("active");
+        }
 
         const catalog =
             document.getElementById("catalogo");
@@ -3073,15 +2383,14 @@ document.querySelectorAll(".catalog-back").forEach(button => {
         const headerHeight =
             header ? header.offsetHeight : 0;
 
+        const position =
+            catalog.getBoundingClientRect().top +
+            window.pageYOffset -
+            headerHeight;
+
         window.scrollTo({
-
-            top:
-                catalog.getBoundingClientRect().top +
-                window.pageYOffset -
-                headerHeight,
-
+            top:position,
             behavior:"smooth"
-
         });
 
     });
@@ -3089,9 +2398,47 @@ document.querySelectorAll(".catalog-back").forEach(button => {
 });
 
 
-/* =========================================
+/* ==========================================
+   VOLVER A CATEGORIAS
+========================================== */
+
+backButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        categoryViews.forEach(view => {
+            view.classList.remove("active");
+        });
+
+        categoryMenu.style.display = "grid";
+
+        const catalog =
+            document.getElementById("catalogo");
+
+        const header =
+            document.querySelector("header");
+
+        const headerHeight =
+            header ? header.offsetHeight : 0;
+
+        const position =
+            catalog.getBoundingClientRect().top +
+            window.pageYOffset -
+            headerHeight;
+
+        window.scrollTo({
+            top:position,
+            behavior:"smooth"
+        });
+
+    });
+
+});
+
+
+/* ==========================================
    MODAL
-========================================= */
+========================================== */
 
 const modal =
     document.getElementById("projectModal");
@@ -3112,9 +2459,13 @@ const modalNumber =
     document.getElementById("modalNumber");
 
 
-document.querySelectorAll(".catalog-card").forEach(card => {
+const projectCards =
+    document.querySelectorAll(".project-card");
 
-    card.addEventListener("click",function(){
+
+projectCards.forEach(card => {
+
+    card.addEventListener("click", () => {
 
         const title =
             card.getAttribute("data-title");
@@ -3125,13 +2476,10 @@ document.querySelectorAll(".catalog-card").forEach(card => {
         const description =
             card.getAttribute("data-description");
 
-        const numberElement =
-            card.querySelector(".project-number");
-
         const number =
-            numberElement
-                ? numberElement.textContent
-                : "01";
+            card
+                .querySelector(".project-placeholder")
+                .textContent;
 
         modalTitle.textContent =
             title;
@@ -3176,9 +2524,7 @@ modal.addEventListener(
     event => {
 
         if(event.target === modal){
-
             closeProjectModal();
-
         }
 
     }
@@ -3190,9 +2536,7 @@ document.addEventListener(
     event => {
 
         if(event.key === "Escape"){
-
             closeProjectModal();
-
         }
 
     }
@@ -3201,4 +2545,4 @@ document.addEventListener(
 </script>
 
 </body>
-</html>
+</html> 
