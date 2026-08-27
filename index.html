@@ -1,5 +1,5 @@
-<!DOCTYPE html>  
-<html lang="es">   
+<!DOCTYPE html>
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -110,6 +110,41 @@ button{
 }
 
 
+/* ==========================================
+   ANIMACIONES DE CATEGORIAS
+========================================== */
+
+@keyframes categoryEnter{
+    from{
+        opacity:0;
+        transform:translateY(35px) scale(.98);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+@keyframes categoryExit{
+    from{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+    to{
+        opacity:0;
+        transform:translateY(-25px) scale(.98);
+    }
+}
+
+.category-view.category-enter{
+    animation:categoryEnter .55s cubic-bezier(.22,1,.36,1) both;
+}
+
+.category-menu-enter{
+    animation:categoryEnter .55s cubic-bezier(.22,1,.36,1) both;
+}
+
+
 /* ================================
    HEADER
 ================================ */
@@ -135,8 +170,6 @@ header{
 
 /* ================================
    LOGO
-   ÚNICO CAMBIO:
-   A y V quedan pegadas
 ================================ */
 
 .logo{
@@ -1427,7 +1460,6 @@ footer{
 
 <body>
 
-
 <header>
 
 <div class="container navbar">
@@ -2240,10 +2272,6 @@ footer{
 
 <script>
 
-/* ==========================================
-   INICIO
-========================================== */
-
 if ("scrollRestoration" in history) {
     history.scrollRestoration = "manual";
 }
@@ -2359,39 +2387,68 @@ categoryCards.forEach(card => {
         const category =
             card.getAttribute("data-category-open");
 
-        categoryMenu.style.display = "none";
+        /* Animación de salida del menú */
 
-        categoryViews.forEach(view => {
-            view.classList.remove("active");
-        });
+        categoryMenu.style.transition =
+            "opacity .25s ease, transform .25s ease";
 
-        const selectedView =
-            document.getElementById(
-                "view-" + category
-            );
+        categoryMenu.style.opacity = "0";
+        categoryMenu.style.transform =
+            "translateY(-20px) scale(.98)";
 
-        if(selectedView){
-            selectedView.classList.add("active");
-        }
+        setTimeout(() => {
 
-        const catalog =
-            document.getElementById("catalogo");
+            categoryMenu.style.display = "none";
+            categoryMenu.style.opacity = "";
+            categoryMenu.style.transform = "";
 
-        const header =
-            document.querySelector("header");
+            categoryViews.forEach(view => {
+                view.classList.remove(
+                    "active",
+                    "category-enter"
+                );
+            });
 
-        const headerHeight =
-            header ? header.offsetHeight : 0;
+            const selectedView =
+                document.getElementById(
+                    "view-" + category
+                );
 
-        const position =
-            catalog.getBoundingClientRect().top +
-            window.pageYOffset -
-            headerHeight;
+            if(selectedView){
 
-        window.scrollTo({
-            top:position,
-            behavior:"smooth"
-        });
+                selectedView.classList.add(
+                    "active",
+                    "category-enter"
+                );
+
+                setTimeout(() => {
+                    selectedView.classList.remove(
+                        "category-enter"
+                    );
+                }, 600);
+
+            }
+
+            const catalog =
+                document.getElementById("catalogo");
+
+            const header =
+                document.querySelector("header");
+
+            const headerHeight =
+                header ? header.offsetHeight : 0;
+
+            const position =
+                catalog.getBoundingClientRect().top +
+                window.pageYOffset -
+                headerHeight;
+
+            window.scrollTo({
+                top:position,
+                behavior:"smooth"
+            });
+
+        }, 260);
 
     });
 
@@ -2406,30 +2463,68 @@ backButtons.forEach(button => {
 
     button.addEventListener("click", () => {
 
-        categoryViews.forEach(view => {
-            view.classList.remove("active");
-        });
+        const activeView =
+            document.querySelector(
+                ".category-view.active"
+            );
 
-        categoryMenu.style.display = "grid";
+        if(activeView){
 
-        const catalog =
-            document.getElementById("catalogo");
+            activeView.style.animation =
+                "categoryExit .30s ease forwards";
 
-        const header =
-            document.querySelector("header");
+        }
 
-        const headerHeight =
-            header ? header.offsetHeight : 0;
+        setTimeout(() => {
 
-        const position =
-            catalog.getBoundingClientRect().top +
-            window.pageYOffset -
-            headerHeight;
+            categoryViews.forEach(view => {
 
-        window.scrollTo({
-            top:position,
-            behavior:"smooth"
-        });
+                view.classList.remove("active");
+
+                view.style.animation = "";
+
+            });
+
+            categoryMenu.style.display = "grid";
+
+            categoryMenu.classList.remove(
+                "category-menu-enter"
+            );
+
+            void categoryMenu.offsetWidth;
+
+            categoryMenu.classList.add(
+                "category-menu-enter"
+            );
+
+            setTimeout(() => {
+
+                categoryMenu.classList.remove(
+                    "category-menu-enter"
+                );
+
+            }, 600);
+
+            const catalog =
+                document.getElementById("catalogo");
+
+            const header =
+                document.querySelector("header");
+
+            const headerHeight =
+                header ? header.offsetHeight : 0;
+
+            const position =
+                catalog.getBoundingClientRect().top +
+                window.pageYOffset -
+                headerHeight;
+
+            window.scrollTo({
+                top:position,
+                behavior:"smooth"
+            });
+
+        }, 320);
 
     });
 
@@ -2545,4 +2640,4 @@ document.addEventListener(
 </script>
 
 </body>
-</html> 
+</html>
