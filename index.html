@@ -2026,7 +2026,11 @@ footer{
                  data-title="Estante Zigzag de Piso"
                  data-type="Mobiliario"
                  data-description="Estante de piso de diseño contemporáneo con composición escalonada tipo zigzag. Una propuesta funcional y decorativa con apoyo directo al piso, diseñada para aprovechar el espacio vertical y combinar almacenamiento con una estética moderna."
-                 data-image="estante-flotante-zigzag.png">
+                 data-image="estante-flotante-zigzag.png"
+                 data-detail-type="Estante de piso"
+                 data-detail-style="Contemporáneo · Decoración y almacenamiento"
+                 data-features="Diseño escalonado tipo zigzag|Aprovechamiento del espacio vertical|Uso residencial o comercial"
+                 data-quote="Hola RAVI, me interesa cotizar un diseño similar al Estante Zigzag de Piso.">
 
                 <div class="project-image project-image-real">
 
@@ -2055,18 +2059,26 @@ footer{
 
 
             <div class="project-card"
-                 data-title="Estante Metálico"
+                 data-title="Estante Modular Industrial"
                  data-type="Mobiliario"
-                 data-description="Diseño de estante metálico para aplicaciones residenciales y comerciales.">
+                 data-description="Estante modular de piso con estructura metálica y superficies de madera, diseñado para combinar almacenamiento, exhibición y una estética industrial contemporánea."
+                 data-image="estante-modular-industrial.png"
+                 data-detail-type="Estante modular de piso"
+                 data-detail-style="Industrial contemporáneo · Decoración y almacenamiento"
+                 data-features="Estructura metálica resistente|Combinación de madera y acero|Distribución modular en distintos niveles|Personalizable según espacio y necesidad"
+                 data-quote="Hola RAVI, me interesa cotizar un diseño similar al Estante Modular Industrial.">
 
-                <div class="project-image">
-                    <div class="project-placeholder">02</div>
+                <div class="project-image project-image-real">
+                    <img
+                        src="estante-modular-industrial.png"
+                        alt="Estante Modular Industrial RAVI"
+                    >
                 </div>
 
                 <div class="project-info">
                     <small>MOBILIARIO</small>
-                    <h3>Estante Metálico</h3>
-                    <p>Diseño funcional.</p>
+                    <h3>Estante Modular Industrial</h3>
+                    <p>Madera y estructura metálica en composición modular.</p>
                 </div>
 
             </div>
@@ -2449,15 +2461,11 @@ footer{
 
             <div id="modalExtras" style="display:none;">
                 <div class="modal-details">
-                    <div class="modal-detail"><small>TIPO</small><span>Estante de piso</span></div>
-                    <div class="modal-detail"><small>ESTILO / USO</small><span>Contemporáneo · Decoración y almacenamiento</span></div>
+                    <div class="modal-detail"><small>TIPO</small><span id="modalDetailType"></span></div>
+                    <div class="modal-detail"><small>ESTILO / USO</small><span id="modalDetailStyle"></span></div>
                 </div>
-                <ul class="modal-features">
-                    <li>Diseño escalonado tipo zigzag</li>
-                    <li>Aprovechamiento del espacio vertical</li>
-                    <li>Uso residencial o comercial</li>
-                </ul>
-                <a class="modal-quote" href="https://wa.me/526441395859?text=Hola%20RAVI%2C%20me%20interesa%20cotizar%20un%20dise%C3%B1o%20similar%20al%20Estante%20Zigzag%20de%20Piso." target="_blank" rel="noopener noreferrer">Solicitar diseño similar</a>
+                <ul class="modal-features" id="modalFeatures"></ul>
+                <a class="modal-quote" id="modalQuote" href="#" target="_blank" rel="noopener noreferrer">Solicitar diseño similar</a>
             </div>
 
         </div>
@@ -2740,6 +2748,18 @@ const modalDescription =
 const modalExtras =
     document.getElementById("modalExtras");
 
+const modalDetailType =
+    document.getElementById("modalDetailType");
+
+const modalDetailStyle =
+    document.getElementById("modalDetailStyle");
+
+const modalFeatures =
+    document.getElementById("modalFeatures");
+
+const modalQuote =
+    document.getElementById("modalQuote");
+
 const modalNumber =
     document.getElementById("modalNumber");
 
@@ -2783,8 +2803,51 @@ projectCards.forEach(card => {
         modalDescription.textContent =
             description;
 
-        modalExtras.style.display =
-            title === "Estante Zigzag de Piso" ? "block" : "none";
+        const detailType =
+            card.getAttribute("data-detail-type");
+
+        const detailStyle =
+            card.getAttribute("data-detail-style");
+
+        const features =
+            card.getAttribute("data-features");
+
+        const quoteText =
+            card.getAttribute("data-quote");
+
+        if(detailType || detailStyle || features || quoteText){
+
+            modalExtras.style.display = "block";
+
+            modalDetailType.textContent =
+                detailType || "—";
+
+            modalDetailStyle.textContent =
+                detailStyle || "—";
+
+            modalFeatures.innerHTML = "";
+
+            if(features){
+                features.split("|").forEach(feature => {
+                    const li = document.createElement("li");
+                    li.textContent = feature;
+                    modalFeatures.appendChild(li);
+                });
+            }
+
+            if(quoteText){
+                modalQuote.href =
+                    "https://wa.me/526441395859?text=" + encodeURIComponent(quoteText);
+                modalQuote.style.display = "inline-flex";
+            }else{
+                modalQuote.style.display = "none";
+            }
+
+        }else{
+
+            modalExtras.style.display = "none";
+
+        }
 
 
         /* =========================
