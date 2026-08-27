@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">  
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -98,6 +98,8 @@ button{
     }
 }
 
+/* ANIMACIONES GENERALES */
+
 .reveal{
     opacity:0;
     transform:translateY(40px);
@@ -107,41 +109,6 @@ button{
 .reveal.active{
     opacity:1;
     transform:translateY(0);
-}
-
-
-/* ==========================================
-   ANIMACIONES DE CATEGORIAS
-========================================== */
-
-@keyframes categoryEnter{
-    from{
-        opacity:0;
-        transform:translateY(35px) scale(.98);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0) scale(1);
-    }
-}
-
-@keyframes categoryExit{
-    from{
-        opacity:1;
-        transform:translateY(0) scale(1);
-    }
-    to{
-        opacity:0;
-        transform:translateY(-25px) scale(.98);
-    }
-}
-
-.category-view.category-enter{
-    animation:categoryEnter .55s cubic-bezier(.22,1,.36,1) both;
-}
-
-.category-menu-enter{
-    animation:categoryEnter .55s cubic-bezier(.22,1,.36,1) both;
 }
 
 
@@ -776,10 +743,56 @@ nav a:hover{
 
 .category-view{
     display:none;
+    opacity:0;
+    transform:translateY(25px) scale(.98);
 }
 
 .category-view.active{
     display:block;
+    animation:categoryEnter .55s cubic-bezier(.22,1,.36,1) forwards;
+}
+
+@keyframes categoryEnter{
+
+    0%{
+        opacity:0;
+        transform:translateY(25px) scale(.98);
+        filter:blur(4px);
+    }
+
+    60%{
+        opacity:1;
+        transform:translateY(-3px) scale(1.005);
+        filter:blur(0);
+    }
+
+    100%{
+        opacity:1;
+        transform:translateY(0) scale(1);
+        filter:blur(0);
+    }
+
+}
+
+.category-view.leaving{
+    display:block;
+    animation:categoryLeave .32s cubic-bezier(.4,0,.2,1) forwards;
+}
+
+@keyframes categoryLeave{
+
+    0%{
+        opacity:1;
+        transform:translateY(0) scale(1);
+        filter:blur(0);
+    }
+
+    100%{
+        opacity:0;
+        transform:translateY(-20px) scale(.98);
+        filter:blur(3px);
+    }
+
 }
 
 .category-header{
@@ -1745,6 +1758,8 @@ footer{
     </div>
 
 
+    <!-- MECANICO -->
+
     <div class="category-view" id="view-mecanico">
 
         <div class="category-header">
@@ -1761,42 +1776,55 @@ footer{
         <div class="project-grid">
 
             <div class="project-card" data-title="Componente Mecánico" data-type="Diseño Mecánico" data-description="Componente mecánico desarrollado mediante modelado 3D.">
+
                 <div class="project-image">
                     <div class="project-placeholder">01</div>
                 </div>
+
                 <div class="project-info">
                     <small>MECÁNICO</small>
                     <h3>Componente Mecánico</h3>
                     <p>Modelado 3D y diseño.</p>
                 </div>
+
             </div>
 
+
             <div class="project-card" data-title="Mecanismo" data-type="Diseño Mecánico" data-description="Desarrollo de mecanismo personalizado para una aplicación específica.">
+
                 <div class="project-image">
                     <div class="project-placeholder">02</div>
                 </div>
+
                 <div class="project-info">
                     <small>MECÁNICO</small>
                     <h3>Mecanismo</h3>
                     <p>Diseño funcional.</p>
                 </div>
+
             </div>
 
+
             <div class="project-card" data-title="Ensamble Mecánico" data-type="Diseño Mecánico" data-description="Diseño de ensamble compuesto por múltiples componentes.">
+
                 <div class="project-image">
                     <div class="project-placeholder">03</div>
                 </div>
+
                 <div class="project-info">
                     <small>MECÁNICO</small>
                     <h3>Ensamble Mecánico</h3>
                     <p>Desarrollo de conjunto.</p>
                 </div>
+
             </div>
 
         </div>
 
     </div>
 
+
+    <!-- INDUSTRIAL -->
 
     <div class="category-view" id="view-industrial">
 
@@ -1814,42 +1842,55 @@ footer{
         <div class="project-grid">
 
             <div class="project-card" data-title="Rack Industrial" data-type="Diseño Industrial" data-description="Diseño de estructura para almacenamiento y manejo de materiales.">
+
                 <div class="project-image">
                     <div class="project-placeholder">01</div>
                 </div>
+
                 <div class="project-info">
                     <small>INDUSTRIAL</small>
                     <h3>Rack Industrial</h3>
                     <p>Estructura para almacenamiento.</p>
                 </div>
+
             </div>
 
+
             <div class="project-card" data-title="Gabinete Industrial" data-type="Diseño Industrial" data-description="Diseño y desarrollo de gabinete personalizado para aplicación industrial.">
+
                 <div class="project-image">
                     <div class="project-placeholder">02</div>
                 </div>
+
                 <div class="project-info">
                     <small>INDUSTRIAL</small>
                     <h3>Gabinete Industrial</h3>
                     <p>Diseño personalizado.</p>
                 </div>
+
             </div>
 
+
             <div class="project-card" data-title="Estructura Industrial" data-type="Diseño Industrial" data-description="Diseño de estructura metálica para aplicación industrial.">
+
                 <div class="project-image">
                     <div class="project-placeholder">03</div>
                 </div>
+
                 <div class="project-info">
                     <small>INDUSTRIAL</small>
                     <h3>Estructura Industrial</h3>
                     <p>Solución estructural.</p>
                 </div>
+
             </div>
 
         </div>
 
     </div>
 
+
+    <!-- PRODUCTO -->
 
     <div class="category-view" id="view-producto">
 
@@ -1867,42 +1908,55 @@ footer{
         <div class="project-grid">
 
             <div class="project-card" data-title="Desarrollo de Producto" data-type="Diseño de Producto" data-description="Conceptualización y desarrollo tridimensional de un producto.">
+
                 <div class="project-image">
                     <div class="project-placeholder">01</div>
                 </div>
+
                 <div class="project-info">
                     <small>PRODUCTO</small>
                     <h3>Desarrollo de Producto</h3>
                     <p>Concepto y modelado 3D.</p>
                 </div>
+
             </div>
 
+
             <div class="project-card" data-title="Producto Personalizado" data-type="Diseño de Producto" data-description="Diseño personalizado desarrollado a partir de los requerimientos del cliente.">
+
                 <div class="project-image">
                     <div class="project-placeholder">02</div>
                 </div>
+
                 <div class="project-info">
                     <small>PRODUCTO</small>
                     <h3>Producto Personalizado</h3>
                     <p>Diseño desde cero.</p>
                 </div>
+
             </div>
 
+
             <div class="project-card" data-title="Concepto 3D" data-type="Diseño de Producto" data-description="Desarrollo conceptual y visualización tridimensional.">
+
                 <div class="project-image">
                     <div class="project-placeholder">03</div>
                 </div>
+
                 <div class="project-info">
                     <small>PRODUCTO</small>
                     <h3>Concepto 3D</h3>
                     <p>Conceptualización.</p>
                 </div>
+
             </div>
 
         </div>
 
     </div>
 
+
+    <!-- MOBILIARIO -->
 
     <div class="category-view" id="view-mobiliario">
 
@@ -1920,42 +1974,55 @@ footer{
         <div class="project-grid">
 
             <div class="project-card" data-title="Estante Metálico" data-type="Mobiliario" data-description="Diseño de estante metálico para aplicaciones residenciales y comerciales.">
+
                 <div class="project-image">
                     <div class="project-placeholder">01</div>
                 </div>
+
                 <div class="project-info">
                     <small>MOBILIARIO</small>
                     <h3>Estante Metálico</h3>
                     <p>Diseño funcional.</p>
                 </div>
+
             </div>
 
+
             <div class="project-card" data-title="Estante Flotante" data-type="Mobiliario" data-description="Diseño de estante flotante de estilo minimalista.">
+
                 <div class="project-image">
                     <div class="project-placeholder">02</div>
                 </div>
+
                 <div class="project-info">
                     <small>MOBILIARIO</small>
                     <h3>Estante Flotante</h3>
                     <p>Diseño de mobiliario.</p>
                 </div>
+
             </div>
 
+
             <div class="project-card" data-title="Mobiliario Personalizado" data-type="Mobiliario" data-description="Diseño de mobiliario desarrollado según medidas y requerimientos.">
+
                 <div class="project-image">
                     <div class="project-placeholder">03</div>
                 </div>
+
                 <div class="project-info">
                     <small>MOBILIARIO</small>
                     <h3>Mobiliario Personalizado</h3>
                     <p>Diseño a medida.</p>
                 </div>
+
             </div>
 
         </div>
 
     </div>
 
+
+    <!-- OTROS -->
 
     <div class="category-view" id="view-otros">
 
@@ -1973,36 +2040,47 @@ footer{
         <div class="project-grid">
 
             <div class="project-card" data-title="Solución Personalizada" data-type="Ingeniería" data-description="Desarrollo de una solución personalizada a partir de los requerimientos del cliente.">
+
                 <div class="project-image">
                     <div class="project-placeholder">01</div>
                 </div>
+
                 <div class="project-info">
                     <small>OTROS</small>
                     <h3>Solución Personalizada</h3>
                     <p>Diseño según requerimientos.</p>
                 </div>
+
             </div>
 
+
             <div class="project-card" data-title="Proyecto Especial" data-type="Ingeniería" data-description="Desarrollo de proyecto especial de ingeniería.">
+
                 <div class="project-image">
                     <div class="project-placeholder">02</div>
                 </div>
+
                 <div class="project-info">
                     <small>OTROS</small>
                     <h3>Proyecto Especial</h3>
                     <p>Desarrollo personalizado.</p>
                 </div>
+
             </div>
 
+
             <div class="project-card" data-title="Solución de Ingeniería" data-type="Ingeniería" data-description="Solución diseñada específicamente para una necesidad determinada.">
+
                 <div class="project-image">
                     <div class="project-placeholder">03</div>
                 </div>
+
                 <div class="project-info">
                     <small>OTROS</small>
                     <h3>Solución de Ingeniería</h3>
                     <p>Diseño aplicado.</p>
                 </div>
+
             </div>
 
         </div>
@@ -2272,6 +2350,10 @@ footer{
 
 <script>
 
+/* ==========================================
+   INICIO
+========================================== */
+
 if ("scrollRestoration" in history) {
     history.scrollRestoration = "manual";
 }
@@ -2380,6 +2462,34 @@ const backButtons =
     document.querySelectorAll(".category-back");
 
 
+function scrollToCatalog(){
+
+    const catalog =
+        document.getElementById("catalogo");
+
+    const header =
+        document.querySelector("header");
+
+    const headerHeight =
+        header ? header.offsetHeight : 0;
+
+    const position =
+        catalog.getBoundingClientRect().top +
+        window.pageYOffset -
+        headerHeight;
+
+    window.scrollTo({
+        top:position,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* ==========================================
+   ENTRAR A CATEGORIA
+========================================== */
+
 categoryCards.forEach(card => {
 
     card.addEventListener("click", () => {
@@ -2387,68 +2497,44 @@ categoryCards.forEach(card => {
         const category =
             card.getAttribute("data-category-open");
 
+        const selectedView =
+            document.getElementById(
+                "view-" + category
+            );
+
+        if(!selectedView){
+            return;
+        }
+
+
         /* Animación de salida del menú */
 
         categoryMenu.style.transition =
-            "opacity .25s ease, transform .25s ease";
+            "opacity .28s ease, transform .28s ease";
 
         categoryMenu.style.opacity = "0";
+
         categoryMenu.style.transform =
-            "translateY(-20px) scale(.98)";
+            "translateY(-18px) scale(.985)";
+
 
         setTimeout(() => {
 
             categoryMenu.style.display = "none";
-            categoryMenu.style.opacity = "";
-            categoryMenu.style.transform = "";
 
             categoryViews.forEach(view => {
-                view.classList.remove(
-                    "active",
-                    "category-enter"
-                );
+
+                view.classList.remove("active");
+                view.classList.remove("leaving");
+
             });
 
-            const selectedView =
-                document.getElementById(
-                    "view-" + category
-                );
 
-            if(selectedView){
+            selectedView.classList.add("active");
 
-                selectedView.classList.add(
-                    "active",
-                    "category-enter"
-                );
+            scrollToCatalog();
 
-                setTimeout(() => {
-                    selectedView.classList.remove(
-                        "category-enter"
-                    );
-                }, 600);
-
-            }
-
-            const catalog =
-                document.getElementById("catalogo");
-
-            const header =
-                document.querySelector("header");
-
-            const headerHeight =
-                header ? header.offsetHeight : 0;
-
-            const position =
-                catalog.getBoundingClientRect().top +
-                window.pageYOffset -
-                headerHeight;
-
-            window.scrollTo({
-                top:position,
-                behavior:"smooth"
-            });
-
-        }, 260);
+        }, 280);
 
     });
 
@@ -2463,66 +2549,52 @@ backButtons.forEach(button => {
 
     button.addEventListener("click", () => {
 
-        const activeView =
-            document.querySelector(
-                ".category-view.active"
-            );
+        const currentView =
+            button.closest(".category-view");
 
-        if(activeView){
 
-            activeView.style.animation =
-                "categoryExit .30s ease forwards";
+        if(currentView){
+
+            currentView.classList.add("leaving");
 
         }
+
 
         setTimeout(() => {
 
             categoryViews.forEach(view => {
 
                 view.classList.remove("active");
-
-                view.style.animation = "";
+                view.classList.remove("leaving");
 
             });
+
 
             categoryMenu.style.display = "grid";
 
-            categoryMenu.classList.remove(
-                "category-menu-enter"
-            );
+
+            categoryMenu.style.transition =
+                "none";
+
+            categoryMenu.style.opacity = "0";
+
+            categoryMenu.style.transform =
+                "translateY(20px) scale(.985)";
+
 
             void categoryMenu.offsetWidth;
 
-            categoryMenu.classList.add(
-                "category-menu-enter"
-            );
 
-            setTimeout(() => {
+            categoryMenu.style.transition =
+                "opacity .5s cubic-bezier(.22,1,.36,1), transform .5s cubic-bezier(.22,1,.36,1)";
 
-                categoryMenu.classList.remove(
-                    "category-menu-enter"
-                );
+            categoryMenu.style.opacity = "1";
 
-            }, 600);
+            categoryMenu.style.transform =
+                "translateY(0) scale(1)";
 
-            const catalog =
-                document.getElementById("catalogo");
 
-            const header =
-                document.querySelector("header");
-
-            const headerHeight =
-                header ? header.offsetHeight : 0;
-
-            const position =
-                catalog.getBoundingClientRect().top +
-                window.pageYOffset -
-                headerHeight;
-
-            window.scrollTo({
-                top:position,
-                behavior:"smooth"
-            });
+            scrollToCatalog();
 
         }, 320);
 
