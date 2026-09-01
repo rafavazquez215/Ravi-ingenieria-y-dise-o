@@ -1,4 +1,4 @@
-<!DOCTYPE html>  
+<!DOCTYPE html> 
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -2510,9 +2510,17 @@ if ("scrollRestoration" in history) {
 
 window.addEventListener("load", function(){
 
-    if (!window.location.hash) {
-        window.scrollTo(0, 0);
+    // Siempre abrir la página desde arriba.
+    // También elimina cualquier #seccion guardada en la URL para evitar saltos al recargar.
+    if (window.location.hash) {
+        history.replaceState(null, "", window.location.pathname + window.location.search);
     }
+
+    window.scrollTo({
+        top:0,
+        left:0,
+        behavior:"auto"
+    });
 
 });
 
@@ -2555,7 +2563,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
             behavior:"smooth"
         });
 
-        history.pushState(null, "", targetId);
+        // No guardamos el hash en la URL para que al recargar la página no salte a esta sección.
 
     });
 
